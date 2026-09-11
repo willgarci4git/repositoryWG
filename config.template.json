@@ -1,0 +1,466 @@
+{
+  "origin": "GRU",
+  "currency": "BRL",
+  "language": "pt-br",
+  "adults": 1,
+  "travel_class": 1,
+  "stay_min_days": 10,
+  "stay_max_days": 30,
+  "calendar_length_days": 14,
+  "window_months": [
+    "2026-12",
+    "2027-01",
+    "2027-02",
+    "2027-03",
+    "2027-04",
+    "2027-05",
+    "2027-06"
+  ],
+  "min_history_for_alert": 2,
+  "drop_threshold_pct": 15,
+  "renotify_cooldown_days": 21,
+  "serpapi_monthly_cap": 80,
+  "travelpayouts_token": "__TRAVELPAYOUTS_TOKEN__",
+  "serpapi_key": "__SERPAPI_KEY__",
+  "alert_email": "mercadotechbrasilwgx@gmail.com",
+  "email_enabled": false,
+  "discord_webhook_url": "__DISCORD_WEBHOOK_URL__",
+  "telegram_bot_token": "__TELEGRAM_BOT_TOKEN__",
+  "telegram_chat_id": "__TELEGRAM_CHAT_ID__",
+  "_note": "18 rotas com voo NON-STOP confirmado (verified_nonstop=true, checadas toda semana no SerpAPI) + 10 rotas sem non-stop confirmado (verified_nonstop=false, checadas a cada 2 semanas no SerpAPI pra economizar cota — Travelpayouts continua toda semana, é grátis). single_carrier=true marca rotas operadas por uma única companhia. 'keywords' é usado só pra cruzar com títulos de posts do Melhores Destinos (menções editoriais, preço aproximado, não confirmado).",
+  "routes": [
+    {
+      "id": "lisboa",
+      "label": "Lisboa (Portugal)",
+      "arrival": [
+        "LIS"
+      ],
+      "carriers": [
+        "TAP",
+        "LATAM",
+        "Azul"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Lisboa"
+      ]
+    },
+    {
+      "id": "porto",
+      "label": "Porto (Portugal)",
+      "arrival": [
+        "OPO"
+      ],
+      "carriers": [
+        "TAP"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Porto, Portugal",
+        "Porto (Portugal)",
+        "Porto em Portugal"
+      ]
+    },
+    {
+      "id": "madrid",
+      "label": "Madri (Espanha)",
+      "arrival": [
+        "MAD"
+      ],
+      "carriers": [
+        "Iberia",
+        "Air Europa",
+        "LATAM",
+        "Air China"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Madri",
+        "Madrid"
+      ]
+    },
+    {
+      "id": "barcelona",
+      "label": "Barcelona (Espanha)",
+      "arrival": [
+        "BCN"
+      ],
+      "carriers": [
+        "LATAM"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Barcelona"
+      ]
+    },
+    {
+      "id": "paris",
+      "label": "Paris (França)",
+      "arrival": [
+        "CDG"
+      ],
+      "carriers": [
+        "Air France",
+        "LATAM"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Paris"
+      ]
+    },
+    {
+      "id": "amsterda",
+      "label": "Amsterdã (Holanda)",
+      "arrival": [
+        "AMS"
+      ],
+      "carriers": [
+        "KLM",
+        "LATAM"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Amsterdã",
+        "Amsterdam",
+        "Holanda"
+      ]
+    },
+    {
+      "id": "bruxelas",
+      "label": "Bruxelas (Bélgica)",
+      "arrival": [
+        "BRU"
+      ],
+      "carriers": [
+        "LATAM"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "note": "Rota nova (desde 01/06/2026), só 3 voos/semana — disponibilidade mais apertada",
+      "keywords": [
+        "Bruxelas",
+        "Bélgica"
+      ]
+    },
+    {
+      "id": "frankfurt",
+      "label": "Frankfurt (Alemanha)",
+      "arrival": [
+        "FRA"
+      ],
+      "carriers": [
+        "Lufthansa",
+        "LATAM"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Frankfurt"
+      ]
+    },
+    {
+      "id": "munique",
+      "label": "Munique (Alemanha)",
+      "arrival": [
+        "MUC"
+      ],
+      "carriers": [
+        "Lufthansa"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Munique"
+      ]
+    },
+    {
+      "id": "zurique",
+      "label": "Zurique (Suíça)",
+      "arrival": [
+        "ZRH"
+      ],
+      "carriers": [
+        "Swiss"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Zurique",
+        "Suíça"
+      ]
+    },
+    {
+      "id": "londres",
+      "label": "Londres (Reino Unido)",
+      "arrival": [
+        "LHR"
+      ],
+      "carriers": [
+        "British Airways",
+        "LATAM"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Londres"
+      ]
+    },
+    {
+      "id": "roma",
+      "label": "Roma (Itália)",
+      "arrival": [
+        "FCO"
+      ],
+      "carriers": [
+        "ITA Airways",
+        "LATAM"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "Roma"
+      ]
+    },
+    {
+      "id": "milao",
+      "label": "Milão (Itália)",
+      "arrival": [
+        "MXP"
+      ],
+      "carriers": [
+        "LATAM"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Milão"
+      ]
+    },
+    {
+      "id": "istambul",
+      "label": "Istambul (Turquia)",
+      "arrival": [
+        "IST"
+      ],
+      "carriers": [
+        "Turkish Airlines"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Istambul"
+      ]
+    },
+    {
+      "id": "cairo",
+      "label": "Cairo (Egito)",
+      "arrival": [
+        "CAI"
+      ],
+      "verified_nonstop": false,
+      "keywords": [
+        "Cairo",
+        "Egito"
+      ]
+    },
+    {
+      "id": "telaviv",
+      "label": "Tel Aviv (Israel)",
+      "arrival": [
+        "TLV"
+      ],
+      "verified_nonstop": false,
+      "keywords": [
+        "Tel Aviv",
+        "Israel"
+      ]
+    },
+    {
+      "id": "marrocos",
+      "label": "Marrocos (Casablanca/Marrakech)",
+      "arrival": [
+        "CMN",
+        "RAK"
+      ],
+      "verified_nonstop": false,
+      "keywords": [
+        "Marrocos",
+        "Casablanca",
+        "Marrakech"
+      ]
+    },
+    {
+      "id": "bolivia",
+      "label": "Bolívia (La Paz/Santa Cruz)",
+      "arrival": [
+        "LPB",
+        "VVI"
+      ],
+      "verified_nonstop": false,
+      "keywords": [
+        "Bolívia",
+        "La Paz",
+        "Santa Cruz de la Sierra"
+      ]
+    },
+    {
+      "id": "islandia",
+      "label": "Islândia (Reykjavik)",
+      "arrival": [
+        "KEF"
+      ],
+      "verified_nonstop": false,
+      "keywords": [
+        "Islândia",
+        "Reykjavik"
+      ]
+    },
+    {
+      "id": "japao",
+      "label": "Japão (Tóquio)",
+      "arrival": [
+        "NRT",
+        "HND"
+      ],
+      "verified_nonstop": false,
+      "note": "Sem voo direto do Brasil — conexão obrigatória (geralmente via Oriente Médio, EUA ou Europa)",
+      "keywords": [
+        "Japão",
+        "Tóquio",
+        "Tokyo",
+        "Osaka",
+        "Nagoia"
+      ]
+    },
+    {
+      "id": "quenia",
+      "label": "Quênia (Nairóbi)",
+      "arrival": [
+        "NBO"
+      ],
+      "verified_nonstop": false,
+      "note": "Sem voo direto do Brasil — conexão obrigatória",
+      "keywords": [
+        "Quênia",
+        "Nairóbi"
+      ]
+    },
+    {
+      "id": "grecia",
+      "label": "Grécia (Atenas)",
+      "arrival": [
+        "ATH"
+      ],
+      "verified_nonstop": false,
+      "note": "Sem voo direto do Brasil — conexão obrigatória",
+      "keywords": [
+        "Grécia",
+        "Atenas"
+      ]
+    },
+    {
+      "id": "polonia",
+      "label": "Polônia (Varsóvia)",
+      "arrival": [
+        "WAW"
+      ],
+      "verified_nonstop": false,
+      "note": "Sem voo direto do Brasil — LOT opera com conexão (ex: via Milão)",
+      "keywords": [
+        "Polônia",
+        "Varsóvia"
+      ]
+    },
+    {
+      "id": "africa_do_sul",
+      "label": "África do Sul (Joanesburgo)",
+      "arrival": [
+        "JNB"
+      ],
+      "carriers": [
+        "LATAM",
+        "South African Airways"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "keywords": [
+        "África do Sul",
+        "Joanesburgo",
+        "Cidade do Cabo"
+      ]
+    },
+    {
+      "id": "canada",
+      "label": "Canadá (Toronto)",
+      "arrival": [
+        "YYZ"
+      ],
+      "carriers": [
+        "Air Canada"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Canadá",
+        "Toronto",
+        "Montreal",
+        "Vancouver"
+      ]
+    },
+    {
+      "id": "noronha_gru",
+      "label": "Fernando de Noronha (de Guarulhos)",
+      "origin": "GRU",
+      "arrival": [
+        "FEN"
+      ],
+      "carriers": [
+        "GOL",
+        "LATAM"
+      ],
+      "single_carrier": false,
+      "verified_nonstop": true,
+      "note": "GOL retomou voo direto GRU-FEN em abr/2025",
+      "keywords": [
+        "Fernando de Noronha"
+      ]
+    },
+    {
+      "id": "noronha_vcp",
+      "label": "Fernando de Noronha (de Viracopos)",
+      "origin": "VCP",
+      "arrival": [
+        "FEN"
+      ],
+      "carriers": [
+        "Azul"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "keywords": [
+        "Fernando de Noronha"
+      ]
+    },
+    {
+      "id": "noronha_cgh",
+      "label": "Fernando de Noronha (de Congonhas)",
+      "origin": "CGH",
+      "arrival": [
+        "FEN"
+      ],
+      "carriers": [],
+      "single_carrier": false,
+      "verified_nonstop": false,
+      "note": "Sem voo direto desde 2022 (Azul migrou a operação pra Viracopos/VCP) — preço encontrado inclui conexão",
+      "keywords": [
+        "Fernando de Noronha"
+      ]
+    }
+  ]
+}
