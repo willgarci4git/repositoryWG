@@ -1,0 +1,60 @@
+name: Trade Hunter — Intraday
+
+on:
+  schedule:
+    # A cada 15 min, 13h-20h UTC = 10h-17h BRT (BRT = UTC-3, sem horário de
+    # verão desde 2019). O watch.py também filtra dia útil/horário por conta
+    # própria (via TZ abaixo), então mesmo um disparo fora de hora não faz
+    # nada — dupla proteção.
+    - cron: "*/15 13-20 * * 1-5"
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      # Crítico: sem isso, datetime.now() no watch.py usa UTC do runner,
+      # e a checagem de "horário de pregão" (10h-17h) ficaria toda errada.
+      TZ: America/Sao_Paulo
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install requests beautifulsoup4 python-dotenv
+
+      - name: Restaurar estado (data/) da execução anterior
+        uses: actions/cache/restore@v4
+        with:
+          path: trade-hunter/data
+          key: th-intraday-state-${{ github.run_id }}
+          restore-keys: |
+            th-intraday-state-
+
+      - name: Rodar checagem intraday
+        working-directory: trade-hunter
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python watch.py --mode intraday
+
+      - name: Salvar estado atualizado (sempre, mesmo se o passo acima falhar)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: trade-hunter/data
+          key: th-intraday-state-${{ github.run_id }}
+
+      - name: Avisar se a rotina quebrou
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="⚠️ Trade Hunter (GitHub Actions - intraday) falhou. Ver: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
