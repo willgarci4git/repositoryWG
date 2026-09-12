@@ -23,6 +23,12 @@ jobs:
       - name: Instalar dependências
         run: pip install requests beautifulsoup4 python-dotenv
 
+      - name: Garantir que a pasta de estado existe
+        # Se rodar num fim de semana (ex.: disparo manual), o watch.py sai
+        # cedo sem criar data/, o que faria o passo de "salvar cache" falhar
+        # (path inexistente). Criando aqui evita esse falso alarme.
+        run: mkdir -p trade-hunter/data
+
       - name: Restaurar estado (data/) da execução anterior
         uses: actions/cache/restore@v4
         with:
