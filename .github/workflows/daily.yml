@@ -1,0 +1,57 @@
+name: Trade Hunter — Resumo Diário
+
+on:
+  schedule:
+    # 12h, 15h e 18h15 BRT = 15h, 18h e 21h15 UTC (BRT = UTC-3)
+    - cron: "0 15 * * 1-5"
+    - cron: "0 18 * * 1-5"
+    - cron: "15 21 * * 1-5"
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      TZ: America/Sao_Paulo
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install requests beautifulsoup4 python-dotenv
+
+      - name: Restaurar estado (data/) da execução anterior
+        uses: actions/cache/restore@v4
+        with:
+          path: trade-hunter/data
+          key: th-daily-state-${{ github.run_id }}
+          restore-keys: |
+            th-daily-state-
+
+      - name: Rodar resumo diário
+        working-directory: trade-hunter
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python watch.py --mode daily
+
+      - name: Salvar estado atualizado (sempre, mesmo se o passo acima falhar)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: trade-hunter/data
+          key: th-daily-state-${{ github.run_id }}
+
+      - name: Avisar se a rotina quebrou
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="⚠️ Trade Hunter (GitHub Actions - resumo diário) falhou. Ver: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
