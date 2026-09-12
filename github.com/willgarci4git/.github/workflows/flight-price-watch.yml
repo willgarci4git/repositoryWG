@@ -1,0 +1,50 @@
+name: Flight Price Watch
+
+# Runs weekly on GitHub's own servers — independent of Claude Code being
+# open, and with normal internet access (no egress restrictions).
+on:
+  schedule:
+    - cron: "0 11 * * 1"  # Monday 11:00 UTC = 08:00 America/Sao_Paulo
+  workflow_dispatch: {}    # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write  # needed to commit price_history.json / run_log.txt back
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build config.json from template + repository secrets
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os
+          cfg = json.load(open("config.template.json"))
+          cfg["serpapi_key"] = os.environ["SERPAPI_KEY"]
+          cfg["travelpayouts_token"] = os.environ["TRAVELPAYOUTS_TOKEN"]
+          cfg["discord_webhook_url"] = os.environ["DISCORD_WEBHOOK_URL"]
+          cfg["telegram_bot_token"] = os.environ["TELEGRAM_BOT_TOKEN"]
+          cfg["telegram_chat_id"] = os.environ["TELEGRAM_CHAT_ID"]
+          json.dump(cfg, open("config.json", "w"), ensure_ascii=False, indent=2)
+          PYEOF
+
+      - name: Run the flight price check
+        run: python3 check_flights.py
+
+      - name: Remove config.json before committing (never persist secrets)
+        run: rm -f config.json
+
+      - name: Commit updated state back to the repo
+        run: |
+          git config user.name "flight-price-watch bot"
+          git config user.email "actions@github.com"
+          git add price_history.json run_log.txt
+          git diff --cached --quiet || git commit -m "weekly check $(date -u +%Y-%m-%d)"
+          git push
