@@ -151,6 +151,16 @@ def find_cheapest_for_route(cfg, origin, arrival_codes):
 # of ever risking an unexpected charge.
 # ---------------------------------------------------------------------------
 
+def log_events(history, key, events, days=60):
+    """Appends events (deals or editorial mentions) to a rolling log used by
+    build_dashboard.py, pruning anything older than `days`. Each event must
+    carry a "logged_at" (YYYY-MM-DD) field."""
+    log = history.setdefault(key, [])
+    log.extend(events)
+    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=days)).isoformat()
+    history[key] = [e for e in log if e.get("logged_at", "0000-00-00") >= cutoff]
+
+
 def _usage_bucket(history):
     month_key = datetime.now(timezone.utc).strftime("%Y-%m")
     usage = history.setdefault("_serpapi_usage", {"month": month_key, "count": 0})
@@ -515,6 +525,13 @@ def main():
             }
 
     mentions = scan_melhoresdestinos(cfg, history)
+
+    # Log deals/mentions for the 60-day dashboard (build_dashboard.py reads
+    # these). Kept separate from the per-route "observations" used for
+    # baseline comparison, since a dashboard cares about DETECTED events
+    # (deals/mentions), not every raw price sample.
+    log_events(history, "_deals_log", [dict(d, logged_at=today) for d in deals])
+    log_events(history, "_mentions_log", [dict(m, logged_at=today) for m in mentions])
 
     save_json(HISTORY_PATH, history)
 
