@@ -46,6 +46,12 @@
         "price": 3553,
         "date": "2027-05-18",
         "arrival_code": "LIS"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 5491,
+        "date": "2026-12-13",
+        "arrival_code": "LIS"
       }
     ],
     "last_alert": null,
@@ -73,6 +79,12 @@
       },
       {
         "checked_at": "2026-09-14",
+        "price": 4504,
+        "date": "2027-03-15",
+        "arrival_code": "OPO"
+      },
+      {
+        "checked_at": "2026-09-15",
         "price": 4504,
         "date": "2027-03-15",
         "arrival_code": "OPO"
@@ -124,6 +136,12 @@
         "price": 3700,
         "date": "2027-05-21",
         "arrival_code": "MAD"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 3700,
+        "date": "2027-05-21",
+        "arrival_code": "MAD"
       }
     ],
     "last_alert": {
@@ -142,7 +160,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "paris": {
     "observations": [
@@ -178,7 +196,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 2
+    "fallback_cursor": 3
   },
   "amsterda": {
     "observations": [
@@ -190,7 +208,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "bruxelas": {
     "observations": [
@@ -202,7 +220,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "frankfurt": {
     "observations": [
@@ -214,7 +232,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "munique": {
     "observations": [
@@ -226,7 +244,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "zurique": {
     "observations": [
@@ -238,7 +256,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "londres": {
     "observations": [
@@ -250,7 +268,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "roma": {
     "observations": [
@@ -277,6 +295,12 @@
         "price": 4496,
         "date": "2027-05-07",
         "arrival_code": "FCO"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 4496,
+        "date": "2027-05-07",
+        "arrival_code": "FCO"
       }
     ],
     "last_alert": null,
@@ -292,7 +316,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "istambul": {
     "observations": [
@@ -337,6 +361,12 @@
         "price": 5170,
         "date": "2027-03-10",
         "arrival_code": "IST"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 5893,
+        "date": "2027-02-03",
+        "arrival_code": "IST"
       }
     ],
     "last_alert": null,
@@ -370,7 +400,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 2
+    "fallback_cursor": 3
   },
   "telaviv": {
     "observations": [
@@ -382,7 +412,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "marrocos": {
     "observations": [
@@ -427,6 +457,12 @@
         "price": 4805,
         "date": "2027-02-28",
         "arrival_code": "CMN"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 4805,
+        "date": "2027-02-28",
+        "arrival_code": "CMN"
       }
     ],
     "last_alert": {
@@ -458,6 +494,12 @@
       {
         "checked_at": "2026-09-14",
         "price": 1494,
+        "date": "2027-02-24",
+        "arrival_code": "VVI"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 1501,
         "date": "2027-02-24",
         "arrival_code": "VVI"
       }
@@ -511,6 +553,12 @@
         "price": 6962,
         "date": "2027-05-15",
         "arrival_code": "KEF"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 6962,
+        "date": "2027-05-15",
+        "arrival_code": "KEF"
       }
     ],
     "last_alert": {
@@ -529,7 +577,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 7
+    "fallback_cursor": 1
   },
   "noronha_vcp": {
     "observations": [
@@ -541,7 +589,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 7
+    "fallback_cursor": 1
   },
   "noronha_cgh": {
     "observations": [
@@ -553,7 +601,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "japao": {
     "observations": [
@@ -592,6 +640,12 @@
         "price": 6918,
         "date": "2027-03-03",
         "arrival_code": "HND"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 6907,
+        "date": "2027-04-20",
+        "arrival_code": "HND"
       }
     ],
     "last_alert": null,
@@ -600,10 +654,17 @@
   "quenia": {
     "observations": [],
     "last_alert": null,
-    "fallback_cursor": 2
+    "fallback_cursor": 3
   },
   "grecia": {
-    "observations": [],
+    "observations": [
+      {
+        "checked_at": "2026-09-15",
+        "price": 4912,
+        "date": "2027-04-22",
+        "arrival_code": "ATH"
+      }
+    ],
     "last_alert": null,
     "fallback_cursor": 2
   },
@@ -644,6 +705,12 @@
         "price": 5398,
         "date": "2026-12-13",
         "arrival_code": "WAW"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 5398,
+        "date": "2026-12-13",
+        "arrival_code": "WAW"
       }
     ],
     "last_alert": null,
@@ -652,7 +719,7 @@
   "africa_do_sul": {
     "observations": [],
     "last_alert": null,
-    "fallback_cursor": 6
+    "fallback_cursor": 7
   },
   "canada": {
     "observations": [
@@ -673,6 +740,12 @@
         "price": 4952,
         "date": "2026-12-09",
         "arrival_code": "YYZ"
+      },
+      {
+        "checked_at": "2026-09-15",
+        "price": 4952,
+        "date": "2026-12-09",
+        "arrival_code": "YYZ"
       }
     ],
     "last_alert": null,
@@ -680,5 +753,7 @@
   },
   "_melhoresdestinos": {
     "last_seen_id": 635630
-  }
+  },
+  "_deals_log": [],
+  "_mentions_log": []
 }

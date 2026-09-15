@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monitor de Preços de Voos</title>
+<style>
+  :root {
+    --bg: #f7f7f8; --card: #ffffff; --text: #1a1a1a; --muted: #6b7280;
+    --border: #e5e7eb; --accent: #2563eb;
+    --tag-ok-bg: #dcfce7; --tag-ok-text: #166534;
+    --tag-warn-bg: #fef3c7; --tag-warn-text: #92400e;
+    --tag-muted-bg: #e5e7eb; --tag-muted-text: #4b5563;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --card: #1a1d24; --text: #e5e7eb; --muted: #9ca3af;
+      --border: #2a2e37; --accent: #60a5fa;
+      --tag-ok-bg: #14532d; --tag-ok-text: #bbf7d0;
+      --tag-warn-bg: #78350f; --tag-warn-text: #fde68a;
+      --tag-muted-bg: #374151; --tag-muted-text: #d1d5db;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 24px 16px 64px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px; margin-bottom: 20px; overflow-x: auto;
+  }
+  .card h2 { font-size: 1.05rem; margin: 0 0 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+  td:nth-child(4), td:nth-child(5) { white-space: normal; }
+  tr:last-child td { border-bottom: none; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .muted { color: var(--muted); font-size: 0.8em; }
+  .empty { text-align: center; color: var(--muted); padding: 20px; white-space: normal; }
+  .tag { display: inline-block; font-size: 0.7rem; padding: 2px 6px; border-radius: 999px; font-weight: 600; }
+  .tag-ok { background: var(--tag-ok-bg); color: var(--tag-ok-text); }
+  .tag-warn { background: var(--tag-warn-bg); color: var(--tag-warn-text); }
+  .tag-muted { background: var(--tag-muted-bg); color: var(--tag-muted-text); }
+  .footer { color: var(--muted); font-size: 0.75rem; text-align: center; margin-top: 32px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>✈️ Monitor de Preços de Voos</h1>
+  <div class="subtitle">Gerado em 2026-09-15 19:06 UTC · SerpAPI: 80/2026-09 este mês</div>
+
+  <div class="card">
+    <h2>🔥 Ofertas da semana (últimos 7 dias)</h2>
+    <table>
+      <tr><th>Data</th><th>Destino</th><th>Preço</th><th>Datas</th><th>Motivo</th><th></th></tr>
+      <tr><td colspan="6" class="empty">Nenhuma queda detectada nos últimos 7 dias.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>📅 Ofertas do mês (últimos 30 dias)</h2>
+    <table>
+      <tr><th>Data</th><th>Destino</th><th>Preço</th><th>Datas</th><th>Motivo</th><th></th></tr>
+      <tr><td colspan="6" class="empty">Nenhuma queda detectada nos últimos 30 dias.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>📰 Menções editoriais — Melhores Destinos (60 dias)</h2>
+    <table>
+      <tr><th>Data</th><th>Destino</th><th>Preço (aprox.)</th><th>Post</th><th></th></tr>
+      <tr><td colspan="5" class="empty">Nenhuma menção nova nos últimos 60 dias.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>📊 Resumo por rota (últimos 60 dias)</h2>
+    <table>
+      <tr><th>Destino</th><th>Preço mais recente</th><th>Menor preço visto</th></tr>
+      <tr><td>Amsterdã (Holanda)</td><td>R$ 4.821 <span class="muted">(2026-09-10)</span></td><td>R$ 4.821 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Barcelona (Espanha)</td><td>R$ 4.070 <span class="muted">(2026-09-10)</span></td><td>R$ 4.070 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Bolívia (La Paz/Santa Cruz) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 1.501 <span class="muted">(2026-09-15)</span></td><td>R$ 1.494 <span class="muted">(2027-02-24)</span></td></tr>
+<tr><td>Bruxelas (Bélgica)</td><td>R$ 4.299 <span class="muted">(2026-09-10)</span></td><td>R$ 4.299 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Cairo (Egito) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.222 <span class="muted">(2026-09-11)</span></td><td>R$ 6.222 <span class="muted">(2027-04-04)</span></td></tr>
+<tr><td>Canadá (Toronto)</td><td>R$ 4.952 <span class="muted">(2026-09-15)</span></td><td>R$ 4.952 <span class="muted">(2026-12-09)</span></td></tr>
+<tr><td>Fernando de Noronha (de Congonhas) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 3.215 <span class="muted">(2026-09-10)</span></td><td>R$ 3.215 <span class="muted">(2026-12-15)</span></td></tr>
+<tr><td>Fernando de Noronha (de Guarulhos)</td><td>R$ 3.636 <span class="muted">(2026-09-10)</span></td><td>R$ 3.636 <span class="muted">(2026-12-15)</span></td></tr>
+<tr><td>Fernando de Noronha (de Viracopos)</td><td>R$ 2.567 <span class="muted">(2026-09-10)</span></td><td>R$ 2.567 <span class="muted">(2026-12-15)</span></td></tr>
+<tr><td>Frankfurt (Alemanha)</td><td>R$ 4.536 <span class="muted">(2026-09-10)</span></td><td>R$ 4.536 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Grécia (Atenas) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 4.912 <span class="muted">(2026-09-15)</span></td><td>R$ 4.912 <span class="muted">(2027-04-22)</span></td></tr>
+<tr><td>Islândia (Reykjavik) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.962 <span class="muted">(2026-09-15)</span></td><td>R$ 6.962 <span class="muted">(2027-05-15)</span></td></tr>
+<tr><td>Istambul (Turquia)</td><td>R$ 5.893 <span class="muted">(2026-09-15)</span></td><td>R$ 5.170 <span class="muted">(2027-03-10)</span></td></tr>
+<tr><td>Japão (Tóquio) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.907 <span class="muted">(2026-09-15)</span></td><td>R$ 6.670 <span class="muted">(2027-03-10)</span></td></tr>
+<tr><td>Lisboa (Portugal)</td><td>R$ 5.491 <span class="muted">(2026-09-15)</span></td><td>R$ 3.553 <span class="muted">(2027-05-18)</span></td></tr>
+<tr><td>Londres (Reino Unido)</td><td>R$ 5.091 <span class="muted">(2026-09-10)</span></td><td>R$ 5.091 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Madri (Espanha)</td><td>R$ 3.700 <span class="muted">(2026-09-15)</span></td><td>R$ 3.700 <span class="muted">(2027-05-21)</span></td></tr>
+<tr><td>Marrocos (Casablanca/Marrakech) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 4.805 <span class="muted">(2026-09-15)</span></td><td>R$ 4.805 <span class="muted">(2027-02-28)</span></td></tr>
+<tr><td>Milão (Itália)</td><td>R$ 4.533 <span class="muted">(2026-09-10)</span></td><td>R$ 4.533 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Munique (Alemanha)</td><td>R$ 4.482 <span class="muted">(2026-09-10)</span></td><td>R$ 4.482 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Paris (França)</td><td>R$ 4.905 <span class="muted">(2026-09-12)</span></td><td>R$ 4.905 <span class="muted">(2027-05-19)</span></td></tr>
+<tr><td>Polônia (Varsóvia) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 5.398 <span class="muted">(2026-09-15)</span></td><td>R$ 5.398 <span class="muted">(2026-12-13)</span></td></tr>
+<tr><td>Porto (Portugal)</td><td>R$ 4.504 <span class="muted">(2026-09-15)</span></td><td>R$ 4.000 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Roma (Itália)</td><td>R$ 4.496 <span class="muted">(2026-09-15)</span></td><td>R$ 4.148 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Tel Aviv (Israel) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 8.021 <span class="muted">(2026-09-10)</span></td><td>R$ 8.021 <span class="muted">(2027-01-15)</span></td></tr>
+<tr><td>Zurique (Suíça)</td><td>R$ 4.253 <span class="muted">(2026-09-10)</span></td><td>R$ 4.253 <span class="muted">(2027-04-15)</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🗂️ Histórico completo de ofertas (60 dias)</h2>
+    <table>
+      <tr><th>Data</th><th>Destino</th><th>Preço</th><th>Datas</th><th>Motivo</th><th></th></tr>
+      <tr><td colspan="6" class="empty">Nenhuma queda detectada nos últimos 60 dias.</td></tr>
+    </table>
+  </div>
+
+  <div class="footer">Gerado automaticamente pelo GitHub Actions · <a href="https://github.com/willgarci4git/repositoryWG" target="_blank" rel="noopener">repositoryWG</a></div>
+</div>
+</body>
+</html>
