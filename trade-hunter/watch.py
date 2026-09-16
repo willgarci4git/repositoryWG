@@ -32,7 +32,6 @@ import re
 import sys
 import unicodedata
 from datetime import date, datetime, timedelta
-from typing import Optional
 from urllib.parse import quote as urlquote
 
 import requests
@@ -139,6 +138,20 @@ THRESHOLDS = {
     "VWO": 1.5,
     "EWZ": 1.5,
 }
+
+
+def _vix_signal(price: Optional[float]) -> str:
+    """Nota entre parênteses com a leitura do VIX ('Índice do Medo'), nas
+    faixas pedidas pelo usuário — abaixo de 20 é ótimo, entre 20 e 30 pede
+    atenção, acima de 30 é ruim. É sobre o nível absoluto do índice, não
+    sobre a variação do dia (isso já é coberto pelo threshold em cima)."""
+    if price is None:
+        return ""
+    if price < 20:
+        return " (VIX - Índice do Medo: 🟢 ÓTIMO, abaixo de 20)"
+    if price <= 30:
+        return " (VIX - Índice do Medo: 🟡 ATENÇÃO, entre 20 e 30)"
+    return " (VIX - Índice do Medo: 🔴 RUIM, acima de 30)"
 
 # Portais aos quais o usuário pediu para restringir a busca de notícias
 # (não inclui os comparadores de fundamentos como StatusInvest/Fundamentus/
@@ -323,10 +336,11 @@ def run_intraday(dry_run: bool = False) -> int:
 
         if should_alert:
             arrow = "📈" if change >= 0 else "📉"
+            extra = _vix_signal(quote.price) if label == "VIX" else ""
             if label in md.BRL_ASSETS:
-                triggers.append(f"{arrow} {label} {change:+.1f}% (R${quote.price})")
+                triggers.append(f"{arrow} {label} {change:+.1f}% (R${quote.price}){extra}")
             else:
-                triggers.append(f"{arrow} {label} {change:+.1f}% ({quote.price})")
+                triggers.append(f"{arrow} {label} {change:+.1f}% ({quote.price}){extra}")
             state["assets"][label] = {"alerted": True, "last_alert_change": change}
         else:
             state["assets"].setdefault(label, {"alerted": already_alerted, "last_alert_change": last_alert_change})
@@ -702,7 +716,8 @@ def build_daily_report() -> str:
         if q.get("error"):
             lines.append(f"- {label}: indisponível ({q['error']})")
         else:
-            lines.append(f"- **{label}**: {q['price']} ({q['change_pct']:+.2f}%)")
+            extra = _vix_signal(q["price"]) if label == "VIX" else ""
+            lines.append(f"- **{label}**: {q['price']} ({q['change_pct']:+.2f}%){extra}")
     lines.append("")
 
     lines.extend(build_focus_section())
