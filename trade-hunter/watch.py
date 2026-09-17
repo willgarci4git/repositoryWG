@@ -114,7 +114,7 @@ THRESHOLDS = {
     "IBXL": 1.5,
     "VIX": 8.0,
     "BRENT": 2.0,
-    "SP500": 1.0,
+    "SPY": 1.0,
     # FIIs costumam variar bem menos que ações no dia a dia — limiar mais
     # sensível (1,5%) pra não deixar passar um movimento que, pra um FII, já
     # é grande.
@@ -287,18 +287,19 @@ def _in_trading_hours(now: Optional[datetime] = None) -> bool:
 
 
 def build_snapshot_line(quotes: dict[str, "md.Quote"]) -> str:
-    """Monta a linha de panorama: IBOV, S&P500 e os 5 ativos que mais
-    variaram no momento, dentre tudo que está sendo monitorado."""
+    """Monta a linha de panorama: IBOV, SPY (S&P 500 — "o índice que importa"
+    da bolsa americana, pedido do usuário) e os 5 ativos que mais variaram
+    no momento, dentre tudo que está sendo monitorado."""
     parts = []
     ibov = quotes.get("IBOV")
-    sp500 = quotes.get("SP500")
+    spy = quotes.get("SPY")
     if ibov and ibov.change_pct is not None:
         parts.append(f"IBOV {ibov.change_pct:+.2f}%")
-    if sp500 and sp500.change_pct is not None:
-        parts.append(f"S&P500 {sp500.change_pct:+.2f}%")
+    if spy and spy.change_pct is not None:
+        parts.append(f"SPY {spy.change_pct:+.2f}%")
 
     movers = sorted(
-        ((label, q) for label, q in quotes.items() if q.change_pct is not None and label not in ("IBOV", "SP500")),
+        ((label, q) for label, q in quotes.items() if q.change_pct is not None and label not in ("IBOV", "SPY")),
         key=lambda kv: abs(kv[1].change_pct),
         reverse=True,
     )[:5]
@@ -413,8 +414,9 @@ def run_intraday(dry_run: bool = False) -> int:
 # ---------------------------------------------------------------------------
 
 # Regiões que o usuário pediu pra resumir de forma qualitativa (sem listar
-# cada índice/número) em vez do detalhamento ativo a ativo.
-QUALITATIVE_CATEGORIES = {"EUROPA", "ÁSIA", "AMÉRICA LATINA"}
+# cada índice/número) em vez do detalhamento ativo a ativo. (Europa saiu
+# do panorama inteiro — os 4 índices que a representavam foram removidos.)
+QUALITATIVE_CATEGORIES = {"ÁSIA", "AMÉRICA LATINA"}
 
 
 def _qualitative_read(quotes: dict, items: list[tuple[str, str]]) -> str:
@@ -503,43 +505,6 @@ def _fmt_contrato(c: dict) -> str:
     return f"{c['tipo']} R${c['strike']:.2f}{venc} — R${c['volume_financeiro']:,.0f}"
 
 
-def _greeks_alert(tipo: str, greeks: Optional[dict]) -> Optional[str]:
-    """Mini comentário descritivo (não é recomendação) sobre o que o
-    Delta/Gama ESTIMADOS do contrato mais líquido implicam pra quem já
-    tem ou está olhando esse contrato — sensibilidade, não sugestão."""
-    if not greeks:
-        return None
-    delta = greeks.get("delta_estimado")
-    if delta is None:
-        return None
-
-    if not greeks.get("confiavel", True):
-        motivo = greeks.get("motivo", "")
-        direcao = "sobe" if delta > 0 else "cai" if delta < 0 else "não reage"
-        return (
-            f"⚠️ Δ≈{delta:+.2f} (estimativa não confiável — {motivo}). "
-            f"Na prática, um contrato assim tende a andar quase junto com a ação: se a ação {direcao}, o contrato tende a acompanhar de perto."
-        )
-
-    iv = greeks.get("iv_estimada_pct")
-    gamma = greeks.get("gamma_estimado") or 0
-    abs_delta = abs(delta)
-
-    if abs_delta >= 0.7:
-        sensibilidade = "alta sensibilidade ao preço da ação (se move quase junto)"
-    elif abs_delta >= 0.35:
-        sensibilidade = "sensibilidade moderada (acompanha parte do movimento da ação)"
-    else:
-        sensibilidade = "baixa sensibilidade (precisa a ação andar bastante pra sentir efeito)"
-
-    alerta_gama = ""
-    if gamma >= 0.15:
-        alerta_gama = " ⚠️ Gama alto: pouca variação no preço da ação pode mudar bastante o valor do contrato rapidamente (comum perto do vencimento)."
-
-    direcao = "ganha valor se a ação SOBE" if (tipo == "CALL") else "ganha valor se a ação CAI"
-    return f"Δ{delta:+.2f} Γ{gamma:.3f} IV~{iv}% — {direcao}, {sensibilidade}.{alerta_gama}"
-
-
 def build_options_highlight(all_options: dict, watchlist: dict) -> list[str]:
     """Seção EM DESTAQUE, pedida explicitamente pelo usuário: put/call ratio
     de cada ação (só ações — FIIs não têm opções), ordenado do viés mais
@@ -590,21 +555,11 @@ def build_options_highlight(all_options: dict, watchlist: dict) -> list[str]:
         ]
         if destaques_prazo:
             lines.append("  ↳ maior contrato — " + " | ".join(destaques_prazo))
-
-        # linha 4: Delta/Gama ESTIMADOS (Black-Scholes, ver aviso no rodapé)
-        # do contrato mais líquido — + mini comentário de alta/queda.
-        top = (opt.get("top_mais_negociados") or [None])[0]
-        if top:
-            alerta = _greeks_alert(top["tipo"], top.get("greeks_estimados"))
-            if alerta:
-                lines.append(f"  ↳ Δ/Γ estimados ({top['tipo']} R${top['strike']:.2f}): {alerta}")
     lines.append("")
     lines.append(
         "_Ratio alto = mais volume em puts que calls no dia (pode ser hedge/proteção ou aposta em queda); "
         "baixo = mais volume em calls (pode ser hedge de venda coberta ou aposta em alta). "
-        "Leitura de fluxo do dia, não é recomendação de compra/venda. "
-        "Delta/Gama são ESTIMADOS por mim via Black-Scholes (opcoes.net.br bloqueia o valor real sem login) — "
-        "não são o número exato do book, especialmente perto do vencimento em contratos bem dentro/fora do dinheiro._"
+        "Leitura de fluxo do dia, não é recomendação de compra/venda._"
     )
     lines.append("")
     return lines
@@ -701,7 +656,7 @@ def build_daily_report() -> str:
 
     watchlist = md.get_watchlist()
     all_options = {
-        ticker: md.get_options_summary(ticker, top_n=3, spot_price=watchlist.get(ticker, {}).get("price"))
+        ticker: md.get_options_summary(ticker, top_n=3)
         for ticker in md.OPTIONS_TICKERS
     }
 
