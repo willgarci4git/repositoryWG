@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 import requests
@@ -63,8 +63,18 @@ ASSET_MAP: dict[str, tuple[str, str]] = {
     "EURBRL": ("FX_IDC:EURBRL", "forex"),
     "IEF": ("NASDAQ:IEF", "america"),   # ETF títulos do Tesouro americano 7-10 anos
     "TLT": ("NASDAQ:TLT", "america"),   # ETF títulos do Tesouro americano 20+ anos
+    "SHY": ("NASDAQ:SHY", "america"),   # ETF títulos do Tesouro americano 1-3 anos (curtíssimo prazo)
     "VWO": ("AMEX:VWO", "america"),     # ETF ações de mercados emergentes
     "EWZ": ("AMEX:EWZ", "america"),     # ETF ações brasileiras negociado nos EUA (iShares MSCI Brazil)
+    "XLP": ("AMEX:XLP", "america"),     # ETF setor de consumo básico (Consumer Staples) — pedido do usuário, dashboard Koyfin
+    "AIQ": ("NASDAQ:AIQ", "america"),   # ETF Global X Artificial Intelligence & Technology — pedido do usuário
+
+    # Yields do Tesouro americano (curva de juros) — screener "bonds", não
+    # "america"; usado pra ler se a curva está normal ou invertida (pedido
+    # do usuário, dashboard "Yield Curve" do Koyfin).
+    "UST2Y": ("TVC:US02Y", "bonds"),
+    "UST10Y": ("TVC:US10Y", "bonds"),
+    "UST30Y": ("TVC:US30Y", "bonds"),
 
     # ---- Panorama global de fechamento (resumo diário, estilo Google Finance) ----
     # EUA
@@ -98,6 +108,18 @@ GLOBAL_MARKET_CATEGORIES: dict[str, list[tuple[str, str]]] = {
         ("DOW", "Dow Jones"),
         ("SPY", "S&P 500 (via SPY)"),
         ("NASDAQ100", "Nasdaq 100"),
+        ("XLP", "XLP (Consumer Staples)"),
+        ("AIQ", "AIQ (Inteligência Artificial)"),
+    ],
+    # Fixed Income Factors (dashboard Koyfin, pedido do usuário): variação
+    # das treasuries por prazo — curto (SHY, 1-3 anos), médio (IEF, 7-10
+    # anos) e longo (TLT, 20+ anos). A leitura da curva de juros (2 vs 10
+    # anos) sai à parte, em build_yield_curve_line() (watch.py) — não é um
+    # "retorno %" comparável aos demais itens dessa categoria.
+    "RENDA FIXA (EUA)": [
+        ("SHY", "Treasuries curtas (SHY, 1-3a)"),
+        ("IEF", "Treasuries médias (IEF, 7-10a)"),
+        ("TLT", "Treasuries longas (TLT, 20a+)"),
     ],
     "ÁSIA": [
         ("NIKKEI225", "Nikkei 225 (Japão)"),
@@ -572,3 +594,57 @@ def get_options_summary(ticker: str, top_n: int = 5) -> dict:
         "top_mais_negociados": top_fmt,
         "nota": "Dados de liquidez/atividade, não é recomendação de compra/venda. Posição em aberto e gregas não vêm neste endpoint sem login.",
     }
+
+
+# ---------------------------------------------------------------------------
+# Calendário econômico mundial (ForexFactory, JSON público, sem login/API
+# paga) — pedido do usuário: quer saber DIARIAMENTE o que vai ser divulgado
+# (reuniões de bancos centrais, payroll, CPI etc.) nos resumos de abertura
+# e fechamento do pregão. Mesmo dado que aparece no dashboard "World
+# Economic Calendar" do Koyfin, mas de fonte gratuita/sem conta.
+# ---------------------------------------------------------------------------
+
+ECONOMIC_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
+
+_IMPACT_RANK = {"Low": 0, "Medium": 1, "High": 2}
+
+
+def get_economic_calendar(min_impact: str = "Medium") -> dict:
+    """Eventos econômicos de HOJE (data local de Brasília) com impacto >=
+    `min_impact` ("Low"/"Medium"/"High") — filtra o feed da semana inteira
+    pra não floodar o resumo com dezenas de indicadores de baixo impacto.
+
+    Nunca lança exceção — em caso de falha, devolve {"error": "..."}.
+    """
+    try:
+        resp = requests.get(ECONOMIC_CALENDAR_URL, headers=BROWSER_HEADERS, timeout=15)
+        resp.raise_for_status()
+        events = resp.json()
+    except Exception as exc:  # noqa: BLE001
+        return {"error": f"falha ao buscar calendário econômico: {exc}"}
+
+    min_rank = _IMPACT_RANK.get(min_impact, 1)
+    brt = timezone(timedelta(hours=-3))  # America/Sao_Paulo, sem horário de verão desde 2019
+    hoje = datetime.now(brt).date()
+
+    eventos = []
+    for ev in events:
+        try:
+            dt_brt = datetime.fromisoformat(ev["date"]).astimezone(brt)
+        except (KeyError, ValueError, TypeError):
+            continue
+        if dt_brt.date() != hoje:
+            continue
+        if _IMPACT_RANK.get(ev.get("impact"), 0) < min_rank:
+            continue
+        eventos.append({
+            "hora_brt": dt_brt.strftime("%H:%M"),
+            "pais": ev.get("country"),
+            "evento": ev.get("title"),
+            "impacto": ev.get("impact"),
+            "previsao": ev.get("forecast") or None,
+            "anterior": ev.get("previous") or None,
+        })
+
+    eventos.sort(key=lambda e: e["hora_brt"])
+    return {"source_url": ECONOMIC_CALENDAR_URL, "data": hoje.isoformat(), "eventos": eventos}
