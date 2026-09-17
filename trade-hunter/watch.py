@@ -308,6 +308,76 @@ def build_snapshot_line(quotes: dict[str, "md.Quote"]) -> str:
     return " | ".join(parts)
 
 
+# ---------------------------------------------------------------------------
+# "Market Dashboard" (Koyfin) — pedido do usuário: renda fixa (treasuries
+# curtas/médias/longas + curva de juros), commodities, XLP, manchetes de
+# mercado e calendário econômico mundial. Sai só nos snapshots de ABERTURA
+# e FECHAMENTO (não no de meio do pregão nem a cada 15 min) — é conteúdo
+# mais pesado (rede + leitura), não faz sentido repetir intradia.
+# ---------------------------------------------------------------------------
+
+# Labels do dashboard que NÃO já vêm no fetch de THRESHOLDS do run_intraday
+# (BRENT/IEF/TLT já são buscados ali — evita pedir 2x a mesma cotação).
+DASHBOARD_EXTRA_LABELS = ["SHY", "XLP", "UST2Y", "UST10Y", "UST30Y", "GOLD_FUT"]
+
+# Notícias de mercado mais amplas (macro, não amarradas a um ticker B3
+# específico) — mesmo filtro de domínios já aprovado (NEWS_DOMAINS).
+MARKET_NEWS_QUERY = "mercado financeiro Fed Copom juros bolsa"
+
+
+def _yield_curve_read(quotes: dict) -> str:
+    """Leitura da curva de juros americana (spread 10 anos - 2 anos) — sinal
+    clássico de recessão quando fica negativo (invertida). Pedido do
+    usuário (dashboard "Yield Curve" do Koyfin)."""
+    u2 = quotes.get("UST2Y")
+    u10 = quotes.get("UST10Y")
+    if not u2 or not u10 or u2.price is None or u10.price is None:
+        return "Curva de juros EUA (10a-2a): indisponível"
+    spread = round(u10.price - u2.price, 2)
+    if spread < 0:
+        leitura = "🔴 invertida — historicamente um sinal de alerta de recessão"
+    elif spread < 0.5:
+        leitura = "🟡 achatada (baixa inclinação)"
+    else:
+        leitura = "🟢 normal (inclinação saudável)"
+    return f"Curva de juros EUA (10a {u10.price}% − 2a {u2.price}% = {spread:+.2f} p.p.): {leitura}"
+
+
+def build_market_dashboard_section(quotes: dict) -> str:
+    """Monta o bloco do Market Dashboard a partir de `quotes` (já deve conter
+    SHY/IEF/TLT/BRENT/GOLD_FUT/XLP/UST2Y/UST10Y/UST30Y)."""
+
+    def _fmt(label: str) -> str:
+        q = quotes.get(label)
+        if not q or q.change_pct is None:
+            return f"{label}: indisponível"
+        return f"{label} {q.change_pct:+.2f}% ({q.price})"
+
+    lines = [
+        "💵 Renda fixa (EUA): " + " | ".join(_fmt(l) for l in ("SHY", "IEF", "TLT")),
+        _yield_curve_read(quotes),
+        "🛢️ Commodities: " + " | ".join(_fmt(l) for l in ("BRENT", "GOLD_FUT")),
+        "🛒 " + _fmt("XLP") + " (Consumer Staples)",
+    ]
+
+    manchetes = fetch_headlines(MARKET_NEWS_QUERY, when="1d", limit=4)
+    if manchetes:
+        lines.append("📰 Market News: " + " | ".join(manchetes[:4]))
+
+    calendario = md.get_economic_calendar(min_impact="Medium")
+    if calendario.get("error"):
+        lines.append(f"🗓️ Calendário econômico: indisponível ({calendario['error']})")
+    elif calendario.get("eventos"):
+        eventos_txt = "; ".join(
+            f"{e['hora_brt']} {e['pais']} {e['evento']}" for e in calendario["eventos"][:6]
+        )
+        lines.append(f"🗓️ Calendário econômico hoje (impacto médio/alto): {eventos_txt}")
+    else:
+        lines.append("🗓️ Calendário econômico hoje: nenhum evento de impacto médio/alto")
+
+    return "\n".join(lines)
+
+
 def run_intraday(dry_run: bool = False) -> int:
     if not _in_trading_hours():
         print("Fora do horário de pregão (10h-17h, dias úteis) — nada a fazer.")
@@ -391,6 +461,14 @@ def run_intraday(dry_run: bool = False) -> int:
         snapshot_line = build_snapshot_line(quotes_cache)
         title = _bold(f"📊 Panorama B3 — {snapshot_label} ({hour}h)")
         parts.append(f"{title}\n{snapshot_line}")
+
+        # Market Dashboard só na abertura e no fechamento (pedido do
+        # usuário) — não no snapshot de meio do pregão, pra não repetir
+        # conteúdo mais pesado (rede + calendário) 3x/dia sem necessidade.
+        if snapshot_label in ("abertura", "última hora"):
+            dashboard_quotes = {**quotes_cache, **md.get_quotes_batch(DASHBOARD_EXTRA_LABELS)}
+            dashboard_title = _bold("🌐 Market Dashboard (EUA/global)")
+            parts.append(f"{dashboard_title}\n{build_market_dashboard_section(dashboard_quotes)}")
     if triggers:
         title = _bold("🔔 Alertas de variação/notícia:")
         parts.append(f"{title}\n" + "\n".join(triggers[:6]))
