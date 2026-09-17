@@ -13,7 +13,6 @@ opções) para o usuário decidir por conta própria.
 
 from __future__ import annotations
 
-import math
 import re
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -59,7 +58,7 @@ ASSET_MAP: dict[str, tuple[str, str]] = {
     "IBXL": ("BMFBOVESPA:IBXL", "brazil"),
     "VIX": ("CBOE:VIX", "america"),
     "BRENT": ("NYMEX:BZ1!", "futures"),
-    "SP500": ("SP:SPX", "america"),
+    "SPY": ("AMEX:SPY", "america"),  # ETF que replica o S&P 500 — o "índice que importa" da bolsa americana (pedido do usuário, substitui o SP500 bruto)
     "USDBRL": ("FX_IDC:USDBRL", "forex"),
     "EURBRL": ("FX_IDC:EURBRL", "forex"),
     "IEF": ("NASDAQ:IEF", "america"),   # ETF títulos do Tesouro americano 7-10 anos
@@ -71,24 +70,13 @@ ASSET_MAP: dict[str, tuple[str, str]] = {
     # EUA
     "DOW": ("DJ:DJI", "america"),
     "NASDAQ100": ("NASDAQ:NDX", "america"),
-    "NASDAQCOMP": ("NASDAQ:IXIC", "america"),
-    # Europa
-    "FTSE100": ("TVC:UKX", "cfd"),
-    "DAX": ("XETR:DAX", "germany"),
-    "CAC40": ("TVC:CAC40", "cfd"),
-    "EUROSTOXX50": ("TVC:SX5E", "cfd"),
     # Ásia
     "NIKKEI225": ("TVC:NI225", "cfd"),
-    "HANGSENG": ("TVC:HSI", "cfd"),
     "SHANGHAI": ("SSE:000001", "china"),
     "KOSPI": ("TVC:KOSPI", "cfd"),
-    # América Latina (além de IBOV/IBXL já mapeados acima)
-    "MERVAL": ("BCBA:IMV", "argentina"),
-    "MEXBOL": ("BMV:ME", "mexico"),
     # Moedas (além de USDBRL/EURBRL já mapeados acima)
     "DXY": ("TVC:DXY", "cfd"),
     # Futuros
-    "ES_FUT": ("CME_MINI:ES1!", "futures"),   # E-mini S&P 500
     "YM_FUT": ("CBOT_MINI:YM1!", "futures"),  # E-mini Dow
     "NQ_FUT": ("CME_MINI:NQ1!", "futures"),   # E-mini Nasdaq
     "GOLD_FUT": ("COMEX:GC1!", "futures"),
@@ -102,28 +90,22 @@ ASSET_MAP: dict[str, tuple[str, str]] = {
 # Google Finance, sem cripto (não pedido). Cada item: (label do ASSET_MAP,
 # nome amigável para exibição).
 GLOBAL_MARKET_CATEGORIES: dict[str, list[tuple[str, str]]] = {
+    # Europa e os índices individuais abaixo (Merval, Mexbol, FTSE100,
+    # Hang Seng, ES_FUT, SP500 bruto, Euro Stoxx 50, DAX, CAC40, Nasdaq
+    # Composto) foram removidos a pedido do usuário — ou redundantes com
+    # outro índice já monitorado, ou sem utilidade pra decisão do dia a dia.
     "EUA": [
         ("DOW", "Dow Jones"),
-        ("SP500", "S&P 500"),
+        ("SPY", "S&P 500 (via SPY)"),
         ("NASDAQ100", "Nasdaq 100"),
-        ("NASDAQCOMP", "Nasdaq Composto"),
-    ],
-    "EUROPA": [
-        ("FTSE100", "FTSE 100 (Londres)"),
-        ("DAX", "DAX (Alemanha)"),
-        ("CAC40", "CAC 40 (França)"),
-        ("EUROSTOXX50", "Euro Stoxx 50"),
     ],
     "ÁSIA": [
         ("NIKKEI225", "Nikkei 225 (Japão)"),
-        ("HANGSENG", "Hang Seng (Hong Kong)"),
         ("SHANGHAI", "Xangai Composto"),
         ("KOSPI", "Kospi (Coreia do Sul)"),
     ],
     "AMÉRICA LATINA": [
         ("IBOV", "Ibovespa"),
-        ("MERVAL", "Merval (Argentina)"),
-        ("MEXBOL", "S&P/BMV IPC (México)"),
         ("EWZ", "EWZ (ETF Brasil nos EUA)"),
     ],
     "MOEDAS": [
@@ -132,7 +114,6 @@ GLOBAL_MARKET_CATEGORIES: dict[str, list[tuple[str, str]]] = {
         ("DXY", "Índice do Dólar (DXY)"),
     ],
     "FUTUROS": [
-        ("ES_FUT", "E-mini S&P 500"),
         ("YM_FUT", "E-mini Dow"),
         ("NQ_FUT", "E-mini Nasdaq"),
         ("GOLD_FUT", "Ouro"),
@@ -156,7 +137,7 @@ TRADINGVIEW_SCAN_URL = "https://scanner.tradingview.com/{screener}/scan"
 
 def get_quote_by_label(label: str) -> Quote:
     """Busca a cotação (TradingView) de um ativo do ASSET_MAP pelo label
-    amigável (ex.: "IBOV", "VIX", "BRENT", "SP500", "PRIO3")."""
+    amigável (ex.: "IBOV", "VIX", "BRENT", "SPY", "PRIO3")."""
     if label not in ASSET_MAP:
         return Quote(source="tradingview", symbol=label, price=None, error=f"Ativo '{label}' não mapeado.")
     tv_symbol, screener = ASSET_MAP[label]
@@ -483,148 +464,17 @@ def _prazo_bucket(vencimento: Optional[tuple[int, int]]) -> str:
     return "longo prazo"
 
 
-# ---------------------------------------------------------------------------
-# Black-Scholes + solver de volatilidade implícita — ESTIMATIVA PRÓPRIA.
-#
-# opcoes.net.br bloqueia vol. implícita/delta/gama sem login (confirmado:
-# vêm como imagem borrada). Não tem outra fonte gratuita pra isso. Então
-# calculamos por conta própria: como já temos o preço negociado da opção
-# ("ultimo"), o preço da ação, o strike e uma estimativa de prazo até o
-# vencimento, dá pra resolver numericamente qual volatilidade implícita
-# FAZ o preço de Black-Scholes bater com o preço realmente negociado — e a
-# partir dela, calcular Delta/Gama de forma consistente.
-#
-# Isso é uma ESTIMATIVA, não o valor exato do book: (1) opções da B3 são
-# americanas, Black-Scholes é o modelo europeu (aproximação padrão do
-# mercado mesmo assim); (2) o prazo até o vencimento é por mês, não por
-# dia exato (ver _decode_vencimento); (3) a taxa livre de risco usa a
-# Selic Focus como proxy do CDI.
-# ---------------------------------------------------------------------------
-
-def _norm_cdf(x: float) -> float:
-    return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
-
-
-def _norm_pdf(x: float) -> float:
-    return math.exp(-0.5 * x * x) / math.sqrt(2.0 * math.pi)
-
-
-def _bs_price(tipo: str, S: float, K: float, T: float, r: float, sigma: float) -> float:
-    if T <= 0 or sigma <= 0:
-        return max(0.0, (S - K) if tipo == "CALL" else (K - S))
-    d1 = (math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * math.sqrt(T))
-    d2 = d1 - sigma * math.sqrt(T)
-    if tipo == "CALL":
-        return S * _norm_cdf(d1) - K * math.exp(-r * T) * _norm_cdf(d2)
-    return K * math.exp(-r * T) * _norm_cdf(-d2) - S * _norm_cdf(-d1)
-
-
-def _bs_delta_gamma(tipo: str, S: float, K: float, T: float, r: float, sigma: float) -> tuple[float, float]:
-    if T <= 0 or sigma <= 0:
-        return (0.0, 0.0)
-    d1 = (math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * math.sqrt(T))
-    delta = _norm_cdf(d1) if tipo == "CALL" else _norm_cdf(d1) - 1.0
-    gamma = _norm_pdf(d1) / (S * sigma * math.sqrt(T))
-    return (delta, gamma)
-
-
-def _implied_vol(tipo: str, market_price: float, S: float, K: float, T: float, r: float) -> Optional[float]:
-    """Bisseção simples (robusta mesmo longe do dinheiro, onde Newton com
-    vega baixo pode divergir). Range de busca: 1% a 300% de vol anualizada."""
-    if T <= 0 or market_price <= 0 or S <= 0 or K <= 0:
-        return None
-    lo, hi = 0.01, 3.0
-    preco_lo, preco_hi = _bs_price(tipo, S, K, T, r, lo), _bs_price(tipo, S, K, T, r, hi)
-    if market_price < preco_lo or market_price > preco_hi:
-        return None  # preço de mercado fora do range plausível (dado ruim/ilíquido)
-    for _ in range(60):
-        mid = (lo + hi) / 2
-        preco_mid = _bs_price(tipo, S, K, T, r, mid)
-        if abs(preco_mid - market_price) < 1e-4:
-            return round(mid, 4)
-        if preco_mid < market_price:
-            lo = mid
-        else:
-            hi = mid
-    return round((lo + hi) / 2, 4)
-
-
-def estimate_greeks(tipo: str, spot: float, strike: float, premio: float, vencimento: Optional[tuple[int, int]], taxa_juros: float = 0.1375) -> Optional[dict]:
-    """Estima IV/Delta/Gama de um contrato a partir do preço negociado.
-
-    Retorna None se faltar dado suficiente (preço zerado, vencimento não
-    decodificado, spot/strike inválidos etc.) — nunca inventa número.
-
-    IMPORTANTE — limite conhecido do método: pra contratos MUITO dentro do
-    dinheiro e perto do vencimento (justamente o perfil mais comum entre os
-    mais negociados), o preço da opção é quase todo valor intrínseco, então
-    o "solver" de IV fica mal condicionado — pequenas diferenças de centavos
-    no preço negociado geram estimativas de IV completamente diferentes
-    (já vi >200% de IV "implícita" num contrato só porque o modelo europeu
-    não descreve bem esse regime). Nesses casos, `confiavel=False` e devolve
-    só o Delta pelo LIMITE teórico (±1 fundo do poço, bem estabelecido),
-    sem fingir precisão que a conta não tem.
-    """
-    if not vencimento or not spot or not strike or not premio:
-        return None
-    today = datetime.now().date()
-    # aproxima o vencimento como dia 15 do mês decodificado (não temos o
-    # dia exato — B3 tem vencimentos semanais, ver _decode_vencimento)
-    try:
-        from datetime import date as _date
-        venc_date = _date(vencimento[0], vencimento[1], 15)
-    except ValueError:
-        return None
-    dias = (venc_date - today).days
-    if dias <= 0:
-        return None
-    T = dias / 365.0
-
-    iv = _implied_vol(tipo, premio, spot, strike, T, taxa_juros)
-
-    # regime mal condicionado: perto do vencimento + bem longe do strike
-    # (deep ITM ou deep OTM) ou IV bateu no teto da busca (>=240%, sinal de
-    # que não convergiu de verdade).
-    dist_pct = abs(spot - strike) / spot
-    mal_condicionado = dias <= 5 and dist_pct >= 0.10
-    iv_no_teto = iv is not None and iv >= 2.4
-
-    if iv is None or mal_condicionado or iv_no_teto:
-        # fallback: delta pelo limite teórico (deep ITM → ±1, deep OTM → 0),
-        # sem gama/IV numérico fingindo precisão que não temos aqui.
-        itm = (spot > strike) if tipo == "CALL" else (spot < strike)
-        delta_limite = (1.0 if tipo == "CALL" else -1.0) if itm else 0.0
-        return {
-            "confiavel": False,
-            "motivo": "opção muito dentro/fora do dinheiro perto do vencimento — IV/Gama não convergem com confiança nesse regime",
-            "delta_estimado": delta_limite,
-            "iv_estimada_pct": None,
-            "gamma_estimado": None,
-            "dias_ate_vencimento_aprox": dias,
-        }
-
-    delta, gamma = _bs_delta_gamma(tipo, spot, strike, T, taxa_juros, iv)
-    return {
-        "confiavel": True,
-        "iv_estimada_pct": round(iv * 100, 1),
-        "delta_estimado": round(delta, 3),
-        "gamma_estimado": round(gamma, 4),
-        "dias_ate_vencimento_aprox": dias,
-    }
-
-
-def get_options_summary(ticker: str, top_n: int = 5, spot_price: Optional[float] = None, risk_free_rate: float = 0.1375) -> dict:
+def get_options_summary(ticker: str, top_n: int = 5) -> dict:
     """Busca a grade de opções de `ticker` (ex.: "PRIO3") em opcoes.net.br e
     resume: volume negociado e número de negócios por CALL/PUT, put/call
     ratio (por volume) — geral e separado por dentro/fora do dinheiro
     (ITM/OTM) —, o maior contrato por prazo (curto/médio/longo) e os
     `top_n` contratos mais negociados no dia.
 
-    `spot_price`: preço atual da ação — se informado, cada contrato do
-    `top_n` e do `maior_contrato_por_prazo` ganha IV/Delta/Gama ESTIMADOS
-    (Black-Scholes, ver estimate_greeks/aviso no cabeçalho da seção acima).
-    Sem `spot_price`, esses campos vêm como None. `risk_free_rate` é a taxa
-    livre de risco anualizada (padrão: Selic atual aproximada).
+    Não traz Delta/Gama/IV — só dá pra estimar via Black-Scholes, e a
+    estimativa não converge de forma confiável nos contratos mais líquidos
+    (justamente os que aparecem aqui), então foi removida por decisão do
+    usuário em vez de mostrar um número que não presta.
     """
     ticker = ticker.strip().upper()
     try:
@@ -679,9 +529,6 @@ def get_options_summary(ticker: str, top_n: int = 5, spot_price: Optional[float]
 
     def _fmt(r) -> dict:
         vencimento = _decode_vencimento(r[IDX_TICKER], r[IDX_TIPO], root_len)
-        greeks = None
-        if spot_price:
-            greeks = estimate_greeks(r[IDX_TIPO], spot_price, r[IDX_STRIKE], r[IDX_ULTIMO], vencimento, risk_free_rate)
         return {
             "ticker": r[IDX_TICKER],
             "tipo": r[IDX_TIPO],
@@ -692,7 +539,6 @@ def get_options_summary(ticker: str, top_n: int = 5, spot_price: Optional[float]
             "volume_financeiro": r[IDX_VOL],
             "vencimento_aprox": f"{vencimento[0]}-{vencimento[1]:02d}" if vencimento else None,
             "prazo": _prazo_bucket(vencimento),
-            "greeks_estimados": greeks,
         }
 
     top = sorted(traded, key=lambda r: (r[IDX_VOL] or 0), reverse=True)[:top_n]
