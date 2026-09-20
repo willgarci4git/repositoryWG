@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Monitor de Preços de Voos</title>
+<title>Monitor de Voos WG</title>
 <style>
   :root {
     --bg: #f7f7f8; --card: #ffffff; --text: #1a1a1a; --muted: #6b7280;
@@ -59,13 +59,13 @@
   .shortcut-btn:hover { border-color: var(--accent); }
   .shortcut-sub { display: block; font-weight: 400; color: var(--muted); font-size: 0.75rem; }
   .table-wrap td, .table-wrap th { white-space: normal; }
-  .table-wrap td:first-child { white-space: nowrap; }
+  .table-wrap td:first-child, .table-wrap td:nth-child(2) { white-space: nowrap; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>✈️ Monitor de Preços de Voos</h1>
-  <div class="subtitle">Gerado em 2026-09-20 16:01 UTC · SerpAPI: 80/2026-09 este mês</div>
+  <h1>✈️ Monitor de Voos WG</h1>
+  <div class="subtitle">Gerado em 2026-09-20 20:54 UTC · SerpAPI: 80/2026-09 este mês</div>
 
   <div class="card">
     <h2>🔗 Atalhos</h2>
@@ -101,14 +101,41 @@
     </div>
 
     <table class="table-wrap" style="margin-top:16px;">
-      <tr><th>App</th><th>O que é</th><th>Onde entra no seu fluxo</th></tr>
-      <tr><td><strong>Sherpa</strong></td><td>Exigência de visto/vacina/documento por nacionalidade e destino</td><td>Checar antes de fechar uma viagem internacional achada aqui</td></tr>
-      <tr><td><strong>seats.aero</strong></td><td>Disponibilidade de assento por milhas/pontos</td><td>Alertas nativos e grátis do próprio site (fora deste painel)</td></tr>
-      <tr><td><strong>Skiplagged</strong></td><td>Busca de voos com tarifas "hidden-city"</td><td>Conferência manual pontual — não automatizado (ToS proíbe, risco de cancelamento de trecho)</td></tr>
-      <tr><td><strong>SeatMaps</strong></td><td>Mapa de assentos por aeronave/companhia</td><td>Escolher poltrona depois de comprar a passagem</td></tr>
-      <tr><td><strong>Comparemania</strong></td><td>Cashback e comparação de troca de milhas (BR)</td><td>Conferência manual de cashback antes de comprar</td></tr>
-      <tr><td><strong>BestOnwardTicket</strong></td><td>Reserva provisória de passagem (prova de saída p/ visto)</td><td>Só se pedirem prova de retorno pra emitir visto</td></tr>
-      <tr><td><strong>Wanderlog</strong></td><td>Planejador de itinerário/roteiro de viagem</td><td>Montar o roteiro depois que a passagem for comprada</td></tr>
+      <tr><th>Categoria</th><th>App</th><th>O que é</th><th>Onde entra no seu fluxo</th></tr>
+<tr><td>Conectividade (eSIM)</td><td><a href="https://www.airalo.com" target="_blank" rel="noopener"><strong>Airalo</strong></a></td><td>eSIM de viagem — o mais conhecido do mercado</td><td>Comprar chip virtual antes de embarcar</td></tr>
+<tr><td>Conectividade (eSIM)</td><td><a href="https://www.gigsky.com" target="_blank" rel="noopener"><strong>GigSky</strong></a></td><td>eSIM de dados internacional</td><td>Comprar internet antes de embarcar</td></tr>
+<tr><td>Conectividade (eSIM)</td><td><a href="https://www.mobimatter.com" target="_blank" rel="noopener"><strong>Mobimatter</strong></a></td><td>Marketplace que compara vários provedores de eSIM</td><td>Comparar preço de eSIM entre provedores</td></tr>
+<tr><td>Conforto &amp; aeroporto</td><td><a href="https://www.hoteltonight.com" target="_blank" rel="noopener"><strong>HotelTonight</strong></a></td><td>Hotel de última hora com desconto (hoje parte do Airbnb)</td><td>Reserva de emergência ou oportunista</td></tr>
+<tr><td>Conforto &amp; aeroporto</td><td><a href="https://www.loungebuddy.com" target="_blank" rel="noopener"><strong>LoungeBuddy</strong></a></td><td>Acesso a salas VIP de aeroporto (hoje ligado à Amex)</td><td>Achar lounge disponível numa conexão</td></tr>
+<tr><td>Conforto &amp; aeroporto</td><td><a href="https://seatmaps.com" target="_blank" rel="noopener"><strong>SeatMaps</strong></a></td><td>Mapa de assentos por aeronave/companhia</td><td>Escolher poltrona depois de comprar a passagem</td></tr>
+<tr><td>Conteúdo &amp; mídia</td><td><a href="https://gopro.com/en/us/shop/quik-app-video-photo-editor" target="_blank" rel="noopener"><strong>GoPro Quik</strong></a></td><td>Editor de vídeo automático (GoPro)</td><td>Editar vídeos da viagem</td></tr>
+<tr><td>Conteúdo &amp; mídia</td><td><a href="https://mult.dev" target="_blank" rel="noopener"><strong>Mult.dev</strong></a></td><td>Animação de mapa de rota de viagem</td><td>Criar vídeo do roteiro pra compartilhar</td></tr>
+<tr><td>Conteúdo &amp; mídia</td><td><a href="https://www.yelp.com" target="_blank" rel="noopener"><strong>Yelp</strong></a></td><td>Avaliações de restaurantes e locais</td><td>Achar onde comer bem no destino</td></tr>
+<tr><td>Dinheiro &amp; câmbio</td><td><a href="https://www.ally.com" target="_blank" rel="noopener"><strong>Ally</strong></a></td><td>Banco americano com cartão sem tarifa internacional</td><td>Opção de cartão pra gastar fora sem tarifa extra</td></tr>
+<tr><td>Dinheiro &amp; câmbio</td><td><a href="https://www.monito.com" target="_blank" rel="noopener"><strong>Monito</strong></a></td><td>Comparador de câmbio e remessa internacional</td><td>Ver a forma mais barata de levar/trocar dinheiro</td></tr>
+<tr><td>Documentação</td><td><a href="https://bestonwardticket.com" target="_blank" rel="noopener"><strong>BestOnwardTicket</strong></a></td><td>Reserva provisória de passagem (prova de saída p/ visto)</td><td>Só se pedirem prova de retorno pra emitir visto</td></tr>
+<tr><td>Documentação</td><td><a href="https://apply.joinsherpa.com/travel-restrictions?language=pt-BR" target="_blank" rel="noopener"><strong>Sherpa</strong></a></td><td>Exigência de visto/vacina/documento por nacionalidade e destino</td><td>Checar antes de fechar uma viagem internacional achada aqui</td></tr>
+<tr><td>Mapas &amp; trilhas</td><td><a href="https://www.alltrails.com" target="_blank" rel="noopener"><strong>AllTrails</strong></a></td><td>Trilhas de caminhada com avaliação da comunidade</td><td>Achar trilha segura e bem avaliada no destino</td></tr>
+<tr><td>Mapas &amp; trilhas</td><td><a href="https://www.ulmon.com" target="_blank" rel="noopener"><strong>CityMaps (Ulmon)</strong></a></td><td>Mapas offline de cidades</td><td>Navegação urbana sem internet</td></tr>
+<tr><td>Mapas &amp; trilhas</td><td><a href="https://moovit.com" target="_blank" rel="noopener"><strong>Moovit</strong></a></td><td>Navegação de transporte público em tempo real</td><td>Se locomover de ônibus/metrô/trem no destino</td></tr>
+<tr><td>Mapas &amp; trilhas</td><td><a href="https://www.rome2rio.com" target="_blank" rel="noopener"><strong>Rome2Rio</strong></a></td><td>Rotas multimodais (voo+trem+ônibus+balsa) entre dois pontos</td><td>Comparar como chegar de A a B por qualquer meio</td></tr>
+<tr><td>Mapas &amp; trilhas</td><td><a href="https://www.wikiloc.com" target="_blank" rel="noopener"><strong>Wikiloc</strong></a></td><td>Trilhas e rotas outdoor (trekking, ciclismo)</td><td>Planejar trilha no destino</td></tr>
+<tr><td>Mapas &amp; trilhas</td><td><a href="https://maps.me" target="_blank" rel="noopener"><strong>maps.me</strong></a></td><td>Mapas offline por cidade/região</td><td>Navegação sem internet no destino</td></tr>
+<tr><td>Não identificado</td><td><strong>Aviator</strong> <span class="tag tag-warn">não confirmado</span></td><td>Nome ambíguo — vários apps diferentes usam esse nome (nenhum claramente o app de viagem popular do vídeo)</td><td>Confirme com a fonte original qual &quot;Aviator&quot; específico antes de usar</td></tr>
+<tr><td>Passagens &amp; milhas</td><td><a href="https://www.airhopping.com" target="_blank" rel="noopener"><strong>AirHopping</strong></a></td><td>Busca voos multi-trecho baratos (estilo volta ao mundo)</td><td>Itinerários com várias paradas fora do padrão ida-e-volta</td></tr>
+<tr><td>Passagens &amp; milhas</td><td><a href="https://www.comparemania.com.br" target="_blank" rel="noopener"><strong>Comparemania</strong></a></td><td>Cashback e comparação de troca de milhas (BR)</td><td>Conferência manual de cashback antes de comprar</td></tr>
+<tr><td>Passagens &amp; milhas</td><td><a href="https://www.hopper.com" target="_blank" rel="noopener"><strong>Hopper</strong></a></td><td>Previsão de preço de voo/hotel, app próprio</td><td>Só uso manual — não integrável (API é B2B fechada pra bancos/companhias, não pra terceiros)</td></tr>
+<tr><td>Passagens &amp; milhas</td><td><a href="https://www.omio.com" target="_blank" rel="noopener"><strong>Omio</strong></a></td><td>Busca e compra de trem/ônibus/voo (forte na Europa)</td><td>Comparar trem vs. voo em trechos intra-Europa</td></tr>
+<tr><td>Passagens &amp; milhas</td><td><a href="https://skiplagged.com" target="_blank" rel="noopener"><strong>Skiplagged</strong></a></td><td>Busca de voos com tarifas &quot;hidden-city&quot;</td><td>Conferência manual pontual — não automatizado (ToS proíbe, risco de cancelamento de trecho)</td></tr>
+<tr><td>Passagens &amp; milhas</td><td><a href="https://seats.aero" target="_blank" rel="noopener"><strong>seats.aero</strong></a></td><td>Disponibilidade de assento por milhas/pontos</td><td>Alertas nativos e grátis do próprio site (fora deste painel)</td></tr>
+<tr><td>Planejamento &amp; atrações</td><td><a href="https://www.atlasobscura.com" target="_blank" rel="noopener"><strong>Atlas Obscura</strong></a></td><td>Guia de lugares insólitos/curiosos</td><td>Achar atração fora do óbvio no destino</td></tr>
+<tr><td>Planejamento &amp; atrações</td><td><a href="https://gocity.com" target="_blank" rel="noopener"><strong>Go City</strong></a></td><td>Passe combinado de atrações turísticas</td><td>Economizar em ingressos na cidade</td></tr>
+<tr><td>Planejamento &amp; atrações</td><td><a href="https://www.holicay.com" target="_blank" rel="noopener"><strong>Holicay</strong></a></td><td>Planejador de viagem com IA (roteiro dia a dia)</td><td>Montar roteiro colaborativo com o grupo</td></tr>
+<tr><td>Planejamento &amp; atrações</td><td><a href="https://www.eurail.com/en/plan-your-trip/rail-planner-app" target="_blank" rel="noopener"><strong>Rail Planner (Eurail)</strong></a></td><td>Planejador de trem pela Europa</td><td>Rotas de trem entre cidades europeias</td></tr>
+<tr><td>Planejamento &amp; atrações</td><td><a href="https://wanderlog.com" target="_blank" rel="noopener"><strong>Wanderlog</strong></a></td><td>Planejador de itinerário/roteiro de viagem</td><td>Montar o roteiro depois que a passagem for comprada</td></tr>
+<tr><td>Planejamento &amp; atrações</td><td><a href="https://www.worldpackers.com" target="_blank" rel="noopener"><strong>Worldpackers</strong></a></td><td>Intercâmbio de trabalho por hospedagem</td><td>Viagem longa/mochilão com custo reduzido</td></tr>
+<tr><td>Transporte local</td><td><a href="https://bolt.eu" target="_blank" rel="noopener"><strong>Bolt</strong></a></td><td>App de corrida (tipo Uber, forte na Europa)</td><td>Transporte local no destino</td></tr>
+<tr><td>Transporte local</td><td><a href="https://driveme.nl" target="_blank" rel="noopener"><strong>DriveMe</strong></a></td><td>Motorista particular sob demanda (predominante na Europa)</td><td>Transporte de/para aeroporto em destinos específicos</td></tr>
     </table>
     <div class="muted" style="margin-top:8px;">Nenhum desses tem API pública gratuita pra alimentar a detecção de preço automaticamente — são atalhos de uso manual, complementares aos alertas.</div>
   </div>
@@ -157,7 +184,7 @@
 <tr><td>Japão (Tóquio) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.912 <span class="muted">(2026-09-20)</span></td><td>R$ 6.670 <span class="muted">(2027-03-10)</span></td></tr>
 <tr><td>Lisboa (Portugal)</td><td>R$ 5.491 <span class="muted">(2026-09-15)</span></td><td>R$ 3.553 <span class="muted">(2027-05-18)</span></td></tr>
 <tr><td>Londres (Reino Unido)</td><td>R$ 5.091 <span class="muted">(2026-09-10)</span></td><td>R$ 5.091 <span class="muted">(2027-04-15)</span></td></tr>
-<tr><td>Madri (Espanha)</td><td>R$ 3.700 <span class="muted">(2026-09-20)</span></td><td>R$ 3.700 <span class="muted">(2027-05-21)</span></td></tr>
+<tr><td>Madri (Espanha)</td><td>R$ 3.785 <span class="muted">(2026-09-20)</span></td><td>R$ 3.700 <span class="muted">(2027-05-21)</span></td></tr>
 <tr><td>Marrocos (Casablanca/Marrakech) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 5.800 <span class="muted">(2026-09-20)</span></td><td>R$ 4.805 <span class="muted">(2027-02-28)</span></td></tr>
 <tr><td>Milão (Itália)</td><td>R$ 4.533 <span class="muted">(2026-09-10)</span></td><td>R$ 4.533 <span class="muted">(2027-04-15)</span></td></tr>
 <tr><td>Munique (Alemanha)</td><td>R$ 4.482 <span class="muted">(2026-09-10)</span></td><td>R$ 4.482 <span class="muted">(2027-04-15)</span></td></tr>
