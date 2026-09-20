@@ -55,7 +55,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 0
+    "fallback_cursor": 1
   },
   "porto": {
     "observations": [
@@ -86,6 +86,12 @@
       {
         "checked_at": "2026-09-15",
         "price": 4504,
+        "date": "2027-03-15",
+        "arrival_code": "OPO"
+      },
+      {
+        "checked_at": "2026-09-20",
+        "price": 4411,
         "date": "2027-03-15",
         "arrival_code": "OPO"
       }
@@ -142,6 +148,12 @@
         "price": 3700,
         "date": "2027-05-21",
         "arrival_code": "MAD"
+      },
+      {
+        "checked_at": "2026-09-20",
+        "price": 3700,
+        "date": "2027-05-21",
+        "arrival_code": "MAD"
       }
     ],
     "last_alert": {
@@ -160,7 +172,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "paris": {
     "observations": [
@@ -193,6 +205,12 @@
         "price": 4905,
         "date": "2027-05-19",
         "arrival_code": "CDG"
+      },
+      {
+        "checked_at": "2026-09-20",
+        "price": 6496,
+        "date": "2027-01-12",
+        "arrival_code": "CDG"
       }
     ],
     "last_alert": null,
@@ -208,7 +226,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "bruxelas": {
     "observations": [
@@ -220,7 +238,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "frankfurt": {
     "observations": [
@@ -232,7 +250,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "munique": {
     "observations": [
@@ -244,7 +262,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "zurique": {
     "observations": [
@@ -256,7 +274,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "londres": {
     "observations": [
@@ -268,7 +286,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "roma": {
     "observations": [
@@ -304,7 +322,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "milao": {
     "observations": [
@@ -316,7 +334,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "istambul": {
     "observations": [
@@ -367,9 +385,18 @@
         "price": 5893,
         "date": "2027-02-03",
         "arrival_code": "IST"
+      },
+      {
+        "checked_at": "2026-09-20",
+        "price": 5055,
+        "date": "2027-06-09",
+        "arrival_code": "IST"
       }
     ],
-    "last_alert": null,
+    "last_alert": {
+      "date": "2026-09-20",
+      "price": 5055
+    },
     "fallback_cursor": 0
   },
   "cairo": {
@@ -400,7 +427,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "telaviv": {
     "observations": [
@@ -412,7 +439,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "marrocos": {
     "observations": [
@@ -463,6 +490,12 @@
         "price": 4805,
         "date": "2027-02-28",
         "arrival_code": "CMN"
+      },
+      {
+        "checked_at": "2026-09-20",
+        "price": 5800,
+        "date": "2027-01-14",
+        "arrival_code": "CMN"
       }
     ],
     "last_alert": {
@@ -499,6 +532,12 @@
       },
       {
         "checked_at": "2026-09-15",
+        "price": 1501,
+        "date": "2027-02-24",
+        "arrival_code": "VVI"
+      },
+      {
+        "checked_at": "2026-09-20",
         "price": 1501,
         "date": "2027-02-24",
         "arrival_code": "VVI"
@@ -565,7 +604,7 @@
       "date": "2026-09-11",
       "price": 6962
     },
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "noronha_gru": {
     "observations": [
@@ -577,7 +616,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "noronha_vcp": {
     "observations": [
@@ -589,7 +628,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "noronha_cgh": {
     "observations": [
@@ -601,7 +640,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "japao": {
     "observations": [
@@ -646,6 +685,12 @@
         "price": 6907,
         "date": "2027-04-20",
         "arrival_code": "HND"
+      },
+      {
+        "checked_at": "2026-09-20",
+        "price": 6912,
+        "date": "2027-03-10",
+        "arrival_code": "NRT"
       }
     ],
     "last_alert": null,
@@ -654,12 +699,18 @@
   "quenia": {
     "observations": [],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "grecia": {
     "observations": [
       {
         "checked_at": "2026-09-15",
+        "price": 4912,
+        "date": "2027-04-22",
+        "arrival_code": "ATH"
+      },
+      {
+        "checked_at": "2026-09-20",
         "price": 4912,
         "date": "2027-04-22",
         "arrival_code": "ATH"
@@ -714,12 +765,12 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 0
+    "fallback_cursor": 1
   },
   "africa_do_sul": {
     "observations": [],
     "last_alert": null,
-    "fallback_cursor": 7
+    "fallback_cursor": 1
   },
   "canada": {
     "observations": [
@@ -749,11 +800,34 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "_melhoresdestinos": {
     "last_seen_id": 635630
   },
-  "_deals_log": [],
+  "_deals_log": [
+    {
+      "route": "istambul",
+      "label": "Istambul (Turquia)",
+      "origin": "GRU",
+      "arrival_code": "IST",
+      "carriers": [
+        "Turkish Airlines"
+      ],
+      "single_carrier_risk": true,
+      "verified_nonstop": true,
+      "route_note": null,
+      "outbound_date": "2027-06-09",
+      "return_date": "2027-06-23",
+      "travelpayouts_price_brl": 5055,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": null,
+      "serpapi_confirmed_stops": null,
+      "serpapi_budget_reached": true,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20IST%20saindo%202027-06-09%20voltando%202027-06-23",
+      "logged_at": "2026-09-20"
+    }
+  ],
   "_mentions_log": []
 }

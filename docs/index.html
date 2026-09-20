@@ -49,18 +49,75 @@
   .tag-warn { background: var(--tag-warn-bg); color: var(--tag-warn-text); }
   .tag-muted { background: var(--tag-muted-bg); color: var(--tag-muted-text); }
   .footer { color: var(--muted); font-size: 0.75rem; text-align: center; margin-top: 32px; }
+  .shortcuts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .shortcut-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 14px; font-size: 0.85rem; font-weight: 600; color: var(--text) !important;
+    text-decoration: none !important;
+  }
+  .shortcut-btn:hover { border-color: var(--accent); }
+  .shortcut-sub { display: block; font-weight: 400; color: var(--muted); font-size: 0.75rem; }
+  .table-wrap td, .table-wrap th { white-space: normal; }
+  .table-wrap td:first-child { white-space: nowrap; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>✈️ Monitor de Preços de Voos</h1>
-  <div class="subtitle">Gerado em 2026-09-15 19:06 UTC · SerpAPI: 80/2026-09 este mês</div>
+  <div class="subtitle">Gerado em 2026-09-20 16:01 UTC · SerpAPI: 80/2026-09 este mês</div>
+
+  <div class="card">
+    <h2>🔗 Atalhos</h2>
+    <div class="shortcuts">
+      <a class="shortcut-btn" href="https://apply.joinsherpa.com/travel-restrictions?language=pt-BR" target="_blank" rel="noopener">
+        🛂 Sherpa
+        <span class="shortcut-sub">Visto/documentos por destino</span>
+      </a>
+      <a class="shortcut-btn" href="https://seats.aero" target="_blank" rel="noopener">
+        🎫 seats.aero
+        <span class="shortcut-sub">Alertas de milhas/pontos</span>
+      </a>
+      <a class="shortcut-btn" href="https://skiplagged.com" target="_blank" rel="noopener">
+        🛫 Skiplagged
+        <span class="shortcut-sub">Busca hidden-city (usar com cautela)</span>
+      </a>
+      <a class="shortcut-btn" href="https://seatmaps.com" target="_blank" rel="noopener">
+        💺 SeatMaps
+        <span class="shortcut-sub">Mapa de assentos por aeronave</span>
+      </a>
+      <a class="shortcut-btn" href="https://www.comparemania.com.br" target="_blank" rel="noopener">
+        🪙 Comparemania
+        <span class="shortcut-sub">Cashback/milhas em passagens</span>
+      </a>
+      <a class="shortcut-btn" href="https://bestonwardticket.com" target="_blank" rel="noopener">
+        📄 BestOnwardTicket
+        <span class="shortcut-sub">Reserva provisória p/ visto</span>
+      </a>
+      <a class="shortcut-btn" href="https://wanderlog.com" target="_blank" rel="noopener">
+        🗺️ Wanderlog
+        <span class="shortcut-sub">Planejador de roteiro</span>
+      </a>
+    </div>
+
+    <table class="table-wrap" style="margin-top:16px;">
+      <tr><th>App</th><th>O que é</th><th>Onde entra no seu fluxo</th></tr>
+      <tr><td><strong>Sherpa</strong></td><td>Exigência de visto/vacina/documento por nacionalidade e destino</td><td>Checar antes de fechar uma viagem internacional achada aqui</td></tr>
+      <tr><td><strong>seats.aero</strong></td><td>Disponibilidade de assento por milhas/pontos</td><td>Alertas nativos e grátis do próprio site (fora deste painel)</td></tr>
+      <tr><td><strong>Skiplagged</strong></td><td>Busca de voos com tarifas "hidden-city"</td><td>Conferência manual pontual — não automatizado (ToS proíbe, risco de cancelamento de trecho)</td></tr>
+      <tr><td><strong>SeatMaps</strong></td><td>Mapa de assentos por aeronave/companhia</td><td>Escolher poltrona depois de comprar a passagem</td></tr>
+      <tr><td><strong>Comparemania</strong></td><td>Cashback e comparação de troca de milhas (BR)</td><td>Conferência manual de cashback antes de comprar</td></tr>
+      <tr><td><strong>BestOnwardTicket</strong></td><td>Reserva provisória de passagem (prova de saída p/ visto)</td><td>Só se pedirem prova de retorno pra emitir visto</td></tr>
+      <tr><td><strong>Wanderlog</strong></td><td>Planejador de itinerário/roteiro de viagem</td><td>Montar o roteiro depois que a passagem for comprada</td></tr>
+    </table>
+    <div class="muted" style="margin-top:8px;">Nenhum desses tem API pública gratuita pra alimentar a detecção de preço automaticamente — são atalhos de uso manual, complementares aos alertas.</div>
+  </div>
 
   <div class="card">
     <h2>🔥 Ofertas da semana (últimos 7 dias)</h2>
     <table>
       <tr><th>Data</th><th>Destino</th><th>Preço</th><th>Datas</th><th>Motivo</th><th></th></tr>
-      <tr><td colspan="6" class="empty">Nenhuma queda detectada nos últimos 7 dias.</td></tr>
+      <tr><td>2026-09-20</td><td>Istambul (Turquia)</td><td>R$ 5.055 <span class="tag tag-warn">estimado</span></td><td>2027-06-09 → 2027-06-23</td><td>menor preço já visto</td><td><a href="https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20IST%20saindo%202027-06-09%20voltando%202027-06-23" target="_blank" rel="noopener">ver</a></td></tr>
     </table>
   </div>
 
@@ -68,7 +125,7 @@
     <h2>📅 Ofertas do mês (últimos 30 dias)</h2>
     <table>
       <tr><th>Data</th><th>Destino</th><th>Preço</th><th>Datas</th><th>Motivo</th><th></th></tr>
-      <tr><td colspan="6" class="empty">Nenhuma queda detectada nos últimos 30 dias.</td></tr>
+      <tr><td>2026-09-20</td><td>Istambul (Turquia)</td><td>R$ 5.055 <span class="tag tag-warn">estimado</span></td><td>2027-06-09 → 2027-06-23</td><td>menor preço já visto</td><td><a href="https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20IST%20saindo%202027-06-09%20voltando%202027-06-23" target="_blank" rel="noopener">ver</a></td></tr>
     </table>
   </div>
 
@@ -86,7 +143,7 @@
       <tr><th>Destino</th><th>Preço mais recente</th><th>Menor preço visto</th></tr>
       <tr><td>Amsterdã (Holanda)</td><td>R$ 4.821 <span class="muted">(2026-09-10)</span></td><td>R$ 4.821 <span class="muted">(2027-04-15)</span></td></tr>
 <tr><td>Barcelona (Espanha)</td><td>R$ 4.070 <span class="muted">(2026-09-10)</span></td><td>R$ 4.070 <span class="muted">(2027-04-15)</span></td></tr>
-<tr><td>Bolívia (La Paz/Santa Cruz) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 1.501 <span class="muted">(2026-09-15)</span></td><td>R$ 1.494 <span class="muted">(2027-02-24)</span></td></tr>
+<tr><td>Bolívia (La Paz/Santa Cruz) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 1.501 <span class="muted">(2026-09-20)</span></td><td>R$ 1.494 <span class="muted">(2027-02-24)</span></td></tr>
 <tr><td>Bruxelas (Bélgica)</td><td>R$ 4.299 <span class="muted">(2026-09-10)</span></td><td>R$ 4.299 <span class="muted">(2027-04-15)</span></td></tr>
 <tr><td>Cairo (Egito) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.222 <span class="muted">(2026-09-11)</span></td><td>R$ 6.222 <span class="muted">(2027-04-04)</span></td></tr>
 <tr><td>Canadá (Toronto)</td><td>R$ 4.952 <span class="muted">(2026-09-15)</span></td><td>R$ 4.952 <span class="muted">(2026-12-09)</span></td></tr>
@@ -94,19 +151,19 @@
 <tr><td>Fernando de Noronha (de Guarulhos)</td><td>R$ 3.636 <span class="muted">(2026-09-10)</span></td><td>R$ 3.636 <span class="muted">(2026-12-15)</span></td></tr>
 <tr><td>Fernando de Noronha (de Viracopos)</td><td>R$ 2.567 <span class="muted">(2026-09-10)</span></td><td>R$ 2.567 <span class="muted">(2026-12-15)</span></td></tr>
 <tr><td>Frankfurt (Alemanha)</td><td>R$ 4.536 <span class="muted">(2026-09-10)</span></td><td>R$ 4.536 <span class="muted">(2027-04-15)</span></td></tr>
-<tr><td>Grécia (Atenas) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 4.912 <span class="muted">(2026-09-15)</span></td><td>R$ 4.912 <span class="muted">(2027-04-22)</span></td></tr>
+<tr><td>Grécia (Atenas) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 4.912 <span class="muted">(2026-09-20)</span></td><td>R$ 4.912 <span class="muted">(2027-04-22)</span></td></tr>
 <tr><td>Islândia (Reykjavik) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.962 <span class="muted">(2026-09-15)</span></td><td>R$ 6.962 <span class="muted">(2027-05-15)</span></td></tr>
-<tr><td>Istambul (Turquia)</td><td>R$ 5.893 <span class="muted">(2026-09-15)</span></td><td>R$ 5.170 <span class="muted">(2027-03-10)</span></td></tr>
-<tr><td>Japão (Tóquio) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.907 <span class="muted">(2026-09-15)</span></td><td>R$ 6.670 <span class="muted">(2027-03-10)</span></td></tr>
+<tr><td>Istambul (Turquia)</td><td>R$ 5.055 <span class="muted">(2026-09-20)</span></td><td>R$ 5.055 <span class="muted">(2027-06-09)</span></td></tr>
+<tr><td>Japão (Tóquio) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 6.912 <span class="muted">(2026-09-20)</span></td><td>R$ 6.670 <span class="muted">(2027-03-10)</span></td></tr>
 <tr><td>Lisboa (Portugal)</td><td>R$ 5.491 <span class="muted">(2026-09-15)</span></td><td>R$ 3.553 <span class="muted">(2027-05-18)</span></td></tr>
 <tr><td>Londres (Reino Unido)</td><td>R$ 5.091 <span class="muted">(2026-09-10)</span></td><td>R$ 5.091 <span class="muted">(2027-04-15)</span></td></tr>
-<tr><td>Madri (Espanha)</td><td>R$ 3.700 <span class="muted">(2026-09-15)</span></td><td>R$ 3.700 <span class="muted">(2027-05-21)</span></td></tr>
-<tr><td>Marrocos (Casablanca/Marrakech) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 4.805 <span class="muted">(2026-09-15)</span></td><td>R$ 4.805 <span class="muted">(2027-02-28)</span></td></tr>
+<tr><td>Madri (Espanha)</td><td>R$ 3.700 <span class="muted">(2026-09-20)</span></td><td>R$ 3.700 <span class="muted">(2027-05-21)</span></td></tr>
+<tr><td>Marrocos (Casablanca/Marrakech) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 5.800 <span class="muted">(2026-09-20)</span></td><td>R$ 4.805 <span class="muted">(2027-02-28)</span></td></tr>
 <tr><td>Milão (Itália)</td><td>R$ 4.533 <span class="muted">(2026-09-10)</span></td><td>R$ 4.533 <span class="muted">(2027-04-15)</span></td></tr>
 <tr><td>Munique (Alemanha)</td><td>R$ 4.482 <span class="muted">(2026-09-10)</span></td><td>R$ 4.482 <span class="muted">(2027-04-15)</span></td></tr>
-<tr><td>Paris (França)</td><td>R$ 4.905 <span class="muted">(2026-09-12)</span></td><td>R$ 4.905 <span class="muted">(2027-05-19)</span></td></tr>
+<tr><td>Paris (França)</td><td>R$ 6.496 <span class="muted">(2026-09-20)</span></td><td>R$ 4.905 <span class="muted">(2027-05-19)</span></td></tr>
 <tr><td>Polônia (Varsóvia) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 5.398 <span class="muted">(2026-09-15)</span></td><td>R$ 5.398 <span class="muted">(2026-12-13)</span></td></tr>
-<tr><td>Porto (Portugal)</td><td>R$ 4.504 <span class="muted">(2026-09-15)</span></td><td>R$ 4.000 <span class="muted">(2027-04-15)</span></td></tr>
+<tr><td>Porto (Portugal)</td><td>R$ 4.411 <span class="muted">(2026-09-20)</span></td><td>R$ 4.000 <span class="muted">(2027-04-15)</span></td></tr>
 <tr><td>Roma (Itália)</td><td>R$ 4.496 <span class="muted">(2026-09-15)</span></td><td>R$ 4.148 <span class="muted">(2027-04-15)</span></td></tr>
 <tr><td>Tel Aviv (Israel) <span class="tag tag-muted">c/ conexão</span></td><td>R$ 8.021 <span class="muted">(2026-09-10)</span></td><td>R$ 8.021 <span class="muted">(2027-01-15)</span></td></tr>
 <tr><td>Zurique (Suíça)</td><td>R$ 4.253 <span class="muted">(2026-09-10)</span></td><td>R$ 4.253 <span class="muted">(2027-04-15)</span></td></tr>
@@ -117,7 +174,7 @@
     <h2>🗂️ Histórico completo de ofertas (60 dias)</h2>
     <table>
       <tr><th>Data</th><th>Destino</th><th>Preço</th><th>Datas</th><th>Motivo</th><th></th></tr>
-      <tr><td colspan="6" class="empty">Nenhuma queda detectada nos últimos 60 dias.</td></tr>
+      <tr><td>2026-09-20</td><td>Istambul (Turquia)</td><td>R$ 5.055 <span class="tag tag-warn">estimado</span></td><td>2027-06-09 → 2027-06-23</td><td>menor preço já visto</td><td><a href="https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20IST%20saindo%202027-06-09%20voltando%202027-06-23" target="_blank" rel="noopener">ver</a></td></tr>
     </table>
   </div>
 
