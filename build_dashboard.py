@@ -178,12 +178,69 @@ def main():
   .tag-warn {{ background: var(--tag-warn-bg); color: var(--tag-warn-text); }}
   .tag-muted {{ background: var(--tag-muted-bg); color: var(--tag-muted-text); }}
   .footer {{ color: var(--muted); font-size: 0.75rem; text-align: center; margin-top: 32px; }}
+  .shortcuts {{ display: flex; gap: 10px; flex-wrap: wrap; }}
+  .shortcut-btn {{
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 14px; font-size: 0.85rem; font-weight: 600; color: var(--text) !important;
+    text-decoration: none !important;
+  }}
+  .shortcut-btn:hover {{ border-color: var(--accent); }}
+  .shortcut-sub {{ display: block; font-weight: 400; color: var(--muted); font-size: 0.75rem; }}
+  .table-wrap td, .table-wrap th {{ white-space: normal; }}
+  .table-wrap td:first-child {{ white-space: nowrap; }}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>✈️ Monitor de Preços de Voos</h1>
   <div class="subtitle">Gerado em {generated_at} · SerpAPI: {usage.get('count', 0)}/{usage.get('month', '')} este mês</div>
+
+  <div class="card">
+    <h2>🔗 Atalhos</h2>
+    <div class="shortcuts">
+      <a class="shortcut-btn" href="https://apply.joinsherpa.com/travel-restrictions?language=pt-BR" target="_blank" rel="noopener">
+        🛂 Sherpa
+        <span class="shortcut-sub">Visto/documentos por destino</span>
+      </a>
+      <a class="shortcut-btn" href="https://seats.aero" target="_blank" rel="noopener">
+        🎫 seats.aero
+        <span class="shortcut-sub">Alertas de milhas/pontos</span>
+      </a>
+      <a class="shortcut-btn" href="https://skiplagged.com" target="_blank" rel="noopener">
+        🛫 Skiplagged
+        <span class="shortcut-sub">Busca hidden-city (usar com cautela)</span>
+      </a>
+      <a class="shortcut-btn" href="https://seatmaps.com" target="_blank" rel="noopener">
+        💺 SeatMaps
+        <span class="shortcut-sub">Mapa de assentos por aeronave</span>
+      </a>
+      <a class="shortcut-btn" href="https://www.comparemania.com.br" target="_blank" rel="noopener">
+        🪙 Comparemania
+        <span class="shortcut-sub">Cashback/milhas em passagens</span>
+      </a>
+      <a class="shortcut-btn" href="https://bestonwardticket.com" target="_blank" rel="noopener">
+        📄 BestOnwardTicket
+        <span class="shortcut-sub">Reserva provisória p/ visto</span>
+      </a>
+      <a class="shortcut-btn" href="https://wanderlog.com" target="_blank" rel="noopener">
+        🗺️ Wanderlog
+        <span class="shortcut-sub">Planejador de roteiro</span>
+      </a>
+    </div>
+
+    <table class="table-wrap" style="margin-top:16px;">
+      <tr><th>App</th><th>O que é</th><th>Onde entra no seu fluxo</th></tr>
+      <tr><td><strong>Sherpa</strong></td><td>Exigência de visto/vacina/documento por nacionalidade e destino</td><td>Checar antes de fechar uma viagem internacional achada aqui</td></tr>
+      <tr><td><strong>seats.aero</strong></td><td>Disponibilidade de assento por milhas/pontos</td><td>Alertas nativos e grátis do próprio site (fora deste painel)</td></tr>
+      <tr><td><strong>Skiplagged</strong></td><td>Busca de voos com tarifas "hidden-city"</td><td>Conferência manual pontual — não automatizado (ToS proíbe, risco de cancelamento de trecho)</td></tr>
+      <tr><td><strong>SeatMaps</strong></td><td>Mapa de assentos por aeronave/companhia</td><td>Escolher poltrona depois de comprar a passagem</td></tr>
+      <tr><td><strong>Comparemania</strong></td><td>Cashback e comparação de troca de milhas (BR)</td><td>Conferência manual de cashback antes de comprar</td></tr>
+      <tr><td><strong>BestOnwardTicket</strong></td><td>Reserva provisória de passagem (prova de saída p/ visto)</td><td>Só se pedirem prova de retorno pra emitir visto</td></tr>
+      <tr><td><strong>Wanderlog</strong></td><td>Planejador de itinerário/roteiro de viagem</td><td>Montar o roteiro depois que a passagem for comprada</td></tr>
+    </table>
+    <div class="muted" style="margin-top:8px;">Nenhum desses tem API pública gratuita pra alimentar a detecção de preço automaticamente — são atalhos de uso manual, complementares aos alertas.</div>
+  </div>
 
   <div class="card">
     <h2>🔥 Ofertas da semana (últimos 7 dias)</h2>
