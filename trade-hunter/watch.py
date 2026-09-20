@@ -30,6 +30,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 from datetime import date, datetime, timedelta
 from urllib.parse import quote as urlquote
@@ -733,18 +734,21 @@ def build_daily_report() -> str:
     lines.extend(build_global_panorama())
 
     watchlist = md.get_watchlist()
-    all_options = {
-        ticker: md.get_options_summary(ticker, top_n=3)
-        for ticker in md.OPTIONS_TICKERS
-    }
+    # Espaça as 12 chamadas (1 por ação) pro opcoes.net.br não rate-limitar
+    # (429) — confirmado que ~3 requisições seguidas sem pausa já é
+    # suficiente pra derrubar o resto do loop. O retry+backoff em
+    # market_data.py._fetch_opcoes_json() é a segunda camada de proteção,
+    # pra quando mesmo espaçado ainda cruzar o limite.
+    all_options = {}
+    for i, ticker in enumerate(md.OPTIONS_TICKERS):
+        if i > 0:
+            time.sleep(2)
+        all_options[ticker] = md.get_options_summary(ticker, top_n=3)
 
     lines.extend(build_options_highlight(all_options, watchlist))
 
-    lines.append("## Preços B3 (variação vs fechamento anterior) — do maior pro menor")
-    ranked = sorted(
-        watchlist.items(),
-        key=lambda kv: (kv[1].get("change_pct") is None, -(kv[1].get("change_pct") or 0)),
-    )
+    lines.append("## Preços B3 (variação vs fechamento anterior) — ordem alfabética")
+    ranked = sorted(watchlist.items(), key=lambda kv: kv[0])
     for label, q in ranked:
         if q.get("error"):
             lines.append(f"- {label}: indisponível ({q['error']})")
