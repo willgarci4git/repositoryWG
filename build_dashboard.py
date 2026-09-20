@@ -47,6 +47,127 @@ def within_days(date_str, days, today):
     return (today - d).days <= days
 
 
+# ---------------------------------------------------------------------------
+# Apps/portais de viagem — não são fonte de dado do monitor (não têm API
+# aberta pra alimentar detecção de preço), só atalhos + referência rápida do
+# que cada um faz e onde entra no fluxo de planejar/comprar/viajar.
+# name, url (None = identidade não confirmada, não linkar), category, what, use
+# ---------------------------------------------------------------------------
+TRAVEL_TOOLS = [
+    ("Sherpa", "https://apply.joinsherpa.com/travel-restrictions?language=pt-BR", "Documentação",
+     "Exigência de visto/vacina/documento por nacionalidade e destino",
+     "Checar antes de fechar uma viagem internacional achada aqui"),
+    ("BestOnwardTicket", "https://bestonwardticket.com", "Documentação",
+     "Reserva provisória de passagem (prova de saída p/ visto)",
+     "Só se pedirem prova de retorno pra emitir visto"),
+    ("seats.aero", "https://seats.aero", "Passagens & milhas",
+     "Disponibilidade de assento por milhas/pontos",
+     "Alertas nativos e grátis do próprio site (fora deste painel)"),
+    ("Skiplagged", "https://skiplagged.com", "Passagens & milhas",
+     "Busca de voos com tarifas \"hidden-city\"",
+     "Conferência manual pontual — não automatizado (ToS proíbe, risco de cancelamento de trecho)"),
+    ("Comparemania", "https://www.comparemania.com.br", "Passagens & milhas",
+     "Cashback e comparação de troca de milhas (BR)",
+     "Conferência manual de cashback antes de comprar"),
+    ("Hopper", "https://www.hopper.com", "Passagens & milhas",
+     "Previsão de preço de voo/hotel, app próprio",
+     "Só uso manual — não integrável (API é B2B fechada pra bancos/companhias, não pra terceiros)"),
+    ("AirHopping", "https://www.airhopping.com", "Passagens & milhas",
+     "Busca voos multi-trecho baratos (estilo volta ao mundo)",
+     "Itinerários com várias paradas fora do padrão ida-e-volta"),
+    ("Omio", "https://www.omio.com", "Passagens & milhas",
+     "Busca e compra de trem/ônibus/voo (forte na Europa)",
+     "Comparar trem vs. voo em trechos intra-Europa"),
+    ("GigSky", "https://www.gigsky.com", "Conectividade (eSIM)",
+     "eSIM de dados internacional",
+     "Comprar internet antes de embarcar"),
+    ("Airalo", "https://www.airalo.com", "Conectividade (eSIM)",
+     "eSIM de viagem — o mais conhecido do mercado",
+     "Comprar chip virtual antes de embarcar"),
+    ("Mobimatter", "https://www.mobimatter.com", "Conectividade (eSIM)",
+     "Marketplace que compara vários provedores de eSIM",
+     "Comparar preço de eSIM entre provedores"),
+    ("Wikiloc", "https://www.wikiloc.com", "Mapas & trilhas",
+     "Trilhas e rotas outdoor (trekking, ciclismo)",
+     "Planejar trilha no destino"),
+    ("maps.me", "https://maps.me", "Mapas & trilhas",
+     "Mapas offline por cidade/região",
+     "Navegação sem internet no destino"),
+    ("AllTrails", "https://www.alltrails.com", "Mapas & trilhas",
+     "Trilhas de caminhada com avaliação da comunidade",
+     "Achar trilha segura e bem avaliada no destino"),
+    ("CityMaps (Ulmon)", "https://www.ulmon.com", "Mapas & trilhas",
+     "Mapas offline de cidades",
+     "Navegação urbana sem internet"),
+    ("Moovit", "https://moovit.com", "Mapas & trilhas",
+     "Navegação de transporte público em tempo real",
+     "Se locomover de ônibus/metrô/trem no destino"),
+    ("Rome2Rio", "https://www.rome2rio.com", "Mapas & trilhas",
+     "Rotas multimodais (voo+trem+ônibus+balsa) entre dois pontos",
+     "Comparar como chegar de A a B por qualquer meio"),
+    ("Holicay", "https://www.holicay.com", "Planejamento & atrações",
+     "Planejador de viagem com IA (roteiro dia a dia)",
+     "Montar roteiro colaborativo com o grupo"),
+    ("Wanderlog", "https://wanderlog.com", "Planejamento & atrações",
+     "Planejador de itinerário/roteiro de viagem",
+     "Montar o roteiro depois que a passagem for comprada"),
+    ("Go City", "https://gocity.com", "Planejamento & atrações",
+     "Passe combinado de atrações turísticas",
+     "Economizar em ingressos na cidade"),
+    ("Atlas Obscura", "https://www.atlasobscura.com", "Planejamento & atrações",
+     "Guia de lugares insólitos/curiosos",
+     "Achar atração fora do óbvio no destino"),
+    ("Rail Planner (Eurail)", "https://www.eurail.com/en/plan-your-trip/rail-planner-app", "Planejamento & atrações",
+     "Planejador de trem pela Europa",
+     "Rotas de trem entre cidades europeias"),
+    ("Worldpackers", "https://www.worldpackers.com", "Planejamento & atrações",
+     "Intercâmbio de trabalho por hospedagem",
+     "Viagem longa/mochilão com custo reduzido"),
+    ("SeatMaps", "https://seatmaps.com", "Conforto & aeroporto",
+     "Mapa de assentos por aeronave/companhia",
+     "Escolher poltrona depois de comprar a passagem"),
+    ("LoungeBuddy", "https://www.loungebuddy.com", "Conforto & aeroporto",
+     "Acesso a salas VIP de aeroporto (hoje ligado à Amex)",
+     "Achar lounge disponível numa conexão"),
+    ("HotelTonight", "https://www.hoteltonight.com", "Conforto & aeroporto",
+     "Hotel de última hora com desconto (hoje parte do Airbnb)",
+     "Reserva de emergência ou oportunista"),
+    ("Bolt", "https://bolt.eu", "Transporte local",
+     "App de corrida (tipo Uber, forte na Europa)",
+     "Transporte local no destino"),
+    ("DriveMe", "https://driveme.nl", "Transporte local",
+     "Motorista particular sob demanda (predominante na Europa)",
+     "Transporte de/para aeroporto em destinos específicos"),
+    ("Monito", "https://www.monito.com", "Dinheiro & câmbio",
+     "Comparador de câmbio e remessa internacional",
+     "Ver a forma mais barata de levar/trocar dinheiro"),
+    ("Ally", "https://www.ally.com", "Dinheiro & câmbio",
+     "Banco americano com cartão sem tarifa internacional",
+     "Opção de cartão pra gastar fora sem tarifa extra"),
+    ("Yelp", "https://www.yelp.com", "Conteúdo & mídia",
+     "Avaliações de restaurantes e locais",
+     "Achar onde comer bem no destino"),
+    ("Mult.dev", "https://mult.dev", "Conteúdo & mídia",
+     "Animação de mapa de rota de viagem",
+     "Criar vídeo do roteiro pra compartilhar"),
+    ("GoPro Quik", "https://gopro.com/en/us/shop/quik-app-video-photo-editor", "Conteúdo & mídia",
+     "Editor de vídeo automático (GoPro)",
+     "Editar vídeos da viagem"),
+    ("Aviator", None, "Não identificado",
+     "Nome ambíguo — vários apps diferentes usam esse nome (nenhum claramente o app de viagem popular do vídeo)",
+     "Confirme com a fonte original qual \"Aviator\" específico antes de usar"),
+]
+
+
+def build_tools_table():
+    rows = sorted(TRAVEL_TOOLS, key=lambda t: (t[2], t[0]))
+    out = ['<tr><th>Categoria</th><th>App</th><th>O que é</th><th>Onde entra no seu fluxo</th></tr>']
+    for name, url, category, what, use in rows:
+        name_html = f'<a href="{html.escape(url)}" target="_blank" rel="noopener"><strong>{html.escape(name)}</strong></a>' if url else f'<strong>{html.escape(name)}</strong> <span class="tag tag-warn">não confirmado</span>'
+        out.append(f"<tr><td>{html.escape(category)}</td><td>{name_html}</td><td>{html.escape(what)}</td><td>{html.escape(use)}</td></tr>")
+    return "\n".join(out)
+
+
 def main():
     cfg = load_json(CONFIG_TEMPLATE_PATH, {"routes": []})
     history = load_json(HISTORY_PATH, {})
@@ -132,7 +253,7 @@ def main():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Monitor de Preços de Voos</title>
+<title>Monitor de Voos WG</title>
 <style>
   :root {{
     --bg: #f7f7f8; --card: #ffffff; --text: #1a1a1a; --muted: #6b7280;
@@ -188,12 +309,12 @@ def main():
   .shortcut-btn:hover {{ border-color: var(--accent); }}
   .shortcut-sub {{ display: block; font-weight: 400; color: var(--muted); font-size: 0.75rem; }}
   .table-wrap td, .table-wrap th {{ white-space: normal; }}
-  .table-wrap td:first-child {{ white-space: nowrap; }}
+  .table-wrap td:first-child, .table-wrap td:nth-child(2) {{ white-space: nowrap; }}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>✈️ Monitor de Preços de Voos</h1>
+  <h1>✈️ Monitor de Voos WG</h1>
   <div class="subtitle">Gerado em {generated_at} · SerpAPI: {usage.get('count', 0)}/{usage.get('month', '')} este mês</div>
 
   <div class="card">
@@ -230,14 +351,7 @@ def main():
     </div>
 
     <table class="table-wrap" style="margin-top:16px;">
-      <tr><th>App</th><th>O que é</th><th>Onde entra no seu fluxo</th></tr>
-      <tr><td><strong>Sherpa</strong></td><td>Exigência de visto/vacina/documento por nacionalidade e destino</td><td>Checar antes de fechar uma viagem internacional achada aqui</td></tr>
-      <tr><td><strong>seats.aero</strong></td><td>Disponibilidade de assento por milhas/pontos</td><td>Alertas nativos e grátis do próprio site (fora deste painel)</td></tr>
-      <tr><td><strong>Skiplagged</strong></td><td>Busca de voos com tarifas "hidden-city"</td><td>Conferência manual pontual — não automatizado (ToS proíbe, risco de cancelamento de trecho)</td></tr>
-      <tr><td><strong>SeatMaps</strong></td><td>Mapa de assentos por aeronave/companhia</td><td>Escolher poltrona depois de comprar a passagem</td></tr>
-      <tr><td><strong>Comparemania</strong></td><td>Cashback e comparação de troca de milhas (BR)</td><td>Conferência manual de cashback antes de comprar</td></tr>
-      <tr><td><strong>BestOnwardTicket</strong></td><td>Reserva provisória de passagem (prova de saída p/ visto)</td><td>Só se pedirem prova de retorno pra emitir visto</td></tr>
-      <tr><td><strong>Wanderlog</strong></td><td>Planejador de itinerário/roteiro de viagem</td><td>Montar o roteiro depois que a passagem for comprada</td></tr>
+      {build_tools_table()}
     </table>
     <div class="muted" style="margin-top:8px;">Nenhum desses tem API pública gratuita pra alimentar a detecção de preço automaticamente — são atalhos de uso manual, complementares aos alertas.</div>
   </div>
