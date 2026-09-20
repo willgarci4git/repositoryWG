@@ -14,6 +14,7 @@ opções) para o usuário decidir por conta própria.
 from __future__ import annotations
 
 import re
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -486,6 +487,39 @@ def _prazo_bucket(vencimento: Optional[tuple[int, int]]) -> str:
     return "longo prazo"
 
 
+def _fetch_opcoes_json(ticker: str, max_retries: int = 3, retry_wait: float = 5.0):
+    """GET em opcoes.net.br com retry+backoff específico pra 429 (Too Many
+    Requests). Confirmado em teste manual (2026-09-20): o rate limit deles
+    é agressivo por IP — bastam ~3 requisições em sequência rápida pra
+    levar 429, o que já derrubou o resumo diário inteiro (só a 1ª/2ª ação
+    do loop de OPTIONS_TICKERS voltava com dado, o resto vinha "indisponível
+    (429 Client Error)"). Nunca lança exceção — devolve (body, None) em
+    sucesso ou (None, "mensagem de erro") em falha definitiva."""
+    last_error = "erro desconhecido"
+    for attempt in range(max_retries):
+        try:
+            resp = requests.get(
+                OPCOES_URL,
+                params={"idAcao": ticker, "listarVencimentos": "true", "cotacoes": "true"},
+                headers=BROWSER_HEADERS,
+                timeout=15,
+            )
+        except Exception as exc:  # noqa: BLE001
+            last_error = str(exc)
+        else:
+            if resp.status_code == 429:
+                last_error = "429 Too Many Requests (rate limit do opcoes.net.br)"
+            else:
+                try:
+                    resp.raise_for_status()
+                    return resp.json(), None
+                except Exception as exc:  # noqa: BLE001
+                    return None, str(exc)  # erro que não é 429 — não adianta retry
+        if attempt < max_retries - 1:
+            time.sleep(retry_wait * (attempt + 1))  # backoff: 5s, 10s
+    return None, last_error
+
+
 def get_options_summary(ticker: str, top_n: int = 5) -> dict:
     """Busca a grade de opções de `ticker` (ex.: "PRIO3") em opcoes.net.br e
     resume: volume negociado e número de negócios por CALL/PUT, put/call
@@ -499,17 +533,9 @@ def get_options_summary(ticker: str, top_n: int = 5) -> dict:
     usuário em vez de mostrar um número que não presta.
     """
     ticker = ticker.strip().upper()
-    try:
-        resp = requests.get(
-            OPCOES_URL,
-            params={"idAcao": ticker, "listarVencimentos": "true", "cotacoes": "true"},
-            headers=BROWSER_HEADERS,
-            timeout=15,
-        )
-        resp.raise_for_status()
-        body = resp.json()
-    except Exception as exc:  # noqa: BLE001
-        return {"ticker": ticker, "error": str(exc)}
+    body, error = _fetch_opcoes_json(ticker)
+    if error:
+        return {"ticker": ticker, "error": error}
 
     data = (body or {}).get("data") or {}
     rows = data.get("cotacoesOpcoes") or []
