@@ -55,7 +55,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "porto": {
     "observations": [
@@ -104,6 +104,12 @@
       {
         "checked_at": "2026-09-21",
         "price": 4409,
+        "date": "2027-03-15",
+        "arrival_code": "OPO"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 4408,
         "date": "2027-03-15",
         "arrival_code": "OPO"
       }
@@ -178,6 +184,12 @@
         "price": 4204,
         "date": "2027-06-10",
         "arrival_code": "MAD"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 4204,
+        "date": "2027-06-10",
+        "arrival_code": "MAD"
       }
     ],
     "last_alert": {
@@ -196,7 +208,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "paris": {
     "observations": [
@@ -247,6 +259,12 @@
         "price": 6496,
         "date": "2027-01-12",
         "arrival_code": "CDG"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 6496,
+        "date": "2027-01-12",
+        "arrival_code": "CDG"
       }
     ],
     "last_alert": null,
@@ -262,7 +280,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "bruxelas": {
     "observations": [
@@ -274,7 +292,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "frankfurt": {
     "observations": [
@@ -286,7 +304,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "munique": {
     "observations": [
@@ -298,7 +316,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "zurique": {
     "observations": [
@@ -310,7 +328,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "londres": {
     "observations": [
@@ -322,7 +340,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "roma": {
     "observations": [
@@ -355,6 +373,12 @@
         "price": 4496,
         "date": "2027-05-07",
         "arrival_code": "FCO"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 6534,
+        "date": "2027-01-01",
+        "arrival_code": "FCO"
       }
     ],
     "last_alert": null,
@@ -370,7 +394,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "istambul": {
     "observations": [
@@ -430,6 +454,12 @@
       },
       {
         "checked_at": "2026-09-20",
+        "price": 5055,
+        "date": "2027-06-09",
+        "arrival_code": "IST"
+      },
+      {
+        "checked_at": "2026-09-21",
         "price": 5055,
         "date": "2027-06-09",
         "arrival_code": "IST"
@@ -556,6 +586,12 @@
         "price": 5800,
         "date": "2027-01-14",
         "arrival_code": "CMN"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 5800,
+        "date": "2027-01-14",
+        "arrival_code": "CMN"
       }
     ],
     "last_alert": {
@@ -607,6 +643,12 @@
         "price": 1501,
         "date": "2027-02-24",
         "arrival_code": "VVI"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 2017,
+        "date": "2027-02-19",
+        "arrival_code": "LPB"
       },
       {
         "checked_at": "2026-09-21",
@@ -688,7 +730,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "noronha_vcp": {
     "observations": [
@@ -700,7 +742,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "noronha_cgh": {
     "observations": [
@@ -775,6 +817,12 @@
         "price": 6912,
         "date": "2027-03-10",
         "arrival_code": "NRT"
+      },
+      {
+        "checked_at": "2026-09-21",
+        "price": 6912,
+        "date": "2027-03-10",
+        "arrival_code": "NRT"
       }
     ],
     "last_alert": null,
@@ -801,6 +849,12 @@
       },
       {
         "checked_at": "2026-09-20",
+        "price": 4912,
+        "date": "2027-04-22",
+        "arrival_code": "ATH"
+      },
+      {
+        "checked_at": "2026-09-21",
         "price": 4912,
         "date": "2027-04-22",
         "arrival_code": "ATH"
@@ -866,7 +920,7 @@
   "africa_do_sul": {
     "observations": [],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "canada": {
     "observations": [
@@ -896,7 +950,7 @@
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 6
+    "fallback_cursor": 7
   },
   "_melhoresdestinos": {
     "last_seen_id": 635630
