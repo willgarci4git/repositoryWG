@@ -153,9 +153,6 @@ TRAVEL_TOOLS = [
     ("GoPro Quik", "https://gopro.com/en/us/shop/quik-app-video-photo-editor", "Conteúdo & mídia",
      "Editor de vídeo automático (GoPro)",
      "Editar vídeos da viagem"),
-    ("Aviator", None, "Não identificado",
-     "Nome ambíguo — vários apps diferentes usam esse nome (nenhum claramente o app de viagem popular do vídeo)",
-     "Confirme com a fonte original qual \"Aviator\" específico antes de usar"),
 ]
 
 
