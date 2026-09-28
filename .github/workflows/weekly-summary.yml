@@ -1,0 +1,46 @@
+name: Trade Hunter — Resumo Semanal (envio)
+
+# Este workflow NÃO gera o conteúdo — ele só ENVIA. Quem escreve o texto é
+# uma rotina na nuvem do Claude Code (roda toda segunda 9h BRT, consumindo
+# o plano do usuário — sem custo de API separado), que pesquisa a agenda
+# macro da semana e dá git push em trade-hunter/resumo_semanal_pendente.md.
+# Esse push é o gatilho abaixo. Os secrets (Telegram/Discord) continuam só
+# aqui no GitHub Actions — a rotina nunca tem acesso a eles.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "trade-hunter/resumo_semanal_pendente.md"
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install requests beautifulsoup4 python-dotenv
+
+      - name: Enviar resumo semanal
+        working-directory: trade-hunter
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python send_weekly_summary.py
+
+      - name: Avisar se a rotina quebrou
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="⚠️ Trade Hunter (Resumo Semanal) falhou ao enviar. Ver: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
