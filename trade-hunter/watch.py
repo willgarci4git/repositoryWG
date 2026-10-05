@@ -100,6 +100,13 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 STATE_FILE = os.path.join(DATA_DIR, "watch_state.json")
 LAST_SUMMARY_FILE = os.path.join(DATA_DIR, "ultimo_resumo.md")
 
+# Fora de data/ (que é gitignored) de propósito — este arquivo É pra ser
+# commitado e ficar público no repo, pra servir de "fonte viva" de cotação
+# pra quem não consegue rodar server.py (MCP local, stdio) — ex.: um agente
+# num Project do claude.ai (web), que só alcança URL pública via HTTP.
+# Ver build_live_quotes_snapshot() / README para o link raw.githubusercontent.com.
+LIVE_QUOTES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cotacoes_atuais.md")
+
 # Limiares de alerta intraday (variação % vs fechamento anterior, que é o que
 # o TradingView já devolve em change_pct).
 THRESHOLDS = {
@@ -379,6 +386,51 @@ def build_market_dashboard_section(quotes: dict) -> str:
     return "\n".join(lines)
 
 
+# ---------------------------------------------------------------------------
+# Cotações ao vivo — arquivo público (pedido do usuário, 2026-10-05): levar
+# os dados do Trade Hunter pra um agente financeiro num Project do claude.ai,
+# que não consegue rodar server.py (MCP local/stdio) nem acessar o GitHub
+# Actions diretamente — só alcança uma URL pública via HTTP. A solução mais
+# simples (sem infraestrutura nova, sem custo): este arquivo é reescrito a
+# cada execução do intraday e commitado pro repo pelo próprio workflow
+# (.github/workflows/intraday.yml, usando o GITHUB_TOKEN nativo das Actions,
+# sem precisar de PAT nem do GitHub App da rotina semanal). O agente do
+# claude.ai busca o link raw.githubusercontent.com desse arquivo quando
+# precisar de uma cotação — fica no máximo ~15 min desatualizado (ou até o
+# próximo ciclo do pregão), não é "ao vivo sob demanda" de verdade (isso
+# exigiria um servidor MCP remoto, caminho mais caro/trabalhoso que o
+# usuário decidiu não seguir por ora).
+# ---------------------------------------------------------------------------
+
+def build_live_quotes_snapshot(quotes: dict[str, "md.Quote"]) -> str:
+    """Monta o markdown de 'cotações ao vivo' com TODOS os ativos do
+    ASSET_MAP, ordenados alfabeticamente — mesma convenção de ordenação já
+    usada na seção 'Preços B3' do resumo diário (pedido do usuário)."""
+    now = datetime.now()
+    lines = [
+        "# Cotações ao vivo — Trade Hunter B3",
+        "",
+        f"_Atualizado em {now.strftime('%d/%m/%Y %H:%M')} (horário de Brasília) — "
+        "gerado automaticamente a cada ~15 min durante o pregão (10h-17h, dias úteis). "
+        "Fora desse horário, o valor é da última checagem feita._",
+        "",
+        "_Dado informativo (preço e variação vs. fechamento anterior), não é recomendação de compra/venda._",
+        "",
+        "| Ativo | Preço | Variação |",
+        "|---|---|---|",
+    ]
+    for label in sorted(quotes.keys()):
+        q = quotes[label]
+        if q.error or q.price is None:
+            lines.append(f"| {label} | indisponível | — |")
+        else:
+            extra = _vix_signal(q.price) if label == "VIX" else ""
+            change_txt = f"{q.change_pct:+.2f}%" if q.change_pct is not None else "n/d"
+            lines.append(f"| {label} | {q.price} | {change_txt}{extra} |")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def run_intraday(dry_run: bool = False) -> int:
     if not _in_trading_hours():
         print("Fora do horário de pregão (10h-17h, dias úteis) — nada a fazer.")
@@ -391,6 +443,22 @@ def run_intraday(dry_run: bool = False) -> int:
     # screener) em vez de uma chamada por ativo, pra não tomar 429 do
     # TradingView com 40+ ativos monitorados.
     quotes_cache = md.get_quotes_batch(list(THRESHOLDS.keys()))
+
+    # Cotações ao vivo (arquivo público, ver bloco de comentário acima de
+    # build_live_quotes_snapshot): completa quotes_cache com os ativos do
+    # ASSET_MAP que faltam (painel global, renda fixa etc.) — só busca os
+    # que ainda não vieram do fetch de THRESHOLDS acima, pra não duplicar
+    # requisição nos ativos que já se sobrepõem.
+    missing_labels = [l for l in md.ASSET_MAP if l not in quotes_cache]
+    all_quotes_for_snapshot = dict(quotes_cache)
+    if missing_labels:
+        all_quotes_for_snapshot.update(md.get_quotes_batch(missing_labels))
+    try:
+        with open(LIVE_QUOTES_FILE, "w", encoding="utf-8") as f:
+            f.write(build_live_quotes_snapshot(all_quotes_for_snapshot))
+    except Exception as exc:  # noqa: BLE001
+        print(f"AVISO: falha ao gravar {LIVE_QUOTES_FILE}: {exc}", file=sys.stderr)
+
     for label, threshold in THRESHOLDS.items():
         quote = quotes_cache[label]
         if quote.error or quote.change_pct is None:
