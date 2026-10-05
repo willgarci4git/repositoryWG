@@ -12,6 +12,11 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    # Precisa de write pra commitar trade-hunter/cotacoes_atuais.md (passo
+    # "Publicar cotações ao vivo" abaixo) — usa o GITHUB_TOKEN nativo das
+    # Actions, sem precisar de PAT nem do GitHub App da rotina semanal.
+    permissions:
+      contents: write
     env:
       # Crítico: sem isso, datetime.now() no watch.py usa UTC do runner,
       # e a checagem de "horário de pregão" (10h-17h) ficaria toda errada.
@@ -48,6 +53,25 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python watch.py --mode intraday
+
+      - name: Publicar cotações ao vivo (se mudou)
+        # trade-hunter/cotacoes_atuais.md é reescrito a cada execução (ver
+        # build_live_quotes_snapshot() em watch.py) — pedido do usuário pra
+        # servir de fonte de dado pro agente financeiro dele num Project do
+        # claude.ai, que só alcança URL pública (não roda o server.py MCP
+        # local). Só commita se o conteúdo realmente mudou.
+        if: always()
+        run: |
+          cd trade-hunter
+          if [ -n "$(git status --porcelain cotacoes_atuais.md)" ]; then
+            git config user.name "Trade Hunter bot"
+            git config user.email "actions@github.com"
+            git add cotacoes_atuais.md
+            git commit -m "cotações ao vivo: $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
+            git push
+          else
+            echo "Sem mudança nas cotações, nada a commitar."
+          fi
 
       - name: Salvar estado atualizado (sempre, mesmo se o passo acima falhar)
         if: always()
