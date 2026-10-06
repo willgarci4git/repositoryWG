@@ -1,6 +1,6 @@
 # Cotações ao vivo — Trade Hunter B3
 
-_Atualizado em 06/10/2026 17:26 (horário de Brasília) — gerado automaticamente a cada ~15 min durante o pregão (10h-17h, dias úteis). Fora desse horário, o valor é da última checagem feita._
+_Atualizado em 06/10/2026 17:41 (horário de Brasília) — gerado automaticamente a cada ~15 min durante o pregão (10h-17h, dias úteis). Fora desse horário, o valor é da última checagem feita._
 
 _Dado informativo (preço e variação vs. fechamento anterior), não é recomendação de compra/venda._
 
@@ -12,15 +12,15 @@ _Dado informativo (preço e variação vs. fechamento anterior), não é recomen
 | BBDC4 | 22.8 | +4.40% |
 | BBSE3 | 40.08 | -2.22% |
 | BRAV3 | 19.25 | +0.79% |
-| BRENT | 101.09 | +0.77% |
+| BRENT | 101.08 | +0.76% |
 | CMIG4 | 11.99 | +0.08% |
 | CPTS11 | 7.78 | +1.43% |
 | DOW | 51521.28 | +0.49% |
-| DXY | 101.85 | -0.25% |
-| EURBRL | 5.6055 | +0.01% |
+| DXY | 101.863 | -0.23% |
+| EURBRL | 5.6096 | +0.08% |
 | EWZ | 43 | +0.05% |
 | GGRC11 | 9.28 | +2.20% |
-| GOLD_FUT | 4195.8 | +0.94% |
+| GOLD_FUT | 4191.9 | +0.84% |
 | HGLG11 | 154 | +2.46% |
 | IBOV | 205835.29 | -0.52% |
 | IBXL | 34769.06 | -0.69% |
@@ -32,7 +32,7 @@ _Dado informativo (preço e variação vs. fechamento anterior), não é recomen
 | MGLU3 | 9.24 | -2.22% |
 | NASDAQ100 | 31224.4719 | +0.48% |
 | NIKKEI225 | 70683.76 | +1.05% |
-| NQ_FUT | 31497.5 | +0.57% |
+| NQ_FUT | 31492.75 | +0.56% |
 | PETR4 | 53.82 | -2.78% |
 | PRIO3 | 62.05 | -3.27% |
 | RBRY11 | 85.93 | +4.37% |
@@ -44,13 +44,13 @@ _Dado informativo (preço e variação vs. fechamento anterior), não é recomen
 | SPY | 779.09 | +0.55% |
 | SUZB3 | 41.72 | -0.57% |
 | TLT | 77.28 | +0.22% |
-| USDBRL | 4.9806 | -0.28% |
-| UST10Y | 5.279 | -0.53% |
-| UST2Y | 4.795 | -0.35% |
-| UST30Y | 5.656 | -0.09% |
-| VIX | 15 | -3.35% (VIX - Índice do Medo: 🟢 ÓTIMO, abaixo de 20) |
+| USDBRL | 4.983 | -0.23% |
+| UST10Y | 5.286 | -0.40% |
+| UST2Y | 4.798 | -0.29% |
+| UST30Y | 5.661 | +0.00% |
+| VIX | 15.01 | -3.29% (VIX - Índice do Medo: 🟢 ÓTIMO, abaixo de 20) |
 | VRTA11 | 74.5 | +2.96% |
 | VWO | 60.62 | +0.02% |
-| WTI_FUT | 89.84 | +0.46% |
+| WTI_FUT | 89.88 | +0.50% |
 | XLP | 81.8 | +0.94% |
-| YM_FUT | 51817 | +0.50% |
+| YM_FUT | 51826 | +0.52% |
