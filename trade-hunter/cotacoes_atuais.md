@@ -1,56 +1,56 @@
 # Cotações ao vivo — Trade Hunter B3
 
-_Atualizado em 08/10/2026 11:30 (horário de Brasília) — gerado automaticamente a cada ~15 min durante o pregão (10h-17h, dias úteis). Fora desse horário, o valor é da última checagem feita._
+_Atualizado em 08/10/2026 11:56 (horário de Brasília) — gerado automaticamente a cada ~15 min durante o pregão (10h-17h, dias úteis). Fora desse horário, o valor é da última checagem feita._
 
 _Dado informativo (preço e variação vs. fechamento anterior), não é recomendação de compra/venda._
 
 | Ativo | Preço | Variação |
 |---|---|---|
-| AIQ | 66.3199 | -0.53% |
-| ALZR11 | 10.45 | +0.38% |
-| BBAS3 | 24.2 | +0.08% |
-| BBDC4 | 21.9 | -0.27% |
-| BBSE3 | 41.01 | +1.81% |
-| BRAV3 | 20.58 | +3.47% |
-| BRENT | 104.83 | +4.62% |
-| CMIG4 | 11.95 | +0.67% |
-| CPTS11 | 7.84 | -0.38% |
-| DOW | 51162.99 | -0.03% |
-| DXY | 102.102 | -0.14% |
-| EURBRL | 5.6159 | +0.21% |
-| EWZ | 42.74 | +0.87% |
-| GGRC11 | 9.36 | +0.65% |
-| GOLD_FUT | 4155.6 | +0.36% |
-| HGLG11 | 155.62 | -0.56% |
-| IBOV | 206348.56 | +1.00% |
-| IBXL | 34866.11 | +1.03% |
-| IEF | 89.14 | +0.03% |
-| ITSA4 | 16.06 | +0.37% |
+| AIQ | 66.29 | -0.57% |
+| ALZR11 | 10.43 | +0.19% |
+| BBAS3 | 24.42 | +0.99% |
+| BBDC4 | 22.02 | +0.27% |
+| BBSE3 | 40.93 | +1.61% |
+| BRAV3 | 20.7 | +4.07% |
+| BRENT | 105.38 | +5.17% |
+| CMIG4 | 12.08 | +1.77% |
+| CPTS11 | 7.77 | -1.27% |
+| DOW | 51073.33 | -0.21% |
+| DXY | 102.15 | -0.10% |
+| EURBRL | 5.6096 | +0.09% |
+| EWZ | 43.105 | +1.73% |
+| GGRC11 | 9.38 | +0.86% |
+| GOLD_FUT | 4149.2 | +0.21% |
+| HGLG11 | 155.25 | -0.79% |
+| IBOV | 207720.34 | +1.67% |
+| IBXL | 35085.8 | +1.67% |
+| IEF | 89.065 | -0.05% |
+| ITSA4 | 16.18 | +1.12% |
 | KOSPI | 6625.93 | -2.62% |
-| LREN3 | 13.49 | +0.45% |
-| LVBI11 | 102.91 | -0.01% |
-| MGLU3 | 10 | +2.99% |
-| NASDAQ100 | 31021.2072 | -0.45% |
+| LREN3 | 13.64 | +1.56% |
+| LVBI11 | 102.87 | -0.05% |
+| MGLU3 | 10.23 | +5.36% |
+| NASDAQ100 | 31081.455 | -0.25% |
 | NIKKEI225 | 69042.11 | -1.42% |
-| NQ_FUT | 31293.25 | -0.35% |
-| PETR4 | 55.26 | +1.71% |
-| PRIO3 | 64.7 | +3.34% |
-| RBRY11 | 86.74 | -1.39% |
-| RECR11 | 76.38 | -2.05% |
+| NQ_FUT | 31294 | -0.34% |
+| PETR4 | 55.19 | +1.58% |
+| PRIO3 | 65 | +3.82% |
+| RBRY11 | 86.58 | -1.57% |
+| RECR11 | 76.26 | -2.21% |
 | RZTR11 | 86.94 | -1.11% |
-| SAPR11 | 42.94 | +2.31% |
+| SAPR11 | 43.47 | +3.57% |
 | SHANGHAI | 3811.9043 | -0.79% |
-| SHY | 81.1376 | -0.03% |
-| SPY | 775.875 | -0.17% |
-| SUZB3 | 42.98 | +1.90% |
-| TLT | 77.39 | +0.32% |
-| USDBRL | 5.006 | -0.31% |
-| UST10Y | 5.286 | +0.00% |
-| UST2Y | 4.804 | +0.71% |
-| UST30Y | 5.651 | -0.39% |
-| VIX | 15.38 | +1.99% (VIX - Índice do Medo: 🟢 ÓTIMO, abaixo de 20) |
-| VRTA11 | 76.74 | +0.31% |
-| VWO | 59.315 | -0.89% |
-| WTI_FUT | 92.3 | +4.55% |
-| XLP | 82.545 | +1.03% |
-| YM_FUT | 51427 | -0.04% |
+| SHY | 81.1219 | -0.05% |
+| SPY | 776.19 | -0.13% |
+| SUZB3 | 42.96 | +1.85% |
+| TLT | 77.325 | +0.23% |
+| USDBRL | 5.0065 | -0.30% |
+| UST10Y | 5.303 | +0.32% |
+| UST2Y | 4.818 | +1.01% |
+| UST30Y | 5.66 | -0.23% |
+| VIX | 15.26 | +1.19% (VIX - Índice do Medo: 🟢 ÓTIMO, abaixo de 20) |
+| VRTA11 | 76.71 | +0.27% |
+| VWO | 59.395 | -0.76% |
+| WTI_FUT | 92.57 | +4.86% |
+| XLP | 82.69 | +1.21% |
+| YM_FUT | 51336 | -0.22% |
