@@ -1,42 +1,46 @@
 *Panorama da Semana | Agenda Macro*
-05 a 09 de outubro de 2026
+12 a 16 de outubro de 2026
 
-A semana é mais enxuta em volume de indicadores, mas concentra dois bancos centrais no radar: o grande destaque fica para quarta-feira, com a ata do FOMC (Federal Reserve) referente à reunião de 15 e 16 de setembro. No início da semana, a China segue em Golden Week (feriado de 01 a 07/10), com liquidez reduzida nos mercados asiáticos e reabertura prevista para quinta-feira. No Brasil, a semana abre com o tradicional Boletim Focus.
+A semana começa com um feriado nacional no Brasil (Nossa Senhora Aparecida), o que empurra a divulgação do Boletim Focus — normalmente às segundas — para a terça-feira. Nos EUA, a atenção se divide entre o CPI de setembro na quarta-feira (o principal dado da semana, já que não há reunião do Fed nem do Copom neste mês) e a abertura da temporada de balanços dos grandes bancos americanos. Do lado chinês, saem à noite (horário de Brasília) o CPI, o PPI e a balança comercial de setembro.
 
-🔵 *Segunda-feira (05/10)*
+🔵 *Segunda-feira (12/10)*
 
-🇧🇷 08h25 – Boletim Focus (Banco Central)
-🇺🇸 11h00 – ISM Serviços (setembro)
+🇧🇷 *Feriado nacional* — Nossa Senhora Aparecida. Mercado doméstico fechado; Boletim Focus adiado para terça-feira.
+🇺🇸 *Columbus Day* — mercado de títulos do Tesouro (Treasury) fechado; bolsas de ações operam normalmente.
 
-🌏 Mercados chineses seguem fechados por conta da Golden Week (01 a 07/10).
+🟡 *Terça-feira (13/10)*
 
-🟡 *Terça-feira (06/10)*
+🇧🇷 08h25 – Boletim Focus (Banco Central) — divulgação adiada da segunda-feira
+🇧🇷 15h00 – Balança Comercial semanal/parcial de outubro (Secex/MDIC)
+🇺🇸 Antes da abertura – Início da temporada de balanços do setor bancário: JPMorgan, Goldman Sachs, Citigroup e Wells Fargo reportam resultados do 3º trimestre
 
-🇺🇸 09h30 – Balança Comercial (agosto)
-🇨🇦 09h30 – Balança Comercial (agosto)
-🇨🇦 11h00 – Ivey PMI (setembro)
+🌏 *NOITE – CHINA (madrugada de quarta no horário de Brasília)*
+🇨🇳 22h30 – CPI e PPI de setembro
+🇨🇳 Durante a manhã em Pequim (sem horário fixo divulgado) – Balança Comercial de setembro
 
-🔴 *Quarta-feira (07/10)* — Dia do Fed
+🔴 *Quarta-feira (14/10)*
 
-🇺🇸 15h00 – Ata do FOMC (reunião de 15 e 16 de setembro)
+🇺🇸 09h30 – CPI (Índice de Preços ao Consumidor) de setembro
 🔥 _PRINCIPAL EVENTO DA SEMANA_
-A ata deve trazer principalmente:
-Grau de apoio dos membros do comitê ao ritmo de cortes de juros
-Divisão de opiniões sobre o equilíbrio entre inflação e emprego nos EUA
-Sinalizações para a próxima reunião, em 27 e 28 de outubro
+O relatório traz principalmente:
+Inflação cheia (headline) e núcleo, nas variações mensal e em 12 meses
+Contribuição de itens como combustíveis e tarifas aéreas
+Pistas sobre o ritmo de alta de preços às vésperas da reunião do Fed de 27–28/10
+🇺🇸 Balanços bancários continuam: Bank of America, Morgan Stanley e BlackRock
 
-🇺🇸 16h00 – Crédito ao Consumidor (agosto)
-🇨🇳 Último dia da Golden Week — mercados chineses reabrem na quinta-feira (08/10)
+🟣 *Quinta-feira (15/10)*
 
-🟣 *Quinta-feira (08/10)*
+🇺🇸 09h30 – PPI (Índice de Preços ao Produtor) de setembro
+🇺🇸 09h30 – Vendas no Varejo (Retail Sales) de setembro
+🇺🇸 09h30 – Pedidos de Auxílio-Desemprego (Jobless Claims)
+🇺🇸 09h30 – Índice Fed Filadélfia (Philly Fed Manufacturing Index)
 
-🇪🇺 08h30 – Ata do BCE (reunião de política monetária)
-🇺🇸 09h30 – Pedidos de Seguro-Desemprego (semanal)
-🇨🇳 Reabertura dos mercados chineses após a Golden Week
+🟢 *Sexta-feira (16/10)*
 
-🟢 *Sexta-feira (09/10)* — Fechamento com emprego e consumo
+🇧🇷 09h00 – IBC-Br de agosto (Banco Central) — fecha a rodada de indicadores de atividade referentes a agosto
+🇪🇺 06h00 – CPI final da Zona do Euro (setembro) e Comércio Exterior (agosto) — Eurostat
 
-🇨🇦 09h30 – Relatório de Emprego (setembro)
-🇺🇸 11h00 – Confiança do Consumidor da Universidade de Michigan (prévia de outubro)
+📌 Com Fed e Copom fora do radar neste mês, o CPI americano de quarta-feira concentra a atenção da semana: a combinação de inflação cheia, núcleo e os itens que pressionaram o índice (como combustíveis) tende a ser o principal referencial para o mercado reprecificar as apostas sobre o ritmo do Fed daqui até a reunião de 27–28/10. A bateria de dados de quinta (PPI, varejo, pedidos de seguro-desemprego e Philly Fed) e a abertura da temporada de balanços bancários somam-se como pontos de atenção adicionais, mas com peso secundário diante do CPI.
 
-📌 Com o evento principal da semana concentrado na ata do FOMC, o mercado deve observar o grau de consenso entre os dirigentes do Fed sobre o ritmo dos próximos cortes de juros e como cada um pondera os riscos entre inflação e emprego nos EUA — leitura que ajuda a calibrar as apostas para a reunião de 27-28 de outubro. Secundariamente, a ata do BCE na quinta-feira e os dados de emprego do Canadá e de confiança do consumidor americano na sexta-feira complementam a leitura sobre o ritmo de atividade global às vésperas do último trimestre do ano.
+---
+_Fontes consultadas: feed econômico internacional (impacto médio/alto), coberturas desta semana da Safras & Mercado, InfoMoney, Money Times e BPMoney sobre a agenda brasileira, Banco Central (Boletim Focus), buscas sobre o calendário oficial do BLS (EUA), NBS (China) e Eurostat (Zona do Euro). Indicadores do formato-padrão sem confirmação de data nesta semana (ex.: Novo Caged, IGP-M, PMC/PMS/PIM-PF) foram omitidos por já terem sido divulgados em semanas anteriores ou por falta de confirmação de data específica para 12–16/10._
