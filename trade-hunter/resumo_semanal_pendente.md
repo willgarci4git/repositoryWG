@@ -1,46 +1,42 @@
 *Panorama da Semana | Agenda Macro*
-12 a 16 de outubro de 2026
+19 a 23 de outubro de 2026
 
-A semana começa com um feriado nacional no Brasil (Nossa Senhora Aparecida), o que empurra a divulgação do Boletim Focus — normalmente às segundas — para a terça-feira. Nos EUA, a atenção se divide entre o CPI de setembro na quarta-feira (o principal dado da semana, já que não há reunião do Fed nem do Copom neste mês) e a abertura da temporada de balanços dos grandes bancos americanos. Do lado chinês, saem à noite (horário de Brasília) o CPI, o PPI e a balança comercial de setembro.
+A semana não tem reunião do Fed (marcada para 27–28/10) nem do Copom (próxima em 04/11), então o calendário fica mais leve que o normal. Ainda assim, dois pontos merecem atenção: na madrugada de terça-feira (horário da China), saem o PIB do 3º trimestre chinês e a decisão de juros do PBoC — números relevantes para o humor de commodities ligadas ao Brasil, como minério de ferro e petróleo. E na sexta-feira, Dia Global do PMI, o mercado compara os primeiros indicadores de atividade de outubro nos EUA, Reino Unido, Zona do Euro e Japão, no mesmo dia em que o Brasil divulga o IPCA-15 — última leitura de inflação antes da reunião do Copom do início de novembro.
 
-🔵 *Segunda-feira (12/10)*
+🔵 *Segunda-feira (19/10)*
 
-🇧🇷 *Feriado nacional* — Nossa Senhora Aparecida. Mercado doméstico fechado; Boletim Focus adiado para terça-feira.
-🇺🇸 *Columbus Day* — mercado de títulos do Tesouro (Treasury) fechado; bolsas de ações operam normalmente.
+🇧🇷 08h25 – Boletim Focus (Banco Central)
 
-🟡 *Terça-feira (13/10)*
+🌏 *NOITE – CHINA*
+🇨🇳 22h00 – Taxa de Referência (LPR) do PBoC
+🇨🇳 23h00 – PIB do 3º trimestre de 2026
 
-🇧🇷 08h25 – Boletim Focus (Banco Central) — divulgação adiada da segunda-feira
-🇧🇷 15h00 – Balança Comercial semanal/parcial de outubro (Secex/MDIC)
-🇺🇸 Antes da abertura – Início da temporada de balanços do setor bancário: JPMorgan, Goldman Sachs, Citigroup e Wells Fargo reportam resultados do 3º trimestre
+🟡 *Terça-feira (20/10)*
 
-🌏 *NOITE – CHINA (madrugada de quarta no horário de Brasília)*
-🇨🇳 22h30 – CPI e PPI de setembro
-🇨🇳 Durante a manhã em Pequim (sem horário fixo divulgado) – Balança Comercial de setembro
+🇺🇸 11h00 – Pending Home Sales (Vendas Pendentes de Imóveis, referência setembro) — NAR
 
-🔴 *Quarta-feira (14/10)*
+🔴 *Quarta-feira (21/10)*
 
-🇺🇸 09h30 – CPI (Índice de Preços ao Consumidor) de setembro
+🇬🇧 03h00 – CPI (Inflação ao Consumidor) do Reino Unido, referência setembro — ONS
+
+🟣 *Quinta-feira (22/10)*
+
+🇺🇸 09h30 – Pedidos de Auxílio-Desemprego (Initial Jobless Claims)
+
+🟢 *Sexta-feira (23/10)* — Dia Global do PMI
+
+🇧🇷 09h00 – IPCA-15 (prévia da inflação de outubro) — IBGE
 🔥 _PRINCIPAL EVENTO DA SEMANA_
 O relatório traz principalmente:
-Inflação cheia (headline) e núcleo, nas variações mensal e em 12 meses
-Contribuição de itens como combustíveis e tarifas aéreas
-Pistas sobre o ritmo de alta de preços às vésperas da reunião do Fed de 27–28/10
-🇺🇸 Balanços bancários continuam: Bank of America, Morgan Stanley e BlackRock
+Variação mensal e em 12 meses da prévia da inflação
+Comparação com a prévia de setembro
+Peso de grupos como alimentação e combustíveis na composição do índice
+Insumo direto para as apostas sobre a decisão do Copom de 04/11
 
-🟣 *Quinta-feira (15/10)*
+🌎 PMIs Industriais Preliminares (Flash) – Zona do Euro, Reino Unido e Japão
+🇺🇸 10h45 – PMI Composto Preliminar (S&P Global Flash PMI)
 
-🇺🇸 09h30 – PPI (Índice de Preços ao Produtor) de setembro
-🇺🇸 09h30 – Vendas no Varejo (Retail Sales) de setembro
-🇺🇸 09h30 – Pedidos de Auxílio-Desemprego (Jobless Claims)
-🇺🇸 09h30 – Índice Fed Filadélfia (Philly Fed Manufacturing Index)
-
-🟢 *Sexta-feira (16/10)*
-
-🇧🇷 09h00 – IBC-Br de agosto (Banco Central) — fecha a rodada de indicadores de atividade referentes a agosto
-🇪🇺 06h00 – CPI final da Zona do Euro (setembro) e Comércio Exterior (agosto) — Eurostat
-
-📌 Com Fed e Copom fora do radar neste mês, o CPI americano de quarta-feira concentra a atenção da semana: a combinação de inflação cheia, núcleo e os itens que pressionaram o índice (como combustíveis) tende a ser o principal referencial para o mercado reprecificar as apostas sobre o ritmo do Fed daqui até a reunião de 27–28/10. A bateria de dados de quinta (PPI, varejo, pedidos de seguro-desemprego e Philly Fed) e a abertura da temporada de balanços bancários somam-se como pontos de atenção adicionais, mas com peso secundário diante do CPI.
+📌 Sem Fed e sem Copom na mesa nesta semana, o IPCA-15 de sexta-feira concentra a atenção do mercado doméstico: por ser o retrato mais recente da inflação antes da reunião do Copom de 04/11, a leitura tende a ser usada para recalibrar expectativas sobre o ritmo da Selic nas próximas reuniões. Em paralelo, o PIB chinês (madrugada de terça) e a bateria de PMIs preliminares de sexta dão o tom do humor global com commodities e atividade industrial, servindo de pano de fundo para a leitura da inflação brasileira.
 
 ---
-_Fontes consultadas: feed econômico internacional (impacto médio/alto), coberturas desta semana da Safras & Mercado, InfoMoney, Money Times e BPMoney sobre a agenda brasileira, Banco Central (Boletim Focus), buscas sobre o calendário oficial do BLS (EUA), NBS (China) e Eurostat (Zona do Euro). Indicadores do formato-padrão sem confirmação de data nesta semana (ex.: Novo Caged, IGP-M, PMC/PMS/PIM-PF) foram omitidos por já terem sido divulgados em semanas anteriores ou por falta de confirmação de data específica para 12–16/10._
+_Fontes consultadas: feed econômico internacional (impacto médio/alto) para o calendário de EUA/Reino Unido; calendário e metodologia do IBGE (IPCA-15, data de referência outubro/2026) e do Banco Central (Boletim Focus, calendário do Copom); NBS da China e calendário do PBoC para PIB do 3º trimestre e LPR; ONS (Reino Unido) para o CPI de setembro; NAR para o Pending Home Sales; S&P Global para o calendário de PMIs preliminares de outubro. Indicadores do formato-padrão sem confirmação de data específica para 19–23/10 (ex.: Novo Caged, IGP-M, Produção Industrial/PIM-PF, balança comercial do MDIC) foram omitidos por falta de confirmação de data nesta semana._
