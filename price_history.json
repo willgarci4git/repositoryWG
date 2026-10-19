@@ -1,7 +1,7 @@
 {
   "_serpapi_usage": {
     "month": "2026-10",
-    "count": 39
+    "count": 56
   },
   "lisboa": {
     "observations": [
@@ -68,6 +68,12 @@
       {
         "checked_at": "2026-10-12",
         "price": 3890,
+        "date": "2027-03-09",
+        "arrival_code": "LIS"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 3980,
         "date": "2027-03-09",
         "arrival_code": "LIS"
       }
@@ -148,10 +154,16 @@
         "price": 4657,
         "date": "2027-02-15",
         "arrival_code": "OPO"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4505,
+        "date": "2027-03-15",
+        "arrival_code": "OPO"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "madrid": {
     "observations": [
@@ -244,11 +256,17 @@
         "price": 3906,
         "date": "2027-04-13",
         "arrival_code": "MAD"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 3199,
+        "date": "2027-03-22",
+        "arrival_code": "MAD"
       }
     ],
     "last_alert": {
-      "date": "2026-09-14",
-      "price": 3700
+      "date": "2026-10-19",
+      "price": 3064
     },
     "fallback_cursor": 3
   },
@@ -277,13 +295,19 @@
         "price": 4148,
         "date": "2027-02-15",
         "arrival_code": "BCN"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4220,
+        "date": "2027-03-15",
+        "arrival_code": "BCN"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 4148
     },
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "paris": {
     "observations": [
@@ -358,13 +382,19 @@
         "price": 4916,
         "date": "2027-04-15",
         "arrival_code": "CDG"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5002,
+        "date": "2027-05-15",
+        "arrival_code": "CDG"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 4916
     },
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "amsterda": {
     "observations": [
@@ -385,10 +415,16 @@
         "price": 6965,
         "date": "2026-12-28",
         "arrival_code": "AMS"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5285,
+        "date": "2027-04-15",
+        "arrival_code": "AMS"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "bruxelas": {
     "observations": [
@@ -409,10 +445,16 @@
         "price": 4931,
         "date": "2027-04-15",
         "arrival_code": "BRU"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5314,
+        "date": "2027-05-15",
+        "arrival_code": "BRU"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "frankfurt": {
     "observations": [
@@ -433,10 +475,16 @@
         "price": 6618,
         "date": "2026-12-28",
         "arrival_code": "FRA"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4828,
+        "date": "2027-04-15",
+        "arrival_code": "FRA"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "munique": {
     "observations": [
@@ -457,10 +505,16 @@
         "price": 5279,
         "date": "2027-04-15",
         "arrival_code": "MUC"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5517,
+        "date": "2027-05-15",
+        "arrival_code": "MUC"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "zurique": {
     "observations": [
@@ -481,10 +535,16 @@
         "price": 5402,
         "date": "2027-04-15",
         "arrival_code": "ZRH"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5964,
+        "date": "2027-05-15",
+        "arrival_code": "ZRH"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "londres": {
     "observations": [
@@ -511,9 +571,18 @@
         "price": 5220,
         "date": "2027-03-05",
         "arrival_code": "LHR"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4784,
+        "date": "2027-03-05",
+        "arrival_code": "LHR"
       }
     ],
-    "last_alert": null,
+    "last_alert": {
+      "date": "2026-10-19",
+      "price": 5020
+    },
     "fallback_cursor": 2
   },
   "roma": {
@@ -571,10 +640,19 @@
         "price": 5648,
         "date": "2027-05-15",
         "arrival_code": "FCO"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4282,
+        "date": "2027-06-15",
+        "arrival_code": "FCO"
       }
     ],
-    "last_alert": null,
-    "fallback_cursor": 6
+    "last_alert": {
+      "date": "2026-10-19",
+      "price": 4282
+    },
+    "fallback_cursor": 7
   },
   "milao": {
     "observations": [
@@ -595,13 +673,19 @@
         "price": 4065,
         "date": "2027-01-27",
         "arrival_code": "MXP"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4777,
+        "date": "2027-04-15",
+        "arrival_code": "MXP"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 4507
     },
-    "fallback_cursor": 4
+    "fallback_cursor": 5
   },
   "istambul": {
     "observations": [
@@ -693,6 +777,12 @@
         "checked_at": "2026-10-12",
         "price": 5352,
         "date": "2027-03-25",
+        "arrival_code": "IST"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5531,
+        "date": "2027-02-23",
         "arrival_code": "IST"
       }
     ],
@@ -856,6 +946,12 @@
         "price": 4526,
         "date": "2027-03-17",
         "arrival_code": "CMN"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 5338,
+        "date": "2027-03-06",
+        "arrival_code": "CMN"
       }
     ],
     "last_alert": {
@@ -930,6 +1026,12 @@
         "checked_at": "2026-10-12",
         "price": 1896,
         "date": "2027-05-15",
+        "arrival_code": "LPB"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 3498,
+        "date": "2026-12-23",
         "arrival_code": "LPB"
       }
     ],
@@ -1021,13 +1123,19 @@
         "price": 2704,
         "date": "2026-12-15",
         "arrival_code": "FEN"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 3367,
+        "date": "2027-01-15",
+        "arrival_code": "FEN"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 2704
     },
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "noronha_vcp": {
     "observations": [
@@ -1048,10 +1156,16 @@
         "price": 2770,
         "date": "2026-12-15",
         "arrival_code": "FEN"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 3325,
+        "date": "2027-01-15",
+        "arrival_code": "FEN"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 1
+    "fallback_cursor": 2
   },
   "noronha_cgh": {
     "observations": [
@@ -1279,10 +1393,16 @@
         "price": 3199,
         "date": "2027-03-29",
         "arrival_code": "JNB"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 4921,
+        "date": "2027-05-15",
+        "arrival_code": "JNB"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "canada": {
     "observations": [
@@ -1321,16 +1441,22 @@
         "price": 3706,
         "date": "2027-02-15",
         "arrival_code": "YYZ"
+      },
+      {
+        "checked_at": "2026-10-19",
+        "price": 3710,
+        "date": "2027-03-15",
+        "arrival_code": "YYZ"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 3706
     },
-    "fallback_cursor": 3
+    "fallback_cursor": 4
   },
   "_melhoresdestinos": {
-    "last_seen_id": 635630
+    "last_seen_id": 641864
   },
   "_deals_log": [
     {
@@ -1591,7 +1717,135 @@
       "reason": "menor preço já visto",
       "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20FEN%20saindo%202026-12-15%20voltando%202026-12-29",
       "logged_at": "2026-10-12"
+    },
+    {
+      "route": "madrid",
+      "label": "Madri (Espanha)",
+      "origin": "GRU",
+      "arrival_code": "MAD",
+      "carriers": [
+        "Iberia",
+        "Air Europa",
+        "LATAM",
+        "Air China"
+      ],
+      "single_carrier_risk": false,
+      "verified_nonstop": true,
+      "route_note": null,
+      "outbound_date": "2027-03-22",
+      "return_date": "2027-04-05",
+      "travelpayouts_price_brl": 3199,
+      "travelpayouts_stops": 0,
+      "serpapi_confirmed_price_brl": 3064,
+      "serpapi_confirmed_stops": 0,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20MAD%20saindo%202027-03-22%20voltando%202027-04-05",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "londres",
+      "label": "Londres (Reino Unido)",
+      "origin": "GRU",
+      "arrival_code": "LHR",
+      "carriers": [
+        "British Airways",
+        "LATAM"
+      ],
+      "single_carrier_risk": false,
+      "verified_nonstop": true,
+      "route_note": null,
+      "outbound_date": "2027-03-05",
+      "return_date": "2027-03-19",
+      "travelpayouts_price_brl": 4784,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": 5020,
+      "serpapi_confirmed_stops": 1,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20LHR%20saindo%202027-03-05%20voltando%202027-03-19",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "roma",
+      "label": "Roma (Itália)",
+      "origin": "GRU",
+      "arrival_code": "FCO",
+      "carriers": [
+        "ITA Airways",
+        "LATAM"
+      ],
+      "single_carrier_risk": false,
+      "verified_nonstop": true,
+      "route_note": null,
+      "outbound_date": "2027-06-15",
+      "return_date": "2027-06-29",
+      "travelpayouts_price_brl": 4282,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": 4282,
+      "serpapi_confirmed_stops": 1,
+      "serpapi_budget_reached": false,
+      "reason": "queda de 15%+ vs média recente",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20FCO%20saindo%202027-06-15%20voltando%202027-06-29",
+      "logged_at": "2026-10-19"
     }
   ],
-  "_mentions_log": []
+  "_mentions_log": [
+    {
+      "route": "bruxelas",
+      "label": "Bruxelas (Bélgica)",
+      "title": "Bélgica com a Latam! Voos diretos para Bruxelas a partir de R$ 3.646 ida e volta",
+      "link": "https://www.melhoresdestinos.com.br/promocao/belgica-latam-voo-direto-bruxelas-3646",
+      "price_hint_brl": "3.646",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "roma",
+      "label": "Roma (Itália)",
+      "title": "Itália com a Latam! Passagens para Roma ou Milão a partir de R$ 3.710 ida e volta saindo de várias cidades",
+      "link": "https://www.melhoresdestinos.com.br/promocao/italia-latam-passagens-roma-milao-3710",
+      "price_hint_brl": "3.710",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "lisboa",
+      "label": "Lisboa (Portugal)",
+      "title": "Portugal! Seleção das passagens mais baratas para Lisboa ou Porto a partir de R$ 3.263",
+      "link": "https://www.melhoresdestinos.com.br/promocao/portugal-selecao-das-passagens-mais-baratas-para-lisboa-08out26",
+      "price_hint_brl": "3.263",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "madrid",
+      "label": "Madri (Espanha)",
+      "title": "Mercados de Natal bom demais! Passagens para Viena, Paris, Madri e mais cidades a partir de apenas R$ 3.226",
+      "link": "https://www.melhoresdestinos.com.br/promocao/mercado-de-natal-na-europa-voos-07out26",
+      "price_hint_brl": "3.226",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "madrid",
+      "label": "Madri (Espanha)",
+      "title": "Excelente! Passagens aéreas da Azul para Madri a partir de R$ 2.643 ida e volta",
+      "link": "https://www.melhoresdestinos.com.br/promocao/sensacional-voos-azul-madri-2643",
+      "price_hint_brl": "2.643",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "paris",
+      "label": "Paris (França)",
+      "title": "França! Passagens aéreas para Paris a partir de R$ 4.019 saindo do Rio e mais cidades",
+      "link": "https://www.melhoresdestinos.com.br/promocao/franca-passagens-aereas-05out26",
+      "price_hint_brl": "4.019",
+      "logged_at": "2026-10-19"
+    },
+    {
+      "route": "madrid",
+      "label": "Madri (Espanha)",
+      "title": "Bom demais! Voos diretos da Iberia ou Air China para Madri a partir de apenas R$ 2.612 com datas na primavera",
+      "link": "https://www.melhoresdestinos.com.br/promocao/muito-bom-voos-diretos-da-iberia-madri-01out26",
+      "price_hint_brl": "2.612",
+      "logged_at": "2026-10-19"
+    }
+  ]
 }
