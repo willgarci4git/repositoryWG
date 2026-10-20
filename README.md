@@ -1,4 +1,4 @@
-# Monitor de preços de voos — 28 rotas
+# Monitor de preços de voos — 29 rotas
 
 ## O que isso faz
 Toda **segunda-feira ~8h** (tarefa agendada "flight-price-watch", roda enquanto o
@@ -34,12 +34,12 @@ abertura), o script `check_flights.py`:
 
 ## Rotas monitoradas (28 no total)
 
-**18 rotas com voo direto (non-stop) confirmado** — `verified_nonstop: true`
+**19 rotas com voo direto (non-stop) confirmado** — `verified_nonstop: true`
 no config, checadas toda semana, com companhias e aviso de risco de
 operador único:
 - **De GRU**: Lisboa, Porto*, Madri, Barcelona*, Paris, Amsterdã, Bruxelas*,
   Frankfurt, Munique*, Zurique*, Londres, Roma, Milão*, Istambul*, África do
-  Sul (Joanesburgo), Canadá (Toronto)*
+  Sul (Joanesburgo), Toronto*, Montreal* (Canadá — Air Canada, única companhia)
 - **Fernando de Noronha**: de Guarulhos (GRU) e de Viracopos (VCP)*
 
   *\* = operador único (single_carrier) — sem alternativa direta em caso de
@@ -66,7 +66,7 @@ informadas de forma neutra (é esperado ter conexão).
   chamar o SerpAPI assim que bate esse número — nunca deixa passar do
   plano grátis, mesmo que o uso real suba mais que o esperado. A cadência
   por prioridade (item 2 acima) existe justamente pra reduzir a chance de
-  bater nesse teto com 28 rotas.
+  bater nesse teto com 29 rotas.
 
 ## Menções editoriais (Melhores Destinos)
 Além das 3 fontes de preço, o script também escaneia a **API REST pública**
@@ -130,5 +130,12 @@ próxima segunda-feira.
 
 ## Gerenciar a tarefa agendada
 Na sidebar do Claude Code, seção "Scheduled" → tarefa "Monitor de preços de
-voos (28 rotas)". De lá dá pra pausar, rodar agora, mudar horário/frequência
+voos (29 rotas)". De lá dá pra pausar, rodar agora, mudar horário/frequência
 ou excluir.
+
+## Viagem multi-cidade ao Canadá (jul/27)
+Objetivo do William: conhecer **Toronto, Montreal e Calgary** (com Edmonton
+como destino final). O monitor acompanha só os trechos **internacionais**
+(GRU→Toronto e GRU→Montreal, voo direto Air Canada) — os trechos internos
+entre as três cidades são comprados à parte, por conta dele. A janela de
+busca (`window_months`) vai até **2027-07** pra cobrir essa viagem.
