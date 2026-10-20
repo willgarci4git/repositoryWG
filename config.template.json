@@ -14,7 +14,8 @@
     "2027-03",
     "2027-04",
     "2027-05",
-    "2027-06"
+    "2027-06",
+    "2027-07"
   ],
   "min_history_for_alert": 2,
   "drop_threshold_pct": 15,
@@ -397,7 +398,7 @@
     },
     {
       "id": "canada",
-      "label": "Canadá (Toronto)",
+      "label": "Toronto (Canadá)",
       "arrival": [
         "YYZ"
       ],
@@ -409,8 +410,24 @@
       "keywords": [
         "Canadá",
         "Toronto",
-        "Montreal",
         "Vancouver"
+      ],
+      "note": "Voo direto Air Canada diário o ano todo; porta de entrada da viagem multi-cidade Toronto + Montreal + Calgary/Edmonton (jul/27)"
+    },
+    {
+      "id": "montreal",
+      "label": "Montreal (Canadá)",
+      "arrival": [
+        "YUL"
+      ],
+      "carriers": [
+        "Air Canada"
+      ],
+      "single_carrier": true,
+      "verified_nonstop": true,
+      "note": "Voo direto Air Canada (3–4x/sem, 5x/sem no inverno canadense); porta de entrada alternativa a Toronto na viagem multi-cidade (jul/27)",
+      "keywords": [
+        "Montreal"
       ]
     },
     {
