@@ -1,42 +1,41 @@
 *Panorama da Semana | Agenda Macro*
-19 a 23 de outubro de 2026
+26 a 30 de outubro de 2026
 
-A semana não tem reunião do Fed (marcada para 27–28/10) nem do Copom (próxima em 04/11), então o calendário fica mais leve que o normal. Ainda assim, dois pontos merecem atenção: na madrugada de terça-feira (horário da China), saem o PIB do 3º trimestre chinês e a decisão de juros do PBoC — números relevantes para o humor de commodities ligadas ao Brasil, como minério de ferro e petróleo. E na sexta-feira, Dia Global do PMI, o mercado compara os primeiros indicadores de atividade de outubro nos EUA, Reino Unido, Zona do Euro e Japão, no mesmo dia em que o Brasil divulga o IPCA-15 — última leitura de inflação antes da reunião do Copom do início de novembro.
+A semana concentra dois dos principais bancos centrais do mundo decidindo juros em menos de 48 horas: o Fed na quarta-feira e o BoJ japonês na madrugada de sexta (horário de Brasília). No meio disso, os EUA divulgam na quinta-feira o PIB do 3º trimestre e o PCE — a medida de inflação preferida do Federal Reserve — praticamente ao mesmo tempo, o que deve dar o tom sobre os próximos passos da política monetária americana. No Brasil, a semana começa com o Boletim Focus e termina com a PNAD Contínua fechando o quadro de mercado de trabalho de setembro.
 
-🔵 *Segunda-feira (19/10)*
+🔵 *Segunda-feira (26/10)*
 
-🇧🇷 08h25 – Boletim Focus (Banco Central)
+🇧🇷 manhã – Boletim Focus (BCB)
 
-🌏 *NOITE – CHINA*
-🇨🇳 22h00 – Taxa de Referência (LPR) do PBoC
-🇨🇳 23h00 – PIB do 3º trimestre de 2026
+🟡 *Terça-feira (27/10)* — Primeiro dia da reunião do Fed
 
-🟡 *Terça-feira (20/10)*
+🇧🇷 09h00 – IPP – Índice de Preços ao Produtor (indústrias extrativas e de transformação, ref. 09/2026) – IBGE
+🇺🇸 11h00 – Consumer Confidence (Conference Board)
+🇺🇸 11h00 – Vendas de Imóveis Novos (New Home Sales)
+🇺🇸 Início da reunião de dois dias do FOMC
 
-🇺🇸 11h00 – Pending Home Sales (Vendas Pendentes de Imóveis, referência setembro) — NAR
+🔴 *Quarta-feira (28/10)* — Decisão do Fed
 
-🔴 *Quarta-feira (21/10)*
-
-🇬🇧 03h00 – CPI (Inflação ao Consumidor) do Reino Unido, referência setembro — ONS
-
-🟣 *Quinta-feira (22/10)*
-
-🇺🇸 09h30 – Pedidos de Auxílio-Desemprego (Initial Jobless Claims)
-
-🟢 *Sexta-feira (23/10)* — Dia Global do PMI
-
-🇧🇷 09h00 – IPCA-15 (prévia da inflação de outubro) — IBGE
+🇺🇸 15h00 – Decisão de juros do FOMC
+🇺🇸 15h30 – Coletiva de imprensa do presidente do Fed, Jerome Powell
 🔥 _PRINCIPAL EVENTO DA SEMANA_
-O relatório traz principalmente:
-Variação mensal e em 12 meses da prévia da inflação
-Comparação com a prévia de setembro
-Peso de grupos como alimentação e combustíveis na composição do índice
-Insumo direto para as apostas sobre a decisão do Copom de 04/11
+A decisão traz principalmente:
+Definição da taxa básica de juros (Fed Funds Rate)
+Comunicado oficial do FOMC
+Coletiva de Powell, com sinalizações sobre o ritmo de cortes/pausas até dezembro
 
-🌎 PMIs Industriais Preliminares (Flash) – Zona do Euro, Reino Unido e Japão
-🇺🇸 10h45 – PMI Composto Preliminar (S&P Global Flash PMI)
+📌 Para o mercado, o ponto não é apenas o nível da taxa — já bastante precificado —, mas o tom da coletiva sobre os próximos passos. Essa sinalização interage diretamente com o PIB e o PCE que saem dois dias depois, e a combinação tende a pesar sobre o dólar, os juros longos americanos e o fluxo para emergentes, incluindo a B3.
 
-📌 Sem Fed e sem Copom na mesa nesta semana, o IPCA-15 de sexta-feira concentra a atenção do mercado doméstico: por ser o retrato mais recente da inflação antes da reunião do Copom de 04/11, a leitura tende a ser usada para recalibrar expectativas sobre o ritmo da Selic nas próximas reuniões. Em paralelo, o PIB chinês (madrugada de terça) e a bateria de PMIs preliminares de sexta dão o tom do humor global com commodities e atividade industrial, servindo de pano de fundo para a leitura da inflação brasileira.
+🟣 *Quinta-feira (29/10)* — EUA: PIB e inflação preferida do Fed
 
----
-_Fontes consultadas: feed econômico internacional (impacto médio/alto) para o calendário de EUA/Reino Unido; calendário e metodologia do IBGE (IPCA-15, data de referência outubro/2026) e do Banco Central (Boletim Focus, calendário do Copom); NBS da China e calendário do PBoC para PIB do 3º trimestre e LPR; ONS (Reino Unido) para o CPI de setembro; NAR para o Pending Home Sales; S&P Global para o calendário de PMIs preliminares de outubro. Indicadores do formato-padrão sem confirmação de data específica para 19–23/10 (ex.: Novo Caged, IGP-M, Produção Industrial/PIM-PF, balança comercial do MDIC) foram omitidos por falta de confirmação de data nesta semana._
+🇺🇸 09h30 – PIB dos EUA (estimativa avançada, 3º trimestre de 2026)
+🇺🇸 09h30 – PCE – Renda e Gastos Pessoais (ref. 09/2026), inclui o índice de preços PCE
+
+🌏 *NOITE – JAPÃO*
+🇯🇵 madrugada de sexta, horário de Brasília – Decisão de juros do Banco do Japão (BoJ), reunião que inclui o Relatório Trimestral de Perspectivas
+
+🟢 *Sexta-feira (30/10)* — Fechamento do mês
+
+🇧🇷 09h00 – PNAD Contínua – Taxa de Desemprego (ref. 09/2026) – IBGE
+🇪🇺 07h00 – PIB da Zona do Euro (estimativa preliminar, 3º trimestre de 2026)
+🇺🇸 10h45 – Chicago PMI
