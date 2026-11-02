@@ -1,41 +1,38 @@
 *Panorama da Semana | Agenda Macro*
-26 a 30 de outubro de 2026
+02 a 06 de novembro de 2026
 
-A semana concentra dois dos principais bancos centrais do mundo decidindo juros em menos de 48 horas: o Fed na quarta-feira e o BoJ japonês na madrugada de sexta (horário de Brasília). No meio disso, os EUA divulgam na quinta-feira o PIB do 3º trimestre e o PCE — a medida de inflação preferida do Federal Reserve — praticamente ao mesmo tempo, o que deve dar o tom sobre os próximos passos da política monetária americana. No Brasil, a semana começa com o Boletim Focus e termina com a PNAD Contínua fechando o quadro de mercado de trabalho de setembro.
+A semana abre o mês de novembro com uma combinação rara: eleições de meio de mandato nos Estados Unidos, decisão de juros do Banco Central do Brasil (Copom) e do Banco da Inglaterra, PMIs industriais e de serviços dos EUA, e o Payroll americano encerrando a semana. Para o investidor brasileiro, os dois pontos de maior atenção são a decisão do Copom na quarta-feira e o relatório de emprego dos EUA na sexta.
 
-🔵 *Segunda-feira (26/10)*
+🔵 *Segunda-feira (02/11)*
 
-🇧🇷 manhã – Boletim Focus (BCB)
+🇧🇷 08h25 – Boletim Focus
+🇺🇸 12h00 – ISM Industrial (PMI manufatura, dados de outubro)
 
-🟡 *Terça-feira (27/10)* — Primeiro dia da reunião do Fed
+🟡 *Terça-feira (03/11)*
 
-🇧🇷 09h00 – IPP – Índice de Preços ao Produtor (indústrias extrativas e de transformação, ref. 09/2026) – IBGE
-🇺🇸 11h00 – Consumer Confidence (Conference Board)
-🇺🇸 11h00 – Vendas de Imóveis Novos (New Home Sales)
-🇺🇸 Início da reunião de dois dias do FOMC
+🇧🇷 Copom – 1º dia de reunião (sem decisão ainda)
+🇺🇸 12h00 – JOLTS (vagas de emprego em aberto, dados de setembro)
+🇺🇸 Eleições de meio de mandato (midterms) nos EUA
+🇦🇺 00h30 – RBA (Banco Central da Austrália), decisão de juros
 
-🔴 *Quarta-feira (28/10)* — Decisão do Fed
+🔴 *Quarta-feira (04/11)* — Dia da decisão do Copom
 
-🇺🇸 15h00 – Decisão de juros do FOMC
-🇺🇸 15h30 – Coletiva de imprensa do presidente do Fed, Jerome Powell
-🔥 _PRINCIPAL EVENTO DA SEMANA_
-A decisão traz principalmente:
-Definição da taxa básica de juros (Fed Funds Rate)
-Comunicado oficial do FOMC
-Coletiva de Powell, com sinalizações sobre o ritmo de cortes/pausas até dezembro
+🇧🇷 Decisão do Copom (Selic)
+🔥 _PRINCIPAL EVENTO DA SEMANA NO BRASIL_
+🇺🇸 12h00 – ISM Serviços (dados de outubro)
 
-📌 Para o mercado, o ponto não é apenas o nível da taxa — já bastante precificado —, mas o tom da coletiva sobre os próximos passos. Essa sinalização interage diretamente com o PIB e o PCE que saem dois dias depois, e a combinação tende a pesar sobre o dólar, os juros longos americanos e o fluxo para emergentes, incluindo a B3.
+🟣 *Quinta-feira (05/11)*
 
-🟣 *Quinta-feira (29/10)* — EUA: PIB e inflação preferida do Fed
+🇬🇧 09h00 – Banco da Inglaterra (BoE), decisão de juros + Relatório de Política Monetária
 
-🇺🇸 09h30 – PIB dos EUA (estimativa avançada, 3º trimestre de 2026)
-🇺🇸 09h30 – PCE – Renda e Gastos Pessoais (ref. 09/2026), inclui o índice de preços PCE
+🟢 *Sexta-feira (06/11)* — Super Sexta
 
-🌏 *NOITE – JAPÃO*
-🇯🇵 madrugada de sexta, horário de Brasília – Decisão de juros do Banco do Japão (BoJ), reunião que inclui o Relatório Trimestral de Perspectivas
+🇺🇸 10h30 – Payroll / Employment Situation (dados de outubro)
+🔥 _PRINCIPAL EVENTO DA SEMANA GLOBAL_
+O relatório traz principalmente:
+Criação de empregos
+Taxa de desemprego
+Salário médio por hora
+Revisões dos meses anteriores
 
-🟢 *Sexta-feira (30/10)* — Fechamento do mês
-
-🇧🇷 09h00 – PNAD Contínua – Taxa de Desemprego (ref. 09/2026) – IBGE
-🇪🇺 07h00 – PIB da Zona do Euro (estimativa preliminar, 3º trimestre de 2026)
-🇺🇸 10h45 – Chicago PMI
+📌 Dois vetores se somam nesta semana. No Brasil, a decisão do Copom chega em meio a um Boletim Focus que já havia sinalizado possível continuidade do ciclo de cortes da Selic — o mercado tende a observar não só o número da taxa, mas o tom do comunicado sobre os próximos passos. Já o Payroll de sexta, combinado com o JOLTS de terça e os ISMs de segunda e quarta, compõe o quadro mais completo que o mercado tem sobre o ritmo do mercado de trabalho americano — o que historicamente influencia a leitura sobre a trajetória de juros do Fed e, por consequência, o fluxo para ativos de risco como a bolsa brasileira.
