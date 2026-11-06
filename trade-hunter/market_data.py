@@ -40,6 +40,7 @@ ASSET_MAP: dict[str, tuple[str, str]] = {
     "BBDC4": ("BMFBOVESPA:BBDC4", "brazil"),
     "CMIG4": ("BMFBOVESPA:CMIG4", "brazil"),
     "SAPR11": ("BMFBOVESPA:SAPR11", "brazil"),
+    "CPLE6": ("BMFBOVESPA:CPLE6", "brazil"),
     # FIIs selecionados pelo usuário — sem opções listadas na B3 (confirmado:
     # opcoes.net.br não retorna contratos para FIIs), por isso ficam de fora
     # de OPTIONS_TICKERS.
@@ -146,7 +147,7 @@ GLOBAL_MARKET_CATEGORIES: dict[str, list[tuple[str, str]]] = {
 }
 
 # Ações cujas opções são acompanhadas em opcoes.net.br
-OPTIONS_TICKERS = ["MGLU3", "LREN3", "PRIO3", "BBAS3", "BRAV3", "PETR4", "BBSE3", "ITSA4", "SUZB3", "BBDC4", "CMIG4", "SAPR11"]
+OPTIONS_TICKERS = ["MGLU3", "LREN3", "PRIO3", "BBAS3", "BRAV3", "PETR4", "BBSE3", "ITSA4", "SUZB3", "BBDC4", "CMIG4", "SAPR11", "CPLE6"]
 
 # FIIs selecionados (sem opções na B3 — ver comentário acima em ASSET_MAP)
 FII_TICKERS = ["ALZR11", "CPTS11", "GGRC11", "HGLG11", "LVBI11", "RBRY11", "RECR11", "RZTR11", "VRTA11"]
