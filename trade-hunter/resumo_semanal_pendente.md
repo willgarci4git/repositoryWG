@@ -1,38 +1,33 @@
 *Panorama da Semana | Agenda Macro*
-02 a 06 de novembro de 2026
+09 a 13 de novembro de 2026
 
-A semana abre o mês de novembro com uma combinação rara: eleições de meio de mandato nos Estados Unidos, decisão de juros do Banco Central do Brasil (Copom) e do Banco da Inglaterra, PMIs industriais e de serviços dos EUA, e o Payroll americano encerrando a semana. Para o investidor brasileiro, os dois pontos de maior atenção são a decisão do Copom na quarta-feira e o relatório de emprego dos EUA na sexta.
+A semana é dominada por inflação dos dois lados do Atlântico, sem Payroll e sem reunião do Fed (a próxima decisão do FOMC só ocorre em 8 e 9 de dezembro). No Brasil, o mercado acompanha a Ata do Copom na terça — poucos dias depois de o Banco Central interromper, por unanimidade, o ciclo de cortes e manter a Selic em 13,75% a.a. — seguida pelo IPCA cheio de outubro na quinta. Nos EUA, a dupla CPI (terça) e PPI (sexta) traz os últimos retratos de inflação antes da decisão de dezembro do Fed. No Reino Unido, sai o PIB do terceiro trimestre.
 
-🔵 *Segunda-feira (02/11)*
+🔵 *Segunda-feira (09/11)*
 
 🇧🇷 08h25 – Boletim Focus
-🇺🇸 12h00 – ISM Industrial (PMI manufatura, dados de outubro)
 
-🟡 *Terça-feira (03/11)*
+🟡 *Terça-feira (10/11)* — Juros em foco (Brasil e EUA)
 
-🇧🇷 Copom – 1º dia de reunião (sem decisão ainda)
-🇺🇸 12h00 – JOLTS (vagas de emprego em aberto, dados de setembro)
-🇺🇸 Eleições de meio de mandato (midterms) nos EUA
-🇦🇺 00h30 – RBA (Banco Central da Austrália), decisão de juros
+🇧🇷 08h00 – Ata do Copom (detalha a decisão de manter a Selic em 13,75% a.a. na reunião de 3 e 4/11)
+🇺🇸 10h30 – CPI (Índice de Preços ao Consumidor) de outubro
+🔥 _PRINCIPAL EVENTO DA SEMANA_
+O relatório traz:
+Variação mensal e anual do CPI cheio e do núcleo (ex-alimentos e energia)
+Comparação com a leitura de setembro (3,7% em 12 meses)
+Insumo direto para a leitura do mercado sobre o ritmo de cortes do Fed em dezembro
 
-🔴 *Quarta-feira (04/11)* — Dia da decisão do Copom
+🔴 *Quarta-feira (11/11)*
 
-🇧🇷 Decisão do Copom (Selic)
-🔥 _PRINCIPAL EVENTO DA SEMANA NO BRASIL_
-🇺🇸 12h00 – ISM Serviços (dados de outubro)
+Feriado do Veterans Day nos EUA (mercado de títulos fechado; bolsa de ações aberta). Sem indicadores de peso confirmados para o dia — a agenda volta a esquentar na quinta.
 
-🟣 *Quinta-feira (05/11)*
+🟣 *Quinta-feira (12/11)* — Inflação oficial (Brasil e Reino Unido)
 
-🇬🇧 09h00 – Banco da Inglaterra (BoE), decisão de juros + Relatório de Política Monetária
+🇧🇷 09h00 – IPCA (Índice Nacional de Preços ao Consumidor Amplo) de outubro — confirma (ou não) a prévia do IPCA-15, que havia subido 0,32% no mês
+🇬🇧 04h00 – PIB do Reino Unido — estimativa preliminar do 3º trimestre (e dado mensal de setembro)
 
-🟢 *Sexta-feira (06/11)* — Super Sexta
+🟢 *Sexta-feira (13/11)*
 
-🇺🇸 10h30 – Payroll / Employment Situation (dados de outubro)
-🔥 _PRINCIPAL EVENTO DA SEMANA GLOBAL_
-O relatório traz principalmente:
-Criação de empregos
-Taxa de desemprego
-Salário médio por hora
-Revisões dos meses anteriores
+🇺🇸 10h30 – PPI (Índice de Preços ao Produtor) de outubro
 
-📌 Dois vetores se somam nesta semana. No Brasil, a decisão do Copom chega em meio a um Boletim Focus que já havia sinalizado possível continuidade do ciclo de cortes da Selic — o mercado tende a observar não só o número da taxa, mas o tom do comunicado sobre os próximos passos. Já o Payroll de sexta, combinado com o JOLTS de terça e os ISMs de segunda e quarta, compõe o quadro mais completo que o mercado tem sobre o ritmo do mercado de trabalho americano — o que historicamente influencia a leitura sobre a trajetória de juros do Fed e, por consequência, o fluxo para ativos de risco como a bolsa brasileira.
+📌 Com Payroll e FOMC fora do radar nesta semana, o mercado tende a usar CPI, Ata do Copom e IPCA como os principais termômetros para recalibrar expectativas: nos EUA, o foco fica na probabilidade de novo corte de juros em dezembro; no Brasil, no tom da Ata sobre quanto tempo a Selic deve ficar parada em 13,75% e no que o IPCA de outubro indica sobre a trajetória da inflação até o fim do ano.
