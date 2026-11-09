@@ -1,7 +1,7 @@
 {
   "_serpapi_usage": {
     "month": "2026-11",
-    "count": 12
+    "count": 30
   },
   "lisboa": {
     "observations": [
@@ -87,6 +87,12 @@
         "checked_at": "2026-11-02",
         "price": 3783,
         "date": "2027-02-17",
+        "arrival_code": "LIS"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 3799,
+        "date": "2027-02-24",
         "arrival_code": "LIS"
       }
     ],
@@ -187,10 +193,16 @@
         "price": 5219,
         "date": "2027-05-20",
         "arrival_code": "OPO"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 5525,
+        "date": "2027-05-15",
+        "arrival_code": "OPO"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "madrid": {
     "observations": [
@@ -301,6 +313,12 @@
         "price": 3671,
         "date": "2027-03-22",
         "arrival_code": "MAD"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 3749,
+        "date": "2027-03-22",
+        "arrival_code": "MAD"
       }
     ],
     "last_alert": {
@@ -351,6 +369,12 @@
         "checked_at": "2026-11-02",
         "price": 4312,
         "date": "2027-05-20",
+        "arrival_code": "BCN"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4218,
+        "date": "2027-03-02",
         "arrival_code": "BCN"
       }
     ],
@@ -451,6 +475,12 @@
         "price": 4736,
         "date": "2027-02-09",
         "arrival_code": "CDG"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 7348,
+        "date": "2027-07-10",
+        "arrival_code": "CDG"
       }
     ],
     "last_alert": {
@@ -496,6 +526,12 @@
         "price": 5378,
         "date": "2027-06-15",
         "arrival_code": "AMS"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 5857,
+        "date": "2026-12-02",
+        "arrival_code": "AMS"
       }
     ],
     "last_alert": null,
@@ -538,10 +574,16 @@
         "price": 6440,
         "date": "2027-07-15",
         "arrival_code": "BRU"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 5287,
+        "date": "2026-12-15",
+        "arrival_code": "BRU"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 8
+    "fallback_cursor": 1
   },
   "frankfurt": {
     "observations": [
@@ -574,10 +616,16 @@
         "price": 6739,
         "date": "2026-12-20",
         "arrival_code": "FRA"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 5399,
+        "date": "2027-06-15",
+        "arrival_code": "FRA"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 6
+    "fallback_cursor": 7
   },
   "munique": {
     "observations": [
@@ -610,10 +658,16 @@
         "price": 6736,
         "date": "2027-07-15",
         "arrival_code": "MUC"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 6192,
+        "date": "2026-12-15",
+        "arrival_code": "MUC"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 8
+    "fallback_cursor": 1
   },
   "zurique": {
     "observations": [
@@ -646,10 +700,16 @@
         "price": 6684,
         "date": "2027-07-15",
         "arrival_code": "ZRH"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 5493,
+        "date": "2026-12-15",
+        "arrival_code": "ZRH"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 8
+    "fallback_cursor": 1
   },
   "londres": {
     "observations": [
@@ -693,6 +753,12 @@
         "checked_at": "2026-11-02",
         "price": 5520,
         "date": "2027-05-20",
+        "arrival_code": "LHR"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4956,
+        "date": "2027-03-05",
         "arrival_code": "LHR"
       }
     ],
@@ -769,6 +835,12 @@
         "price": 4644,
         "date": "2027-05-20",
         "arrival_code": "FCO"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4270,
+        "date": "2027-02-17",
+        "arrival_code": "FCO"
       }
     ],
     "last_alert": {
@@ -807,6 +879,12 @@
         "checked_at": "2026-11-02",
         "price": 4505,
         "date": "2027-06-15",
+        "arrival_code": "MXP"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4454,
+        "date": "2027-01-27",
         "arrival_code": "MXP"
       }
     ],
@@ -925,6 +1003,12 @@
         "price": 5249,
         "date": "2027-02-01",
         "arrival_code": "IST"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 6131,
+        "date": "2027-03-15",
+        "arrival_code": "IST"
       }
     ],
     "last_alert": {
@@ -970,13 +1054,19 @@
         "price": 6158,
         "date": "2027-05-15",
         "arrival_code": "CAI"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 7635,
+        "date": "2027-07-15",
+        "arrival_code": "CAI"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 6158
     },
-    "fallback_cursor": 7
+    "fallback_cursor": 8
   },
   "telaviv": {
     "observations": [
@@ -991,10 +1081,19 @@
         "price": 7538,
         "date": "2027-01-15",
         "arrival_code": "TLV"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 6649,
+        "date": "2027-03-15",
+        "arrival_code": "TLV"
       }
     ],
-    "last_alert": null,
-    "fallback_cursor": 3
+    "last_alert": {
+      "date": "2026-11-09",
+      "price": 6649
+    },
+    "fallback_cursor": 4
   },
   "marrocos": {
     "observations": [
@@ -1105,6 +1204,12 @@
         "price": 4908,
         "date": "2027-06-10",
         "arrival_code": "CMN"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4154,
+        "date": "2027-02-18",
+        "arrival_code": "CMN"
       }
     ],
     "last_alert": {
@@ -1192,11 +1297,17 @@
         "price": 1874,
         "date": "2027-04-08",
         "arrival_code": "LPB"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 1311,
+        "date": "2027-03-02",
+        "arrival_code": "VVI"
       }
     ],
     "last_alert": {
-      "date": "2026-10-26",
-      "price": 1874
+      "date": "2026-11-09",
+      "price": 1450
     },
     "fallback_cursor": 6
   },
@@ -1255,13 +1366,19 @@
         "price": 5329,
         "date": "2027-06-15",
         "arrival_code": "KEF"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 8185,
+        "date": "2026-12-15",
+        "arrival_code": "KEF"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 5329
     },
-    "fallback_cursor": 8
+    "fallback_cursor": 1
   },
   "noronha_gru": {
     "observations": [
@@ -1294,11 +1411,17 @@
         "price": 2502,
         "date": "2027-03-15",
         "arrival_code": "FEN"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 1431,
+        "date": "2027-03-17",
+        "arrival_code": "FEN"
       }
     ],
     "last_alert": {
-      "date": "2026-11-02",
-      "price": 2502
+      "date": "2026-11-09",
+      "price": 1671
     },
     "fallback_cursor": 4
   },
@@ -1333,9 +1456,18 @@
         "price": 2990,
         "date": "2027-03-15",
         "arrival_code": "FEN"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 1503,
+        "date": "2027-03-17",
+        "arrival_code": "FEN"
       }
     ],
-    "last_alert": null,
+    "last_alert": {
+      "date": "2026-11-09",
+      "price": 1503
+    },
     "fallback_cursor": 4
   },
   "noronha_cgh": {
@@ -1351,9 +1483,18 @@
         "price": 3635,
         "date": "2026-12-15",
         "arrival_code": "FEN"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 1619,
+        "date": "2027-03-17",
+        "arrival_code": "FEN"
       }
     ],
-    "last_alert": null,
+    "last_alert": {
+      "date": "2026-11-09",
+      "price": 2012
+    },
     "fallback_cursor": 2
   },
   "japao": {
@@ -1441,6 +1582,12 @@
         "price": 8434,
         "date": "2027-03-12",
         "arrival_code": "HND"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 6964,
+        "date": "2027-01-20",
+        "arrival_code": "HND"
       }
     ],
     "last_alert": null,
@@ -1453,10 +1600,16 @@
         "price": 7632,
         "date": "2027-02-08",
         "arrival_code": "NBO"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 9886,
+        "date": "2027-07-15",
+        "arrival_code": "NBO"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 7
+    "fallback_cursor": 8
   },
   "grecia": {
     "observations": [
@@ -1495,10 +1648,16 @@
         "price": 5251,
         "date": "2027-03-15",
         "arrival_code": "ATH"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 5975,
+        "date": "2027-05-15",
+        "arrival_code": "ATH"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "polonia": {
     "observations": [
@@ -1549,13 +1708,19 @@
         "price": 4764,
         "date": "2027-03-15",
         "arrival_code": "WAW"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 6357,
+        "date": "2027-05-15",
+        "arrival_code": "WAW"
       }
     ],
     "last_alert": {
       "date": "2026-10-12",
       "price": 4764
     },
-    "fallback_cursor": 5
+    "fallback_cursor": 6
   },
   "africa_do_sul": {
     "observations": [
@@ -1582,10 +1747,16 @@
         "price": 4030,
         "date": "2027-07-15",
         "arrival_code": "JNB"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4047,
+        "date": "2026-12-15",
+        "arrival_code": "JNB"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 8
+    "fallback_cursor": 1
   },
   "canada": {
     "observations": [
@@ -1635,6 +1806,12 @@
         "checked_at": "2026-11-02",
         "price": 5291,
         "date": "2027-05-15",
+        "arrival_code": "YYZ"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 6258,
+        "date": "2027-07-10",
         "arrival_code": "YYZ"
       }
     ],
@@ -2109,6 +2286,111 @@
       "reason": "menor preço já visto",
       "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20FEN%20saindo%202027-03-15%20voltando%202027-03-29",
       "logged_at": "2026-11-02"
+    },
+    {
+      "route": "telaviv",
+      "label": "Tel Aviv (Israel)",
+      "origin": "GRU",
+      "arrival_code": "TLV",
+      "carriers": [],
+      "single_carrier_risk": false,
+      "verified_nonstop": false,
+      "route_note": null,
+      "outbound_date": "2027-03-15",
+      "return_date": "2027-03-29",
+      "travelpayouts_price_brl": 6649,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": 6649,
+      "serpapi_confirmed_stops": 1,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20TLV%20saindo%202027-03-15%20voltando%202027-03-29",
+      "logged_at": "2026-11-09"
+    },
+    {
+      "route": "bolivia",
+      "label": "Bolívia (La Paz/Santa Cruz)",
+      "origin": "GRU",
+      "arrival_code": "VVI",
+      "carriers": [],
+      "single_carrier_risk": false,
+      "verified_nonstop": false,
+      "route_note": null,
+      "outbound_date": "2027-03-02",
+      "return_date": "2027-03-16",
+      "travelpayouts_price_brl": 1311,
+      "travelpayouts_stops": 0,
+      "serpapi_confirmed_price_brl": 1450,
+      "serpapi_confirmed_stops": 0,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20VVI%20saindo%202027-03-02%20voltando%202027-03-16",
+      "logged_at": "2026-11-09"
+    },
+    {
+      "route": "noronha_gru",
+      "label": "Fernando de Noronha (de Guarulhos)",
+      "origin": "GRU",
+      "arrival_code": "FEN",
+      "carriers": [
+        "GOL",
+        "LATAM"
+      ],
+      "single_carrier_risk": false,
+      "verified_nonstop": true,
+      "route_note": "GOL retomou voo direto GRU-FEN em abr/2025",
+      "outbound_date": "2027-03-17",
+      "return_date": "2027-03-31",
+      "travelpayouts_price_brl": 1431,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": 1671,
+      "serpapi_confirmed_stops": 0,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20GRU%20para%20FEN%20saindo%202027-03-17%20voltando%202027-03-31",
+      "logged_at": "2026-11-09"
+    },
+    {
+      "route": "noronha_vcp",
+      "label": "Fernando de Noronha (de Viracopos)",
+      "origin": "VCP",
+      "arrival_code": "FEN",
+      "carriers": [
+        "Azul"
+      ],
+      "single_carrier_risk": true,
+      "verified_nonstop": true,
+      "route_note": null,
+      "outbound_date": "2027-03-17",
+      "return_date": "2027-03-31",
+      "travelpayouts_price_brl": 1503,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": null,
+      "serpapi_confirmed_stops": null,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20VCP%20para%20FEN%20saindo%202027-03-17%20voltando%202027-03-31",
+      "logged_at": "2026-11-09"
+    },
+    {
+      "route": "noronha_cgh",
+      "label": "Fernando de Noronha (de Congonhas)",
+      "origin": "CGH",
+      "arrival_code": "FEN",
+      "carriers": [],
+      "single_carrier_risk": false,
+      "verified_nonstop": false,
+      "route_note": "Sem voo direto desde 2022 (Azul migrou a operação pra Viracopos/VCP) — preço encontrado inclui conexão",
+      "outbound_date": "2027-03-17",
+      "return_date": "2027-03-31",
+      "travelpayouts_price_brl": 1619,
+      "travelpayouts_stops": 1,
+      "serpapi_confirmed_price_brl": 2012,
+      "serpapi_confirmed_stops": 1,
+      "serpapi_budget_reached": false,
+      "reason": "menor preço já visto",
+      "link": "https://www.google.com/travel/flights?q=Voos%20de%20CGH%20para%20FEN%20saindo%202027-03-17%20voltando%202027-03-31",
+      "logged_at": "2026-11-09"
     }
   ],
   "_mentions_log": [
@@ -2176,9 +2458,15 @@
         "price": 5049,
         "date": "2027-01-15",
         "arrival_code": "YUL"
+      },
+      {
+        "checked_at": "2026-11-09",
+        "price": 4140,
+        "date": "2027-02-15",
+        "arrival_code": "YUL"
       }
     ],
     "last_alert": null,
-    "fallback_cursor": 2
+    "fallback_cursor": 3
   }
 }
