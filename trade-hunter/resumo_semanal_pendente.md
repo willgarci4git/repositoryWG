@@ -1,33 +1,37 @@
 *Panorama da Semana | Agenda Macro*
-09 a 13 de novembro de 2026
+16 a 20 de novembro de 2026
 
-A semana é dominada por inflação dos dois lados do Atlântico, sem Payroll e sem reunião do Fed (a próxima decisão do FOMC só ocorre em 8 e 9 de dezembro). No Brasil, o mercado acompanha a Ata do Copom na terça — poucos dias depois de o Banco Central interromper, por unanimidade, o ciclo de cortes e manter a Selic em 13,75% a.a. — seguida pelo IPCA cheio de outubro na quinta. Nos EUA, a dupla CPI (terça) e PPI (sexta) traz os últimos retratos de inflação antes da decisão de dezembro do Fed. No Reino Unido, sai o PIB do terceiro trimestre.
+A semana é mais curta para o mercado brasileiro: a sexta-feira é feriado nacional (Dia de Zumbi e da Consciência Negra), com B3 e bancos fechados, o que concentra a atenção nos quatro primeiros dias úteis. O destaque fica para quarta-feira, com a Ata do FOMC referente à reunião de 27-28 de outubro — quando o Fed manteve os juros em 3,75%-4,00% por 10 a 2, com dois dirigentes defendendo alta adicional. Antes disso, terça-feira traz a bateria de dados de atividade dos EUA (varejo e produção industrial), e o fechamento da semana ainda reserva a decisão de juros da China e a leitura final de confiança do consumidor americano.
 
-🔵 *Segunda-feira (09/11)*
+🔵 *Segunda-feira (16/11)*
 
-🇧🇷 08h25 – Boletim Focus
+🇧🇷 08h25 – Boletim Focus (Banco Central)
 
-🟡 *Terça-feira (10/11)* — Juros em foco (Brasil e EUA)
+🟡 *Terça-feira (17/11)* — Dia de Dados de Atividade nos EUA
 
-🇧🇷 08h00 – Ata do Copom (detalha a decisão de manter a Selic em 13,75% a.a. na reunião de 3 e 4/11)
-🇺🇸 10h30 – CPI (Índice de Preços ao Consumidor) de outubro
+🇺🇸 10h30 – Vendas no Varejo (dado de outubro)
+🇺🇸 11h15 – Produção Industrial (dado de outubro)
+
+🔴 *Quarta-feira (18/11)* — Dia da Ata do Fed
+
+🇬🇧 04h00 – CPI / Inflação ao Consumidor (dado de outubro)
+🇺🇸 16h00 – Ata do FOMC (reunião de 27-28 de outubro)
 🔥 _PRINCIPAL EVENTO DA SEMANA_
-O relatório traz:
-Variação mensal e anual do CPI cheio e do núcleo (ex-alimentos e energia)
-Comparação com a leitura de setembro (3,7% em 12 meses)
-Insumo direto para a leitura do mercado sobre o ritmo de cortes do Fed em dezembro
+O documento traz principalmente:
+Como os dirigentes avaliaram o equilíbrio entre inflação e mercado de trabalho
+O racional por trás dos dois votos dissidentes a favor de uma alta de juros
+Sinalizações sobre o cenário para a decisão de dezembro (9/12)
 
-🔴 *Quarta-feira (11/11)*
+🟣 *Quinta-feira (19/11)* — Véspera do feriado prolongado no Brasil
 
-Feriado do Veterans Day nos EUA (mercado de títulos fechado; bolsa de ações aberta). Sem indicadores de peso confirmados para o dia — a agenda volta a esquentar na quinta.
+Sem indicadores de alto impacto confirmados para o período diurno.
 
-🟣 *Quinta-feira (12/11)* — Inflação oficial (Brasil e Reino Unido)
+🌏 *NOITE – CHINA*
+🇨🇳 22h00 – Decisão de Juros do PBoC (LPR de 1 e 5 anos)
 
-🇧🇷 09h00 – IPCA (Índice Nacional de Preços ao Consumidor Amplo) de outubro — confirma (ou não) a prévia do IPCA-15, que havia subido 0,32% no mês
-🇬🇧 04h00 – PIB do Reino Unido — estimativa preliminar do 3º trimestre (e dado mensal de setembro)
+🟢 *Sexta-feira (20/11)* — Feriado no Brasil (Consciência Negra)
 
-🟢 *Sexta-feira (13/11)*
+🇧🇷 Feriado nacional – B3 e bancos fechados, sem pregão no Brasil
+🇺🇸 12h00 – Confiança do Consumidor (Universidade de Michigan, leitura final de novembro)
 
-🇺🇸 10h30 – PPI (Índice de Preços ao Produtor) de outubro
-
-📌 Com Payroll e FOMC fora do radar nesta semana, o mercado tende a usar CPI, Ata do Copom e IPCA como os principais termômetros para recalibrar expectativas: nos EUA, o foco fica na probabilidade de novo corte de juros em dezembro; no Brasil, no tom da Ata sobre quanto tempo a Selic deve ficar parada em 13,75% e no que o IPCA de outubro indica sobre a trajetória da inflação até o fim do ano.
+📌 O mercado deve concentrar a leitura da semana na Ata do FOMC: além de detalhar os motivos da manutenção dos juros em outubro, o texto pode indicar o grau de divisão entre os dirigentes às vésperas da última decisão do ano, em 9 de dezembro. Os dados de varejo e produção industrial de terça-feira servem como termômetro de atividade logo antes dessa leitura, enquanto a decisão de juros da China e a confiança do consumidor americano, no fechamento da semana, completam o quadro para quem acompanha o cenário internacional. No Brasil, o pregão reduzido pelo feriado de sexta-feira tende a concentrar negócios nos quatro primeiros dias.
